@@ -1,4 +1,7 @@
 package model;
 
-public class CustomerType {
+public enum CustomerType {
+    NORMAL,
+    STUDENT,
+    VIP
 }
