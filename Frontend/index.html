@@ -1,10 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Phim - Sample Module</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background-color: #f4f6f9; }
+        h1, h2 { color: #333; }
+        .container { display: flex; gap: 30px; }
+        .form-section, .list-section { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .form-section { flex: 1; }
+        .list-section { flex: 2; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, button { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { background-color: #28a745; color: white; border: none; cursor: pointer; margin-top: 10px; font-weight: bold; }
+        button:hover { background-color: #218838; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #007bff; color: white; }
+        .btn-delete { background-color: #dc3545; width: auto; padding: 5px 10px; margin: 0; }
+        .btn-delete:hover { background-color: #c82333; }
+    </style>
 </head>
 <body>
 
+<h1>🎬 Hệ Thống Đặt Vé Phim - Module 1 (Movie Sample)</h1>
+
+<div class="container">
+    <!-- FORM THÊM PHIM MỚI -->
+    <div class="form-section">
+        <h2>Thêm Phim Mới</h2>
+        <form id="movieForm">
+            <div class="form-group">
+                <label>Mã Phim (ID):</label>
+                <input type="text" id="movieId" placeholder="VD: MOV03" required>
+            </div>
+            <div class="form-group">
+                <label>Tên Phim:</label>
+                <input type="text" id="title" placeholder="Tên bộ phim..." required>
+            </div>
+            <div class="form-group">
+                <label>Thời lượng (Phút):</label>
+                <input type="number" id="duration" placeholder="120" required>
+            </div>
+            <div class="form-group">
+                <label>Thể loại:</label>
+                <input type="text" id="genre" placeholder="Hành động, Hài..." required>
+            </div>
+            <div class="form-group">
+                <label>Trạng thái:</label>
+                <select id="status">
+                    <option value="NOW_SHOWING">Đang chiếu</option>
+                    <option value="COMING_SOON">Sắp chiếu</option>
+                    <option value="ENDED">Ngừng chiếu</option>
+                </select>
+            </div>
+            <button type="submit">Lưu Phim</button>
+        </form>
+    </div>
+
+    <!-- DANH SÁCH PHIM -->
+    <div class="list-section">
+        <h2>Danh Sách Phim Trong Hệ Thống</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Mã</th>
+                <th>Tên Phim</th>
+                <th>Thời Lượng</th>
+                <th>Thể Loại</th>
+                <th>Trạng Thái</th>
+                <th>Thao Tác</th>
+            </tr>
+            </thead>
+            <tbody id="movieTableBody">
+            <!-- Data từ API sẽ tự động đổ vào đây -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="movies.js"></script>
 </body>
 </html>

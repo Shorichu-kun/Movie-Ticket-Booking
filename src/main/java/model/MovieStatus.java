@@ -1,4 +1,7 @@
 package model;
 
-public class MovieStatus {
+public enum MovieStatus {
+    NOW_SHOWING,   // Đang chiếu
+    COMING_SOON,   // Sắp chiếu
+    ENDED          // Ngừng chiếu
 }
