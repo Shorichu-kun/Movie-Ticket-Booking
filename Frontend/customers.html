@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khách hàng · Cinema Six</title>
+    <link rel="stylesheet" href="customers.css">
+    <script src="customers.js" defer></script>
+</head>
+<body>
+<div class="app-shell">
+    <aside class="sidebar" aria-label="Điều hướng chính">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">6</span> CINEMA SIX</a>
+        <div class="workspace-label">KHÔNG GIAN QUẢN LÝ</div>
+        <nav>
+            <a href="index.html"><span aria-hidden="true">▤</span> Quản lý phim</a>
+            <a class="active" href="customers.html" aria-current="page"><span aria-hidden="true">♙</span> Khách hàng</a>
+        </nav>
+        <div class="sidebar-note"><span class="status-dot"></span> Hệ thống đặt vé xem phim<br><small>Nhóm 06 · Module khách hàng</small></div>
+    </aside>
+
+    <main>
+        <header class="topbar"><span>Quản lý rạp chiếu <span class="breadcrumb-divider">/</span> <strong>Khách hàng</strong></span><span class="module-label">MODULE 03</span></header>
+        <div class="page-content">
+            <div class="page-heading">
+                <div><p class="eyebrow">KẾT NỐI KHÁN GIẢ</p><h1>Quản lý khách hàng</h1><p class="muted">Thông tin khách hàng và ưu đãi cho mỗi lần đến rạp.</p></div>
+                <button id="addCustomer" class="button primary" type="button"><span aria-hidden="true">＋</span> Đăng ký khách hàng</button>
+            </div>
+
+            <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+
+            <section class="stats-grid" aria-label="Thống kê khách hàng">
+                <article class="stat-card"><span>Tổng khách hàng</span><strong id="totalCount">—</strong><small>Khách hàng trong hệ thống</small></article>
+                <article class="stat-card"><span>Khách thường</span><strong id="normalCount">—</strong><small id="normalPolicy">Đang tải chính sách…</small></article>
+                <article class="stat-card student-card"><span>Sinh viên</span><strong id="studentCount">—</strong><small id="studentPolicy">Đang tải chính sách…</small></article>
+                <article class="stat-card vip-card"><span>Thành viên VIP</span><strong id="vipCount">—</strong><small id="vipPolicy">Đang tải chính sách…</small></article>
+            </section>
+
+            <section class="customer-panel" aria-labelledby="listTitle">
+                <div class="panel-heading"><div><h2 id="listTitle">Danh sách khách hàng</h2><p class="muted">Tra cứu, cập nhật thông tin và xem ưu đãi.</p></div><button id="refreshCustomers" class="button secondary" type="button">Tải lại</button></div>
+                <div class="toolbar">
+                    <label class="search-field"><span class="sr-only">Tìm khách hàng</span><span aria-hidden="true">⌕</span><input id="searchCustomer" type="search" placeholder="Tìm tên, mã KH, điện thoại, email, mã SV…" maxlength="254"></label>
+                    <label class="filter-field"><span class="sr-only">Lọc loại khách hàng</span><select id="filterType"><option value="">Tất cả loại khách</option><option value="NORMAL">Khách thường</option><option value="STUDENT">Sinh viên</option><option value="VIP">Thành viên VIP</option></select></label>
+                </div>
+                <div class="table-scroll">
+                    <table>
+                        <thead><tr><th scope="col">Khách hàng</th><th scope="col">Liên hệ</th><th scope="col">Phân loại</th><th scope="col">Mã sinh viên</th><th scope="col">Ưu đãi</th><th scope="col" class="actions-heading">Thao tác</th></tr></thead>
+                        <tbody id="customerTableBody"></tbody>
+                    </table>
+                </div>
+                <div id="tableState" class="table-state" role="status">Đang tải khách hàng…</div>
+                <div class="table-footer"><span id="resultCount" aria-live="polite">Đang tải dữ liệu…</span><span>Dữ liệu được lưu sau mỗi lần cập nhật</span></div>
+            </section>
+            <p class="policy-note">Ưu đãi áp dụng trên tổng giá vé cơ bản và phụ phí ghế. Mã SV được kiểm tra định dạng và trùng lặp trong hệ thống.</p>
+        </div>
+    </main>
+</div>
+
+<dialog id="customerDialog" aria-labelledby="customerDialogTitle">
+    <div class="dialog-header"><div><p class="eyebrow">HỒ SƠ KHÁCH HÀNG</p><h2 id="customerDialogTitle">Đăng ký khách hàng</h2></div><button id="closeCustomerDialog" class="icon-button" type="button" aria-label="Đóng biểu mẫu">×</button></div>
+    <form id="customerForm" novalidate>
+        <p id="customerReference" class="customer-reference" hidden></p>
+        <div id="formError" class="notice error" role="alert" hidden></div>
+        <fieldset id="customerFields">
+            <div class="form-field"><label for="fullName">Họ và tên <span class="required">*</span></label><input id="fullName" name="fullName" autocomplete="name" required minlength="2" maxlength="100" placeholder="Nguyễn Văn An" aria-describedby="fullNameError"><small id="fullNameError" class="field-error"></small></div>
+            <div class="form-row">
+                <div class="form-field"><label for="phone">Số điện thoại <span class="required">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="25" placeholder="0912 345 678" aria-describedby="phoneError"><small id="phoneError" class="field-error"></small></div>
+                <div class="form-field"><label for="email">Email <span class="required">*</span></label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="ban@example.com" aria-describedby="emailError"><small id="emailError" class="field-error"></small></div>
+            </div>
+            <div class="form-field"><label for="customerType">Loại khách hàng <span class="required">*</span></label><select id="customerType" name="customerType" required aria-describedby="customerTypeError"><option value="NORMAL">Khách thường</option><option value="STUDENT">Sinh viên</option><option value="VIP">Thành viên VIP</option></select><small id="customerTypeError" class="field-error"></small></div>
+            <div id="studentFields" class="student-fields" hidden>
+                <div class="form-field"><label for="studentId">Mã sinh viên <span class="required">*</span></label><div class="input-action"><input id="studentId" name="studentId" maxlength="20" placeholder="VD: SV2026001" aria-describedby="studentIdHelp studentIdError studentCheckResult"><button id="checkStudentId" class="button secondary" type="button">Kiểm tra mã</button></div><small id="studentIdHelp" class="field-help">6–20 ký tự chữ cái A–Z hoặc chữ số. Hệ thống chưa kết nối dữ liệu nhà trường.</small><small id="studentIdError" class="field-error"></small><p id="studentCheckResult" class="check-result" role="status" aria-live="polite" hidden></p></div>
+            </div>
+            <div class="benefit-box"><span class="benefit-icon" aria-hidden="true">%</span><div><strong id="formBenefitTitle">Chính sách khách thường</strong><p id="formBenefitDescription">Đang tải chính sách ưu đãi…</p></div></div>
+        </fieldset>
+        <div class="dialog-footer"><button id="cancelCustomer" class="button secondary" type="button">Hủy</button><button id="saveCustomer" class="button primary" type="submit">Đăng ký khách hàng</button></div>
+    </form>
+</dialog>
+
+<dialog id="priceDialog" aria-labelledby="priceDialogTitle">
+    <div class="dialog-header"><div><p class="eyebrow">CHÍNH SÁCH ƯU ĐÃI</p><h2 id="priceDialogTitle">Tính thử giá vé</h2></div><button id="closePriceDialog" class="icon-button" type="button" aria-label="Đóng tính giá">×</button></div>
+    <form id="priceForm" novalidate>
+        <p id="priceCustomer" class="muted"></p>
+        <div id="priceError" class="notice error" role="alert" hidden></div>
+        <div class="form-row">
+            <div class="form-field"><label for="basePrice">Giá vé cơ bản (đ) <span class="required">*</span></label><input id="basePrice" type="number" min="0.01" max="999999999999.99" step="0.01" value="100000" required></div>
+            <div class="form-field"><label for="seatSurcharge">Phụ phí ghế (đ)</label><input id="seatSurcharge" type="number" min="0" max="999999999999.99" step="0.01" value="0" required></div>
+        </div>
+        <div id="priceResult" class="price-result" aria-live="polite" hidden><div><span>Tổng trước ưu đãi</span><strong id="quoteSubtotal"></strong></div><div><span id="quoteDiscountLabel">Ưu đãi</span><strong id="quoteDiscount"></strong></div><div class="price-total"><span>Giá vé cuối cùng</span><strong id="quoteFinalPrice"></strong></div></div>
+        <p class="field-help">Giá tham khảo, chưa tạo vé hoặc giao dịch thanh toán.</p>
+        <div class="dialog-footer"><button id="calculatePrice" class="button primary" type="submit">Tính giá ưu đãi</button></div>
+    </form>
+</dialog>
+</body>
+</html>
