@@ -3,7 +3,7 @@ const API_URL = 'http://localhost:8080/api/movies';
 // Khi trang web tải xong -> Load danh sách phim
 document.addEventListener('DOMContentLoaded', fetchMovies);
 
-// 1. Hàm gọi GET API lấy danh sách phim
+//  Hàm gọi GET API lấy danh sách phim
 function fetchMovies() {
     fetch(API_URL)
         .then(response => response.json())
@@ -29,7 +29,7 @@ function fetchMovies() {
         .catch(error => console.error('Lỗi khi tải danh sách phim:', error));
 }
 
-// 2. Xử lý khi Submit Form (Gửi POST API thêm phim)
+//  Xử lý khi Submit Form (Gửi POST API thêm phim)
 document.getElementById('movieForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -60,7 +60,7 @@ document.getElementById('movieForm').addEventListener('submit', function(e) {
         .catch(error => console.error('Lỗi khi thêm phim:', error));
 });
 
-// 3. Hàm xóa phim (Gửi DELETE API)
+//  Hàm xóa phim
 function deleteMovie(id) {
     if (confirm(`Bạn có chắc muốn xóa phim ${id}?`)) {
         fetch(`${API_URL}/${id}`, {

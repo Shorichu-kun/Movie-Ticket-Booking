@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/movies")
-@CrossOrigin(origins = "*") // Cho phép Frontend gọi API không bị vướng CORS
+@CrossOrigin(origins = "*")
 public class MovieHandler {
     private final MovieService movieService = new MovieService();
 
