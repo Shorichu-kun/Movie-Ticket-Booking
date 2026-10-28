@@ -1,4 +1,7 @@
 package model;
 
-public class SeatType {
+public enum SeatType {
+    NORMAL,  // Ghế thường
+    VIP,     // Ghế VIP
+    COUPLE   // Ghế đôi
 }
