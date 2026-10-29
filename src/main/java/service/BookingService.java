@@ -1,4 +1,3 @@
-
 package service;
 
 import model.Customer;
@@ -26,7 +25,7 @@ public class BookingService {
             BigDecimal seatSurcharge,
             TicketPricePolicy pricePolicy) {
 
-        // 1. Kiem tra thong tin
+
         if (customer == null || customer.getId() == null) {
             throw new IllegalArgumentException("Khach hang khong hop le.");
         }
@@ -43,15 +42,27 @@ public class BookingService {
             throw new IllegalArgumentException("Chinh sach gia ve khong hop le.");
         }
 
-        // 2. Kiem tra gia ve
+
         BigDecimal basePrice = BigDecimal.valueOf(showtime.getPrice());
 
-        // 3. Tinh gia ve
+        if (basePrice.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Gia ve phai lon hon 0.");
+        }
+
+        if (seatSurcharge == null ||
+                seatSurcharge.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("Phu thu ghe khong hop le.");
+        }
+
         BigDecimal finalPrice = pricePolicy.calculatePrice(
                 basePrice, seatSurcharge
         );
 
-        // 4. Kiem tra ghe da duoc dat chua
+        if (finalPrice == null ||
+                finalPrice.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Gia ve sau khi tinh khong hop le.");
+        }
+
         Ticket existingTicket =
                 ticketRepository.findByShowtimeAndSeat(
                         showtime.getId(), seatId
@@ -63,7 +74,6 @@ public class BookingService {
             );
         }
 
-        // 5. Tao ve moi
         Ticket ticket = new Ticket(
                 UUID.randomUUID().toString(),
                 customer.getId(),
@@ -73,7 +83,6 @@ public class BookingService {
                 PaymentStatus.PENDING
         );
 
-        // 6. Luu ve
         ticketRepository.save(ticket);
 
         return ticket;
