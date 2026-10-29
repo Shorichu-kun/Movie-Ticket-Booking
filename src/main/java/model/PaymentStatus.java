@@ -1,4 +1,8 @@
 package model;
 
-public class PaymentStatus {
+public enum PaymentStatus {
+    PENDING,
+    SUCCESS,
+    FAILED,
+    REFUNDED
 }

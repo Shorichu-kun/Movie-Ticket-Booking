@@ -1,4 +1,7 @@
 package payment;
 
-public class PaymentMethod {
+import java.math.BigDecimal;
+
+public interface PaymentMethod {
+    boolean pay(BigDecimal amount);
 }
