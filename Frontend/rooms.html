@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Module 4 - Quản lý phòng và ghế</title>
+    <link rel="stylesheet" href="rooms.css">
+    <script src="rooms.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>Quản lý phòng chiếu & ghế</h1>
+            <p>Module 4 - Movie Ticket Booking</p>
+        </header>
+
+        <section class="panel">
+            <h2>Thông tin phòng chiếu</h2>
+
+            <form id="roomForm">
+                <label for="roomId">Mã phòng</label>
+                <input id="roomId" type="text"
+                       placeholder="VD: R001" required>
+
+                <label for="roomName">Tên phòng</label>
+                <input id="roomName" type="text"
+                       placeholder="Phòng chiếu 1" required>
+
+                <label for="rowCount">Số hàng ghế</label>
+                <input id="rowCount" type="number"
+                       min="1" max="26" value="3" required>
+
+                <label for="seatsPerRow">Số ghế mỗi hàng</label>
+                <input id="seatsPerRow" type="number"
+                       min="1" max="50" value="4" required>
+
+                <button type="submit" id="saveRoomBtn">
+                    Lưu phòng chiếu
+                </button>
+
+                <button type="button" id="cancelEditBtn"
+                        hidden>
+                    Hủy chỉnh sửa
+                </button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>Danh sách phòng chiếu</h2>
+            <div id="roomList">
+                Chưa tải dữ liệu phòng.
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Sơ đồ ghế</h2>
+
+            <p id="selectedRoom">
+                Chưa chọn phòng chiếu
+            </p>
+
+            <button id="generateSeatsBtn"
+                    type="button" disabled>
+                Tạo ma trận ghế
+            </button>
+
+            <div class="screen">MÀN HÌNH CHIẾU</div>
+
+            <div id="seatMatrix"></div>
+
+            <div class="legend">
+                <span>Thường</span>
+                <span>VIP</span>
+                <span>Đôi</span>
+                <span>Bảo trì / Ngừng sử dụng</span>
+            </div>
+        </section>
+
+        <p id="message" role="status"></p>
+    </main>
+</body>
+</html>
