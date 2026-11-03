@@ -26,3 +26,8 @@ replay_pid*
 target/
 data/customers.json
 data/.customers-*.tmp
+
+data/accounts.json
+data/tickets.json
+data/.accounts-*.tmp
+data/.cinema-*.tmp

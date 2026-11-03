@@ -1,94 +1,91 @@
-
 package repository;
 
-import model.Ticket;
-import model.PaymentStatus;
+import handler.ApiException;
+
+import model.*;
+
 import utils.JsonFileUtil;
 
-import java.util.List;
+import java.util.*;
 
+/** All repository instances share one lock, including the legacy booking/payment services. */
 public class TicketRepository {
-
+    public static final Object LOCK = new Object();
     private static final String FILE_PATH = "data/tickets.json";
 
     public List<Ticket> findAll() {
-        List<Ticket> tickets =
-                JsonFileUtil.readJsonFromFile(FILE_PATH, Ticket.class);
-
-        return tickets == null ? new java.util.ArrayList<>() : tickets;
+        synchronized (LOCK) {
+            return JsonFileUtil.readJsonFromFile(FILE_PATH, Ticket.class);
+        }
     }
 
     public Ticket findById(String id) {
-        if (id == null) {
-            return null;
+        synchronized (LOCK) {
+            return findAll().stream()
+                    .filter(t -> Objects.equals(id, t.getId()))
+                    .findFirst()
+                    .orElse(null);
         }
-
-        for (Ticket ticket : findAll()) {
-            if (ticket != null && id.equals(ticket.getId())) {
-                return ticket;
-            }
-        }
-
-        return null;
     }
 
-    public Ticket findByShowtimeAndSeat(
-            String showtimeId, String seatId) {
+    public static boolean active(Ticket t) {
+        return t.getPaymentStatus() != PaymentStatus.FAILED
+                && t.getPaymentStatus() != PaymentStatus.REFUNDED;
+    }
 
-        if (showtimeId == null || seatId == null) {
-            return null;
+    public Ticket findByShowtimeAndSeat(String showtimeId, String seatId) {
+        synchronized (LOCK) {
+            return findAll().stream()
+                    .filter(
+                            t ->
+                                    Objects.equals(showtimeId, t.getShowtimeId())
+                                            && Objects.equals(seatId, t.getSeatId())
+                                            && active(t))
+                    .findFirst()
+                    .orElse(null);
         }
-
-        for (Ticket ticket : findAll()) {
-            if (ticket == null) {
-                continue;
-            }
-
-            if (showtimeId.equals(ticket.getShowtimeId())
-                    && seatId.equals(ticket.getSeatId())
-                    && ticket.getPaymentStatus() != PaymentStatus.FAILED
-                    && ticket.getPaymentStatus() != PaymentStatus.REFUNDED) {
-                return ticket;
-            }
-        }
-
-        return null;
     }
 
     public void save(Ticket ticket) {
-        if (ticket == null || ticket.getId() == null) {
-            throw new IllegalArgumentException("Ve khong hop le.");
-        }
-
-        if (findById(ticket.getId()) != null) {
-            throw new IllegalArgumentException("Ma ve da ton tai.");
-        }
-
-        List<Ticket> tickets = findAll();
-        tickets.add(ticket);
-
-        JsonFileUtil.writeJsonToFile(FILE_PATH, tickets);
+        saveAll(List.of(ticket));
     }
 
-    public boolean update(Ticket updatedTicket) {
-        if (updatedTicket == null || updatedTicket.getId() == null) {
+    public void saveAll(List<Ticket> additions) {
+        synchronized (LOCK) {
+            List<Ticket> tickets = findAll();
+            for (Ticket t : additions) {
+                if (t == null || t.getId() == null)
+                    throw new IllegalArgumentException("Vé không hợp lệ.");
+                if (tickets.stream().anyMatch(e -> e.getId().equals(t.getId())))
+                    throw new ApiException(409, "Mã vé đã tồn tại.");
+                if (active(t)
+                        && tickets.stream()
+                                .anyMatch(
+                                        e ->
+                                                active(e)
+                                                        && Objects.equals(
+                                                                e.getShowtimeId(),
+                                                                t.getShowtimeId())
+                                                        && Objects.equals(
+                                                                e.getSeatId(), t.getSeatId())))
+                    throw new ApiException(409, "Ghế đã được đặt trong suất chiếu.");
+                tickets.add(t);
+            }
+            JsonFileUtil.writeJsonToFile(FILE_PATH, tickets);
+        }
+    }
+
+    public boolean update(Ticket updated) {
+        synchronized (LOCK) {
+            if (updated == null || updated.getId() == null) return false;
+            List<Ticket> tickets = findAll();
+            for (int i = 0; i < tickets.size(); i++)
+                if (updated.getId().equals(tickets.get(i).getId())) {
+                    tickets.set(i, updated);
+                    JsonFileUtil.writeJsonToFile(FILE_PATH, tickets);
+                    return true;
+                }
             return false;
         }
-
-        List<Ticket> tickets = findAll();
-
-        for (int i = 0; i < tickets.size(); i++) {
-            Ticket ticket = tickets.get(i);
-
-            if (ticket != null
-                    && updatedTicket.getId().equals(ticket.getId())) {
-
-                tickets.set(i, updatedTicket);
-                JsonFileUtil.writeJsonToFile(FILE_PATH, tickets);
-                return true;
-            }
-        }
-
-        return false;
     }
 }

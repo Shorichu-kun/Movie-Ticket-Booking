@@ -28,9 +28,11 @@ import java.util.Map;
 @RequestMapping("/api/customers")
 public class CustomerHandler {
     private final CustomerService customerService;
+    private final service.AccountService accountService;
 
-    public CustomerHandler(CustomerService customerService) {
+    public CustomerHandler(CustomerService customerService, service.AccountService accountService) {
         this.customerService = customerService;
+        this.accountService = accountService;
     }
 
     @GetMapping
@@ -59,7 +61,13 @@ public class CustomerHandler {
 
     @GetMapping("/student-id/check")
     public StudentIdCheckResponse checkStudentId(@RequestParam String studentId,
-                                                @RequestParam(required = false) String excludeCustomerId) {
+                                                @RequestParam(required = false) String excludeCustomerId,
+                                                org.springframework.security.core.Authentication auth) {
+        boolean admin=auth!=null && auth.getAuthorities().stream().anyMatch(a->a.getAuthority().equals("ROLE_ADMIN"));
+        if (!admin && excludeCustomerId!=null) {
+            model.Customer own=accountService.customer(auth);
+            if (own==null || !own.getId().equalsIgnoreCase(excludeCustomerId)) excludeCustomerId=null;
+        }
         return customerService.checkStudentId(studentId, excludeCustomerId);
     }
 
