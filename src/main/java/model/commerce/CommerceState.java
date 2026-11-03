@@ -274,19 +274,29 @@ public record CommerceState(
     public void checkIn(String token, boolean collectCombo, Instant now) {
       if (!status.equals("PAID"))
         throw new ApiException(409, "Đơn chưa thanh toán hoặc đang hoàn.");
-      List<Admission> updated = new ArrayList<>();
-      boolean found = false;
-      for (Admission t : tickets) {
-        if (t.token().equals(token)) {
-          updated.add(t.use());
-          found = true;
-        } else updated.add(t);
-      }
-      if (!found) throw new ApiException(404, "Không tìm thấy vé.");
-      if (collectCombo && comboCollected) throw new ApiException(409, "Combo đã được nhận.");
-      tickets = updated;
-      if (collectCombo) comboCollected = true;
-      event(now, "Đã kiểm soát vé" + (collectCombo ? " và giao combo." : "."));
+      Admission admission =
+          tickets.stream()
+              .filter(ticket -> ticket.token().equals(token))
+              .findFirst()
+              .orElseThrow(() -> new ApiException(404, "Không tìm thấy vé."));
+      if (admission.status().equals("VOID")) throw new ApiException(409, "Vé đã vô hiệu.");
+      boolean admit = admission.status().equals("ISSUED");
+      boolean deliver =
+          collectCombo
+              && !comboCollected
+              && items.stream().anyMatch(item -> item instanceof ComboItem);
+      if (!admit && !deliver) return;
+      if (admit)
+        tickets =
+            tickets.stream()
+                .map(ticket -> ticket.id().equals(admission.id()) ? ticket.use() : ticket)
+                .toList();
+      if (deliver) comboCollected = true;
+      event(
+          now,
+          admit
+              ? (deliver ? "Đã kiểm soát vé và giao combo." : "Đã kiểm soát vé.")
+              : "Đã giao combo.");
     }
   }
 
@@ -297,13 +307,32 @@ public record CommerceState(
       String status,
       BigDecimal amount,
       Instant expiresAt,
-      boolean refunded) {
+      boolean refunded,
+      String cancellationReason) {
+    public PaymentAttempt(
+        String id,
+        String orderId,
+        String method,
+        String status,
+        BigDecimal amount,
+        Instant expiresAt,
+        boolean refunded) {
+      this(id, orderId, method, status, amount, expiresAt, refunded, null);
+    }
+
+    public PaymentAttempt abandon(String reason) {
+      return new PaymentAttempt(
+          id, orderId, method, "CANCELLED", amount, expiresAt, refunded, reason);
+    }
+
     public PaymentAttempt transition(String next) {
-      return new PaymentAttempt(id, orderId, method, next, amount, expiresAt, refunded);
+      return new PaymentAttempt(
+          id, orderId, method, next, amount, expiresAt, refunded, cancellationReason);
     }
 
     public PaymentAttempt refund() {
-      return new PaymentAttempt(id, orderId, method, status, amount, expiresAt, true);
+      return new PaymentAttempt(
+          id, orderId, method, status, amount, expiresAt, true, cancellationReason);
     }
   }
 
@@ -324,6 +353,13 @@ public record CommerceState(
 
   public record PointUse(String lotId, int points, Instant expiresAt) {}
 
+  public record PointOffset(
+      String creditSourceOrder, String debtSourceOrder, int points, Instant expiresAt) {
+    public PointOffset points(int value) {
+      return new PointOffset(creditSourceOrder, debtSourceOrder, value, expiresAt);
+    }
+  }
+
   public record CustomerVoucher(
       String id, String code, String title, String status, Instant expiresAt, String orderId) {
     public CustomerVoucher status(String value, String order) {
@@ -342,7 +378,21 @@ public record CommerceState(
       Map<String, List<PointUse>> pointUses,
       Preferences preferences,
       Set<String> gifts,
-      int debt) {
+      int debt,
+      Map<String, Integer> pointDebts,
+      List<PointOffset> pointOffsets) {
+    public Member {
+      if (pointDebts == null) {
+        pointDebts = new LinkedHashMap<>();
+        if (debt > 0) pointDebts.put("legacy", debt);
+      }
+      if (pointOffsets == null) pointOffsets = new ArrayList<>();
+    }
+
+    public int debt() {
+      return pointDebts.values().stream().mapToInt(Integer::intValue).sum();
+    }
+
     public Member() {
       this(
           new ArrayList<>(),
@@ -352,15 +402,23 @@ public record CommerceState(
           new LinkedHashMap<>(),
           new Preferences(null, "", true, true),
           new HashSet<>(),
-          0);
+          0,
+          new LinkedHashMap<>(),
+          new ArrayList<>());
     }
 
     public Member preferences(Preferences p) {
-      return new Member(lots, entries, vouchers, notifications, pointUses, p, gifts, debt);
-    }
-
-    public Member debt(int d) {
-      return new Member(lots, entries, vouchers, notifications, pointUses, preferences, gifts, d);
+      return new Member(
+          lots,
+          entries,
+          vouchers,
+          notifications,
+          pointUses,
+          p,
+          gifts,
+          debt(),
+          pointDebts,
+          pointOffsets);
     }
   }
 }

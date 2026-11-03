@@ -19,21 +19,31 @@ final class LoyaltyService {
     this.clock = clock;
   }
 
-  void awardPoints(CommerceState s, Order o) {
-    int points = o.quote().pointsEarned();
+  void awardPoints(CommerceState state, Order order) {
+    int points = order.quote().pointsEarned();
     if (points == 0) return;
-    Member m = member(s, o.customerId());
-    int debtPayment = Math.min(m.debt(), points);
-    if (debtPayment > 0) {
-      m = m.debt(m.debt() - debtPayment);
-      s.members().put(o.customerId(), m);
-    }
+    Member member = member(state, order.customerId());
     Instant expiry = now().atZone(ZONE).plusMonths(12).toInstant();
-    m.lots().add(new PointLot(uuid(), points - debtPayment, expiry, o.id()));
-    m.entries()
+    creditPoints(member, order.id(), points, expiry);
+    member
+        .entries()
         .add(
             new PointEntry(
-                uuid(), "EARN", points, now(), "Tích điểm thanh toán thử", o.id(), expiry));
+                uuid(), "EARN", points, now(), "Tích điểm thanh toán thử", order.id(), expiry));
+  }
+
+  private void creditPoints(Member member, String origin, int points, Instant expiry) {
+    int remaining = points;
+    for (Map.Entry<String, Integer> debt : new ArrayList<>(member.pointDebts().entrySet())) {
+      int paid = Math.min(debt.getValue(), remaining);
+      if (paid > 0) {
+        changeDebt(member, debt.getKey(), -paid);
+        member.pointOffsets().add(new PointOffset(origin, debt.getKey(), paid, expiry));
+        remaining -= paid;
+      }
+      if (remaining == 0) break;
+    }
+    if (remaining > 0) member.lots().add(new PointLot(uuid(), remaining, expiry, origin));
   }
 
   void consumePoints(CommerceState s, String owner, int points, String source) {
@@ -66,52 +76,111 @@ final class LoyaltyService {
                 null));
   }
 
-  void reversePoints(CommerceState s, Order o) {
-    Member m = member(s, o.customerId());
-    Set<String> sourceLots = new HashSet<>();
-    int unspent = 0;
-    for (int i = 0; i < m.lots().size(); i++) {
-      PointLot lot = m.lots().get(i);
-      if (Objects.equals(lot.sourceOrder(), o.id())) {
-        sourceLots.add(lot.id());
-        unspent += lot.remaining();
-        m.lots().set(i, lot.remaining(0));
+  void reversePoints(CommerceState state, Order order) {
+    Member member = member(state, order.customerId());
+    if (!member.gifts().add("points-reversed:" + order.id())) return;
+    reverseAward(member, order);
+    restoreSpending(member, order);
+  }
+
+  private void reverseAward(Member member, Order order) {
+    int available = 0;
+    for (int index = 0; index < member.lots().size(); index++) {
+      PointLot lot = member.lots().get(index);
+      if (Objects.equals(lot.sourceOrder(), order.id())) {
+        available += lot.remaining();
+        member.lots().set(index, lot.remaining(0));
       }
     }
     int spent =
-        m.pointUses().values().stream()
-            .flatMap(Collection::stream)
-            .filter(use -> sourceLots.contains(use.lotId()))
+        member.pointUses().entrySet().stream()
+            .filter(entry -> !member.gifts().contains("points-restored:" + entry.getKey()))
+            .flatMap(entry -> entry.getValue().stream())
+            .filter(use -> Objects.equals(origin(member, use), order.id()))
             .mapToInt(PointUse::points)
             .sum();
-    if (o.quote().pointsEarned() > 0) {
-      m = m.debt(m.debt() + spent);
-      s.members().put(o.customerId(), m);
-      m.entries()
+    changeDebt(member, order.id(), spent);
+    int offsets = 0;
+    for (int index = 0; index < member.pointOffsets().size(); index++) {
+      PointOffset offset = member.pointOffsets().get(index);
+      if (offset.creditSourceOrder().equals(order.id()) && offset.points() > 0) {
+        offsets += offset.points();
+        changeDebt(member, offset.debtSourceOrder(), offset.points());
+        member.pointOffsets().set(index, offset.points(0));
+      }
+    }
+    if (order.quote().pointsEarned() > 0)
+      member
+          .entries()
           .add(
               new PointEntry(
                   uuid(),
                   "REVERSAL",
-                  -unspent - spent,
+                  -available - spent - offsets,
                   now(),
-                  spent > 0
-                      ? "Đảo điểm đơn hoàn; điểm đã dùng trở thành khoản cần bù: " + spent
-                      : "Đảo điểm đơn hoàn (không tính lại điểm đã hết hạn)",
-                  o.id(),
+                  "Đảo điểm đã tích và các khoản điểm bù nợ; điểm cần bù: " + member.debt(),
+                  order.id(),
                   null));
-    }
-    List<PointUse> uses = m.pointUses().remove(o.id());
-    int restored = 0;
-    for (PointUse use : uses == null ? List.<PointUse>of() : uses)
-      if (now().isBefore(use.expiresAt())) {
-        m.lots().add(new PointLot(uuid(), use.points(), use.expiresAt(), "refund:" + o.id()));
-        restored += use.points();
-      }
-    if (restored > 0)
-      m.entries()
+  }
+
+  private void restoreSpending(Member member, Order order) {
+    if (!member.gifts().add("points-restored:" + order.id())) return;
+    for (PointUse use : member.pointUses().getOrDefault(order.id(), List.of())) {
+      Instant expiry =
+          use.expiresAt().isAfter(now()) ? use.expiresAt() : now().plus(Duration.ofDays(30));
+      String source = origin(member, use);
+      if (member.gifts().contains("points-reversed:" + source))
+        restoreReversedOrigin(member, source, use.points());
+      else creditPoints(member, source, use.points(), expiry);
+      member
+          .entries()
           .add(
               new PointEntry(
-                  uuid(), "RESTORE", restored, now(), "Trả điểm đã dùng còn hạn", o.id(), null));
+                  uuid(),
+                  "RESTORE",
+                  use.points(),
+                  now(),
+                  "Trả điểm đã dùng theo nguồn cấp; hiệu lực tối thiểu 30 ngày khi lô cũ đã hết"
+                      + " hạn",
+                  order.id(),
+                  expiry));
+    }
+  }
+
+  private void restoreReversedOrigin(Member member, String origin, int points) {
+    int owed = member.pointDebts().getOrDefault(origin, 0);
+    int restored = Math.min(points, owed);
+    changeDebt(member, origin, -restored);
+    int remaining = points - restored;
+    List<PointOffset> offsets = new ArrayList<>(member.pointOffsets());
+    for (int index = 0; index < offsets.size() && remaining > 0; index++) {
+      PointOffset offset = offsets.get(index);
+      if (offset.debtSourceOrder().equals(origin) && offset.points() > 0) {
+        int released = Math.min(remaining, offset.points());
+        member.pointOffsets().set(index, offset.points(offset.points() - released));
+        remaining -= released;
+        Instant expiry =
+            offset.expiresAt().isAfter(now())
+                ? offset.expiresAt()
+                : now().plus(Duration.ofDays(30));
+        creditPoints(member, offset.creditSourceOrder(), released, expiry);
+      }
+    }
+  }
+
+  private String origin(Member member, PointUse use) {
+    return member.lots().stream()
+        .filter(lot -> lot.id().equals(use.lotId()))
+        .findFirst()
+        .orElseThrow(() -> error(500, "Không tìm thấy nguồn của điểm đã dùng."))
+        .sourceOrder();
+  }
+
+  private void changeDebt(Member member, String origin, int adjustment) {
+    int next = member.pointDebts().getOrDefault(origin, 0) + adjustment;
+    if (next < 0) throw error(500, "Sổ điểm cần bù không hợp lệ.");
+    if (next == 0) member.pointDebts().remove(origin);
+    else member.pointDebts().put(origin, next);
   }
 
   int reservedPoints(CommerceState s, String owner) {

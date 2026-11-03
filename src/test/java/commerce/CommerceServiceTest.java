@@ -272,7 +272,7 @@ class CommerceServiceTest {
     String token = (String) ((Map<?, ?>) ((List<?>) paid.get("tickets")).get(0)).get("token");
     clock.advance(Duration.ofHours(34));
     assertEquals("PAID", service.checkIn(token, false).get("status"));
-    assertThrows(ApiException.class, () -> service.checkIn(token, false));
+    assertEquals("PAID", service.checkIn(token, false).get("status"));
     assertThrows(ApiException.class, () -> service.requestRefund("c1", o));
   }
 

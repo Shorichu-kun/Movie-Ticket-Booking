@@ -345,7 +345,7 @@ public class CommerceService {
             throw error(400, "Đơn chưa được phủ hết bằng điểm.");
           for (PaymentAttempt old : new ArrayList<>(s.attempts().values()))
             if (old.orderId().equals(id) && old.status().equals("CREATED"))
-              s.attempts().put(old.id(), old.transition("CANCELLED"));
+              s.attempts().put(old.id(), old.abandon("SWITCHED"));
           o.switchMethod(method, end, now());
           s.holds().put(o.holdId(), s.holds().get(o.holdId()).deadline(end));
           PaymentMethod.PaymentInitiation init =
@@ -381,9 +381,17 @@ public class CommerceService {
             throw error(409, "Giao dịch đã thành công.");
           }
           if (a.status().equals("CANCELLED")
-              && o.status().equals("CANCELLED")
-              && result.status().equals("SUCCEEDED")) {
-            settle(s, o, a, true);
+              && result.status().equals("SUCCEEDED")
+              && (result.late()
+                  || a.cancellationReason() != null
+                  || o.status().equals("CANCELLED"))) {
+            refundAttempt(
+                s,
+                a.transition("SUCCEEDED"),
+                "Khoản thu thử từ lần thanh toán đã hủy hoặc đổi phương thức");
+            o.event(
+                now(),
+                "Đã tự động hoàn khoản thu thử của lần thanh toán đã hủy hoặc đổi phương thức.");
             return views.orderView(s, o);
           }
           if (Set.of("FAILED", "CANCELLED").contains(a.status())) {
@@ -451,6 +459,7 @@ public class CommerceService {
           if (approved) {
             vouchers.releaseVoucher(s, o, true);
             loyalty.reversePoints(s, o);
+            invalidateUnfundedReservations(s, o.customerId());
             for (PaymentAttempt a : new ArrayList<>(s.attempts().values()))
               if (a.orderId().equals(id) && a.status().equals("SUCCEEDED"))
                 refundAttempt(s, a, "Hoàn toàn bộ đơn được duyệt");
@@ -695,6 +704,11 @@ public class CommerceService {
       o.expire(now());
       releaseOrder(s, o, "EXPIRED");
     }
+    if (o.status().equals("PENDING_PAYMENT")
+        && o.quote().pointsUsed() > Math.max(0, loyalty.balance(member(s, o.customerId())))) {
+      cancelOrder(s, o);
+      o.event(now(), "Điểm đã giữ không còn đủ; hủy đơn và hoàn khoản thu thử.");
+    }
     if (!o.status().equals("PENDING_PAYMENT") || !now().isBefore(o.expiresAt())) {
       refundAttempt(s, success, "Khoản thu thử đến muộn hoặc thu dư");
       o.event(now(), "Đã tự động hoàn khoản thu thử đến muộn hoặc thu dư; không phát vé.");
@@ -761,7 +775,11 @@ public class CommerceService {
     for (PaymentAttempt a : new ArrayList<>(s.attempts().values()))
       if (a.orderId().equals(o.id()) && Set.of("CREATED", "PROCESSING").contains(a.status()))
         s.attempts()
-            .put(a.id(), a.transition(holdStatus.equals("EXPIRED") ? "EXPIRED" : "CANCELLED"));
+            .put(
+                a.id(),
+                holdStatus.equals("EXPIRED")
+                    ? a.transition("EXPIRED")
+                    : a.abandon("ORDER_" + holdStatus));
   }
 
   private void expire(CommerceState s) {
@@ -792,11 +810,32 @@ public class CommerceService {
           m.lots().set(i, lot.remaining(0));
         }
       }
+      invalidateUnfundedReservations(s, entry.getKey());
       for (int i = 0; i < m.vouchers().size(); i++) {
         CustomerVoucher v = m.vouchers().get(i);
         if (v.status().equals("AVAILABLE") && !now.isBefore(v.expiresAt()))
           m.vouchers().set(i, v.status("EXPIRED", null));
       }
+    }
+  }
+
+  private void invalidateUnfundedReservations(CommerceState state, String owner) {
+    int budget = Math.max(0, loyalty.balance(member(state, owner)));
+    for (Order order : state.orders().values()) {
+      if (!order.customerId().equals(owner) || !order.status().equals("PENDING_PAYMENT")) continue;
+      int reserved = order.quote().pointsUsed();
+      if (reserved <= budget) {
+        budget -= reserved;
+        continue;
+      }
+      cancelOrder(state, order);
+      order.event(now(), "Điểm đang giữ bị đảo hoặc hết hạn; đơn đã hủy để bảo toàn quyền lợi.");
+      notify(
+          state,
+          owner,
+          "Đơn đã hủy do điểm thay đổi",
+          "Điểm giữ cho đơn không còn đủ. Khoản thu thử đến muộn sẽ được hoàn tự động.",
+          order.id());
     }
   }
 
