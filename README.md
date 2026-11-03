@@ -86,6 +86,19 @@ Script yêu cầu thư mục đích rỗng; tạo 5 tên phim hư cấu, 2 phòn
 
 Các file chung: `movies.json`, `showtimes.json`, `cinemaRooms.json`, `seats.json`, `tickets.json`. Không commit dữ liệu tài khoản/khách hàng/vé. Cấu hình JSON dành cho một tiến trình ứng dụng; chưa hỗ trợ nhiều instance cùng ghi một thư mục dữ liệu.
 
+## Tài khoản demo trên local
+
+Các tài khoản dưới đây có sẵn khi sử dụng bộ dữ liệu seed trong thư mục `data`.
+
+Mật khẩu chung cho tài khoản demo: **`N6Demo!2026`**
+
+| Loại | Email |
+|---|---|
+| Admin | `demo.admin@example.test` |
+| Khách thường | `demo001@example.test` |
+| Sinh viên | `demo002@example.test` |
+| VIP | `demo003@example.test` |
+
 ## Luồng đặt vé
 
 1. Đăng nhập tài khoản khách hàng; chọn phim và suất còn ở tương lai.
