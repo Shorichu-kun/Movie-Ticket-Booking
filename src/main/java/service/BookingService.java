@@ -59,6 +59,7 @@ public class BookingService {
                                             seat.getType(),
                                             seat.getStatus(),
                                             bookable
+                                                    && !utils.CommerceInventory.isOccupied(s.getId(), seat.getId())
                                                     && seat.getStatus() == SeatStatus.ACTIVE
                                                     && tickets.findByShowtimeAndSeat(
                                                                     s.getId(), seat.getId())

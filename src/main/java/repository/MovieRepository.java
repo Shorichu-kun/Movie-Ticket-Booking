@@ -27,6 +27,8 @@ public class MovieRepository {
     }
 
     public void update(Movie updatedMovie) {
+        synchronized (TicketRepository.LOCK) {
+        new ShowtimeRepository().findAll().stream().filter(show -> java.util.Objects.equals(show.getMovieId(), updatedMovie.getId())).forEach(show -> utils.CommerceInventory.requireShowtimeMutable(show.getId()));
         List<Movie> movies = findAll();
         for (int i = 0; i < movies.size(); i++) {
             if (movies.get(i).getId().equalsIgnoreCase(updatedMovie.getId())) {
@@ -35,11 +37,15 @@ public class MovieRepository {
             }
         }
         JsonFileUtil.writeJsonToFile(FILE_PATH, movies);
+        }
     }
 
     public void deleteById(String id) {
+        synchronized (TicketRepository.LOCK) {
+        new ShowtimeRepository().findAll().stream().filter(show -> java.util.Objects.equals(show.getMovieId(), id)).forEach(show -> utils.CommerceInventory.requireShowtimeMutable(show.getId()));
         List<Movie> movies = findAll();
         movies.removeIf(m -> m.getId().equalsIgnoreCase(id));
         JsonFileUtil.writeJsonToFile(FILE_PATH, movies);
+        }
     }
 }

@@ -51,6 +51,8 @@ public class SeatRepository {
 
     // Cap nhat thong tin ghe
     public void update(Seat updatedSeat) {
+        synchronized (TicketRepository.LOCK) {
+        utils.CommerceInventory.requireSeatMutable(updatedSeat.getId());
         List<Seat> seats = findAll();
 
         for (int i = 0; i < seats.size(); i++) {
@@ -64,18 +66,33 @@ public class SeatRepository {
         }
 
         JsonFileUtil.writeJsonToFile(FILE_PATH, seats);
+        }
     }
 
     // Xoa ghe theo ID
     public void deleteById(String id) {
+        synchronized (TicketRepository.LOCK) {
+        utils.CommerceInventory.requireSeatMutable(id);
         List<Seat> seats = findAll();
 
         seats.removeIf(s -> id != null &&
                 id.equalsIgnoreCase(s.getId()));
 
         JsonFileUtil.writeJsonToFile(FILE_PATH, seats);
+        }
     }
      public void saveAll(List<Seat> seats) {
+        synchronized (TicketRepository.LOCK) {
+        for (Seat current : findAll()) {
+            Seat next = seats.stream().filter(seat -> current.getId().equals(seat.getId())).findFirst().orElse(null);
+            if (next == null || !java.util.Objects.equals(current.getRoomId(), next.getRoomId())
+                    || !java.util.Objects.equals(current.getRowLabel(), next.getRowLabel())
+                    || current.getSeatNumber() != next.getSeatNumber()
+                    || current.getType() != next.getType() || current.getStatus() != next.getStatus()) {
+                utils.CommerceInventory.requireSeatMutable(current.getId());
+            }
+        }
         JsonFileUtil.writeJsonToFile(FILE_PATH, seats);
+        }
     }
 }

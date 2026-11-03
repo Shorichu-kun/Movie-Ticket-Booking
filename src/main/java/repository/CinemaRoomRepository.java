@@ -39,6 +39,8 @@ public class CinemaRoomRepository {
 
     // Cap nhat phong chieu
     public void update(CinemaRoom updatedRoom) {
+        synchronized (TicketRepository.LOCK) {
+        new SeatRepository().findByRoomId(updatedRoom.getId()).forEach(seat -> utils.CommerceInventory.requireSeatMutable(seat.getId()));
         List<CinemaRoom> rooms = findAll();
 
         for (int i = 0; i < rooms.size(); i++) {
@@ -51,15 +53,19 @@ public class CinemaRoomRepository {
         }
 
         JsonFileUtil.writeJsonToFile(FILE_PATH, rooms);
+        }
     }
 
     // Xoa phong theo ID
     public void deleteById(String id) {
+        synchronized (TicketRepository.LOCK) {
+        new SeatRepository().findByRoomId(id).forEach(seat -> utils.CommerceInventory.requireSeatMutable(seat.getId()));
         List<CinemaRoom> rooms = findAll();
 
         rooms.removeIf(r -> id != null &&
                 id.equalsIgnoreCase(r.getId()));
 
         JsonFileUtil.writeJsonToFile(FILE_PATH, rooms);
+        }
     }
 }
