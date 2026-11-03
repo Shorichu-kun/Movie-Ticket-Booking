@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "id": "SEED-R01",
+    "name": "Phòng 01 · Hoa Sen",
+    "rowCount": 10,
+    "seatsPerRow": 10
+  },
+  {
+    "id": "SEED-R02",
+    "name": "Phòng 02 · Sao Mai",
+    "rowCount": 10,
+    "seatsPerRow": 10
+  },
+  {
+    "id": "SEED-R03",
+    "name": "Phòng 03 · Ngân Hà",
+    "rowCount": 10,
+    "seatsPerRow": 10
+  },
+  {
+    "id": "SEED-R04",
+    "name": "Phòng 04 · Đại Dương",
+    "rowCount": 10,
+    "seatsPerRow": 10
+  },
+  {
+    "id": "SEED-R05",
+    "name": "Phòng 05 · Hoàng Hôn",
+    "rowCount": 10,
+    "seatsPerRow": 10
+  },
+  {
+    "id": "SEED-R06",
+    "name": "Phòng 06 · Bình Minh",
+    "rowCount": 10,
+    "seatsPerRow": 10
+  },
+  {
+    "id": "SEED-R07",
+    "name": "Phòng 07 · Thiên Hà",
+    "rowCount": 10,
+    "seatsPerRow": 10
+  },
+  {
+    "id": "SEED-R08",
+    "name": "Phòng 08 · Ánh Trăng",
+    "rowCount": 10,
+    "seatsPerRow": 10
+  }
+]

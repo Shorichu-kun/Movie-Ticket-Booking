@@ -1,0 +1,338 @@
+[
+  {
+    "id": "SEED-M001",
+    "title": "Chuyến Tàu Qua Mùa Hạ",
+    "duration": 95,
+    "genre": "Phiêu lưu",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M002",
+    "title": "Thành Phố Trên Mây",
+    "duration": 100,
+    "genre": "Khoa học viễn tưởng",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M003",
+    "title": "Nhà Có Năm Người",
+    "duration": 105,
+    "genre": "Gia đình",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M004",
+    "title": "Quán Cà Phê Lúc Bình Minh",
+    "duration": 110,
+    "genre": "Tình cảm",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M005",
+    "title": "Mật Mã Sông Hồng",
+    "duration": 115,
+    "genre": "Hành động",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M006",
+    "title": "Bức Thư Không Người Nhận",
+    "duration": 120,
+    "genre": "Tâm lý",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M007",
+    "title": "Biệt Đội Mèo Mun",
+    "duration": 125,
+    "genre": "Hoạt hình",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M008",
+    "title": "Đêm Cuối Ở Ga Cũ",
+    "duration": 130,
+    "genre": "Kinh dị",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M009",
+    "title": "Bản Nhạc Của Gió",
+    "duration": 135,
+    "genre": "Âm nhạc",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M010",
+    "title": "Cuộc Hẹn Ngày Mưa",
+    "duration": 140,
+    "genre": "Tình cảm",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M011",
+    "title": "Ngôi Làng Trong Sương",
+    "duration": 145,
+    "genre": "Bí ẩn",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M012",
+    "title": "Đường Đua Tuổi Trẻ",
+    "duration": 90,
+    "genre": "Thể thao",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M013",
+    "title": "Hành Tinh Màu Ngọc",
+    "duration": 95,
+    "genre": "Khoa học viễn tưởng",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M014",
+    "title": "Kỳ Nghỉ Của Bố",
+    "duration": 100,
+    "genre": "Hài",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M015",
+    "title": "Bếp Nhỏ Cuối Phố",
+    "duration": 105,
+    "genre": "Gia đình",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M016",
+    "title": "Những Người Gác Hải Đăng",
+    "duration": 110,
+    "genre": "Phiêu lưu",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M017",
+    "title": "Điệp Vụ Hoa Sen",
+    "duration": 115,
+    "genre": "Hành động",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M018",
+    "title": "Chú Rồng Sợ Độ Cao",
+    "duration": 120,
+    "genre": "Hoạt hình",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M019",
+    "title": "Một Ngày Làm Siêu Sao",
+    "duration": 125,
+    "genre": "Hài",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M020",
+    "title": "Tiếng Gõ Cửa Tầng Mười",
+    "duration": 130,
+    "genre": "Kinh dị",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M021",
+    "title": "Mùa Hoa Trên Cao Nguyên",
+    "duration": 135,
+    "genre": "Tình cảm",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M022",
+    "title": "Dấu Chân Trên Sao Hỏa",
+    "duration": 140,
+    "genre": "Khoa học viễn tưởng",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M023",
+    "title": "Bóng Rổ Sân Trường",
+    "duration": 145,
+    "genre": "Thể thao",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M024",
+    "title": "Cánh Diều Của Ngoại",
+    "duration": 90,
+    "genre": "Gia đình",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M025",
+    "title": "Hồ Sơ Đêm Trắng",
+    "duration": 95,
+    "genre": "Trinh thám",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M026",
+    "title": "Cơn Mưa Kẹo Ngọt",
+    "duration": 100,
+    "genre": "Hoạt hình",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M027",
+    "title": "Người Giữ Ký Ức",
+    "duration": 105,
+    "genre": "Tâm lý",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M028",
+    "title": "Chuyến Xe Về Biển",
+    "duration": 110,
+    "genre": "Phiêu lưu",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M029",
+    "title": "Bảy Ngày Đổi Vai",
+    "duration": 115,
+    "genre": "Hài",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M030",
+    "title": "Nhịp Trống Thành Phố",
+    "duration": 120,
+    "genre": "Âm nhạc",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M031",
+    "title": "Khách Sạn Không Số",
+    "duration": 125,
+    "genre": "Bí ẩn",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M032",
+    "title": "Lời Hứa Dưới Cây Bàng",
+    "duration": 130,
+    "genre": "Tình cảm",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "SEED-M033",
+    "title": "Cánh Cổng Đại Dương",
+    "duration": 135,
+    "genre": "Phiêu lưu",
+    "status": "COMING_SOON"
+  },
+  {
+    "id": "SEED-M034",
+    "title": "Robot Và Bông Hoa",
+    "duration": 140,
+    "genre": "Hoạt hình",
+    "status": "COMING_SOON"
+  },
+  {
+    "id": "SEED-M035",
+    "title": "Bầu Trời Thứ Hai",
+    "duration": 145,
+    "genre": "Khoa học viễn tưởng",
+    "status": "COMING_SOON"
+  },
+  {
+    "id": "SEED-M036",
+    "title": "Người Hùng Xóm Nhỏ",
+    "duration": 90,
+    "genre": "Hài",
+    "status": "COMING_SOON"
+  },
+  {
+    "id": "SEED-M037",
+    "title": "Lối Về Miền Ký Ức",
+    "duration": 95,
+    "genre": "Tâm lý",
+    "status": "COMING_SOON"
+  },
+  {
+    "id": "SEED-M038",
+    "title": "Cuộc Giải Cứu Mặt Trăng",
+    "duration": 100,
+    "genre": "Hành động",
+    "status": "COMING_SOON"
+  },
+  {
+    "id": "SEED-M039",
+    "title": "Những Lá Thư Mùa Đông",
+    "duration": 105,
+    "genre": "Tình cảm",
+    "status": "COMING_SOON"
+  },
+  {
+    "id": "SEED-M040",
+    "title": "Vương Quốc Đèn Lồng",
+    "duration": 110,
+    "genre": "Hoạt hình",
+    "status": "COMING_SOON"
+  },
+  {
+    "id": "SEED-M041",
+    "title": "Bí Mật Sau Rặng Tre",
+    "duration": 115,
+    "genre": "Trinh thám",
+    "status": "COMING_SOON"
+  },
+  {
+    "id": "SEED-M042",
+    "title": "Đường Chạy Đến Bình Minh",
+    "duration": 120,
+    "genre": "Thể thao",
+    "status": "COMING_SOON"
+  },
+  {
+    "id": "SEED-M043",
+    "title": "Đảo Của Những Giấc Mơ",
+    "duration": 125,
+    "genre": "Phiêu lưu",
+    "status": "COMING_SOON"
+  },
+  {
+    "id": "SEED-M044",
+    "title": "Khúc Hát Trên Mái Nhà",
+    "duration": 130,
+    "genre": "Âm nhạc",
+    "status": "COMING_SOON"
+  },
+  {
+    "id": "SEED-M045",
+    "title": "Mùa Hè Năm Ấy",
+    "duration": 135,
+    "genre": "Gia đình",
+    "status": "ENDED"
+  },
+  {
+    "id": "SEED-M046",
+    "title": "Chuyến Bay Đầu Tiên",
+    "duration": 140,
+    "genre": "Phiêu lưu",
+    "status": "ENDED"
+  },
+  {
+    "id": "SEED-M047",
+    "title": "Khu Vườn Sau Cơn Mưa",
+    "duration": 145,
+    "genre": "Tâm lý",
+    "status": "ENDED"
+  },
+  {
+    "id": "SEED-M048",
+    "title": "Dòng Sông Kể Chuyện",
+    "duration": 90,
+    "genre": "Tài liệu",
+    "status": "ENDED"
+  }
+]
