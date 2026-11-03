@@ -1,37 +1,260 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="N6 Cinema — Khám phá phim, chọn suất chiếu và đặt ghế yêu thích. Ưu đãi dành cho sinh viên và thành viên.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="N6 Cinema — Khám phá phim, chọn suất chiếu và đặt ghế yêu thích. Ưu đãi dành cho sinh viên và thành viên."
+    />
     <title>N6 Cinema — Hẹn nhau ở rạp</title>
-    <link rel="stylesheet" href="welcome.css"><script src="session.js" defer></script><script src="welcome.js" defer></script>
-</head>
-<body>
-<a class="skip" href="#movies">Đến danh sách phim</a>
-<div class="top-strip"><span>MỘT CHIẾC HẸN. MỘT BỘ PHIM HAY.</span><span>Ưu đãi riêng cho sinh viên & thành viên ↗</span></div>
-<header class="site-header wrap">
-    <a class="logo" href="welcome.html" aria-label="N6 Cinema trang chủ"><b>N6<span>◉</span></b><small>CINEMA</small></a>
-    <nav aria-label="Điều hướng chính"><a href="#movies">Phim & lịch chiếu</a><a href="#benefits">Ưu đãi</a><a href="#about">Về N6</a></nav>
-    <div class="account-actions"><button id="loginButton" class="text-button">Đăng nhập</button><button id="registerButton" class="button dark small">Đăng ký ↗</button><button id="accountButton" class="text-button" hidden>Tài khoản</button><button id="ticketsButton" class="text-button" hidden>Vé của tôi</button><a id="adminLink" class="button dark small" href="admin.html" hidden>Quản trị ↗</a><button id="logoutButton" class="text-button" hidden>Đăng xuất</button></div>
-</header>
-<main>
-    <section class="hero wrap" aria-labelledby="heroTitle">
-        <div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> CHẠM VÀO THẾ GIỚI ĐIỆN ẢNH</p><h1 id="heroTitle">Hẹn nhau<br>ở <em>rạp.</em></h1><p>Một bộ phim hay. Một chỗ ngồi yêu thích.<br>Và những khoảnh khắc đáng nhớ cùng nhau.</p><a href="#movies" class="button orange">Khám phá lịch chiếu <span>↗</span></a><div class="hero-caption"><span>01 /</span> CÂU CHUYỆN TIẾP THEO BẮT ĐẦU TỪ ĐÂY</div></div>
-        <div class="hero-art" aria-hidden="true"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-star">✳</div><div class="ticket-art"><div class="ticket-top">N6 CINEMA <span>ADMIT ONE</span></div><div class="ticket-title">GOOD<br>TIMES.<br><i>BIG SCREEN.</i></div><div class="ticket-tear"></div><div class="ticket-bottom"><span>YOUR NEXT<br>GREAT STORY</span><div class="barcode"></div></div></div><div class="art-label">LIGHTS OFF.<br><strong>FEELINGS ON.</strong></div><span class="art-circle">LET'S<br>GO ↗</span></div>
-    </section>
-    <section class="quick-book wrap" aria-label="Đặt vé nhanh"><div><small>CHỈ VÀI THAO TÁC</small><strong>Đặt vé nhanh <span>↗</span></strong></div><label>01 / CHỌN PHIM<select id="quickMovie"><option value="">Chọn bộ phim bạn thích</option></select></label><label>02 / CHỌN SUẤT<select id="quickShowtime"><option value="">Chọn suất chiếu</option></select></label><button id="quickBookButton" class="button orange">Chọn ghế →</button></section>
-    <section class="movies-section wrap" id="movies"><div class="section-heading"><div><p class="eyebrow">LÊN LỊCH CHO MỘT BUỔI TỐI HAY</p><h2>Màn ảnh đang chờ bạn.</h2></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="movieSearch" type="search" placeholder="Tìm tên phim, thể loại…" aria-label="Tìm phim"></label></div><div class="movie-tabs" role="group" aria-label="Lọc trạng thái phim"><button class="active" id="nowShowing" aria-pressed="true">Đang chiếu <span id="nowCount">0</span></button><button id="comingSoon" aria-pressed="false">Sắp chiếu <span id="soonCount">0</span></button></div><div id="catalogueStatus" class="empty-state" role="status">Đang tải danh sách phim…</div><div id="movieGrid" class="movie-grid"></div><button id="reloadCatalogue" class="text-button" hidden>Thử tải lại ↻</button></section>
-    <section id="benefits" class="benefits wrap"><div class="benefit-intro"><p class="eyebrow">ĐI XEM PHIM. THÊM ĐẶC QUYỀN.</p><h2>Vui hơn khi<br>là thành viên.</h2><button class="text-button" id="joinButton">Tham gia cùng N6 ↗</button></div><article class="benefit-card student"><span class="benefit-symbol">✳</span><p>DÀNH CHO SINH VIÊN</p><h3>Bớt một chút.<br>Vui thêm nhiều.</h3><div class="benefit-rate" id="studentBenefit">—</div><small>Ưu đãi trên giá vé và phụ phí ghế cho hồ sơ sinh viên hợp lệ.</small></article><article class="benefit-card vip"><span class="benefit-symbol">✦</span><p>THÀNH VIÊN VIP</p><h3>Trải nghiệm hay.<br>Đặc quyền riêng.</h3><div class="benefit-rate" id="vipBenefit">—</div><small>Hạng VIP do quản trị viên cấp. Ưu đãi được áp dụng tự động khi đặt vé.</small></article></section>
-    <section class="closing-banner wrap" id="about"><span class="eyebrow">N6 CINEMA · DỰ ÁN NHÓM 6</span><h2>Phim kết thúc.<br>Kỷ niệm thì còn mãi.</h2><p>Chọn phim, chọn suất, chọn chỗ ngồi.<br>N6 giúp bạn sẵn sàng cho cuộc hẹn tiếp theo.</p><a class="button light" href="#movies">Tìm phim của bạn ↗</a></section>
-</main>
-<footer class="wrap"><a class="logo" href="#"><b>N6<span>◉</span></b><small>CINEMA</small></a><p>Hệ thống đặt vé xem phim · Nhóm 6<br>Đặt vé trực tuyến, thanh toán tại quầy.</p><a href="#movies">Lên đầu trang ↑</a></footer>
-<div id="toast" class="toast" role="status" hidden></div>
+    <link rel="stylesheet" href="welcome.css" />
+    <script src="session.js" defer></script>
+    <script src="welcome.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#movies">Đến danh sách phim</a>
+    <div class="top-strip">
+      <span>MỘT CHIẾC HẸN. MỘT BỘ PHIM HAY.</span
+      ><span>Ưu đãi riêng cho sinh viên & thành viên ↗</span>
+    </div>
+    <header class="site-header wrap">
+      <a class="logo" href="welcome.html" aria-label="N6 Cinema trang chủ"
+        ><b>N6<span>◉</span></b
+        ><small>CINEMA</small></a
+      >
+      <nav aria-label="Điều hướng chính">
+        <a href="#movies">Phim & lịch chiếu</a><a href="offers.html">Ưu đãi</a
+        ><a href="#about">Về N6</a>
+      </nav>
+      <div class="account-actions">
+        <button id="loginButton" class="text-button">Đăng nhập</button
+        ><button id="registerButton" class="button dark small">
+          Đăng ký ↗</button
+        ><button id="accountButton" class="text-button" hidden>Tài khoản</button
+        ><button id="ticketsButton" class="text-button" hidden>
+          Vé của tôi</button
+        ><a id="adminLink" class="button dark small" href="admin.html" hidden
+          >Quản trị ↗</a
+        ><button id="logoutButton" class="text-button" hidden>Đăng xuất</button>
+      </div>
+    </header>
+    <main>
+      <section class="hero wrap" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="live-dot"></span> CHẠM VÀO THẾ GIỚI ĐIỆN ẢNH
+          </p>
+          <h1 id="heroTitle">Hẹn nhau<br />ở <em>rạp.</em></h1>
+          <p>
+            Một bộ phim hay. Một chỗ ngồi yêu thích.<br />Và những khoảnh khắc
+            đáng nhớ cùng nhau.
+          </p>
+          <a href="#movies" class="button orange"
+            >Khám phá lịch chiếu <span>↗</span></a
+          >
+          <div class="hero-caption">
+            <span>01 /</span> CÂU CHUYỆN TIẾP THEO BẮT ĐẦU TỪ ĐÂY
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <div class="art-star">✳</div>
+          <div class="ticket-art">
+            <div class="ticket-top">N6 CINEMA <span>ADMIT ONE</span></div>
+            <div class="ticket-title">
+              GOOD<br />TIMES.<br /><i>BIG SCREEN.</i>
+            </div>
+            <div class="ticket-tear"></div>
+            <div class="ticket-bottom">
+              <span>YOUR NEXT<br />GREAT STORY</span>
+              <div class="barcode"></div>
+            </div>
+          </div>
+          <div class="art-label">
+            LIGHTS OFF.<br /><strong>FEELINGS ON.</strong>
+          </div>
+          <span class="art-circle">LET'S<br />GO ↗</span>
+        </div>
+      </section>
+      <section class="quick-book wrap" aria-label="Đặt vé nhanh">
+        <div>
+          <small>CHỈ VÀI THAO TÁC</small
+          ><strong>Đặt vé nhanh <span>↗</span></strong>
+        </div>
+        <label
+          >01 / CHỌN PHIM<select id="quickMovie">
+            <option value="">Chọn bộ phim bạn thích</option>
+          </select></label
+        ><label
+          >02 / CHỌN SUẤT<select id="quickShowtime">
+            <option value="">Chọn suất chiếu</option>
+          </select></label
+        ><button id="quickBookButton" class="button orange">Chọn ghế →</button>
+      </section>
+      <section class="movies-section wrap" id="movies">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">LÊN LỊCH CHO MỘT BUỔI TỐI HAY</p>
+            <h2>Màn ảnh đang chờ bạn.</h2>
+          </div>
+          <label class="search-box"
+            ><span aria-hidden="true">⌕</span
+            ><input
+              id="movieSearch"
+              type="search"
+              placeholder="Tìm tên phim, thể loại…"
+              aria-label="Tìm phim"
+          /></label>
+        </div>
+        <div class="movie-tabs" role="group" aria-label="Lọc trạng thái phim">
+          <button class="active" id="nowShowing" aria-pressed="true">
+            Đang chiếu <span id="nowCount">0</span></button
+          ><button id="comingSoon" aria-pressed="false">
+            Sắp chiếu <span id="soonCount">0</span>
+          </button>
+        </div>
+        <div id="catalogueStatus" class="empty-state" role="status">
+          Đang tải danh sách phim…
+        </div>
+        <div id="movieGrid" class="movie-grid"></div>
+        <button id="reloadCatalogue" class="text-button" hidden>
+          Thử tải lại ↻
+        </button>
+      </section>
+      <section id="benefits" class="benefits wrap">
+        <div class="benefit-intro">
+          <p class="eyebrow">ĐI XEM PHIM. THÊM ĐẶC QUYỀN.</p>
+          <h2>Vui hơn khi<br />là thành viên.</h2>
+          <button class="text-button" id="joinButton">
+            Tham gia cùng N6 ↗
+          </button>
+        </div>
+        <article class="benefit-card student">
+          <span class="benefit-symbol">✳</span>
+          <p>DÀNH CHO SINH VIÊN</p>
+          <h3>Bớt một chút.<br />Vui thêm nhiều.</h3>
+          <div class="benefit-rate" id="studentBenefit">—</div>
+          <small
+            >Ưu đãi trên giá vé và phụ phí ghế cho hồ sơ sinh viên hợp
+            lệ.</small
+          >
+        </article>
+        <article class="benefit-card vip">
+          <span class="benefit-symbol">✦</span>
+          <p>THÀNH VIÊN VIP</p>
+          <h3>Trải nghiệm hay.<br />Đặc quyền riêng.</h3>
+          <div class="benefit-rate" id="vipBenefit">—</div>
+          <small
+            >Hạng VIP do quản trị viên cấp. Ưu đãi được áp dụng tự động khi đặt
+            vé.</small
+          >
+        </article>
+      </section>
+      <section class="closing-banner wrap" id="about">
+        <span class="eyebrow">N6 CINEMA · DỰ ÁN NHÓM 6</span>
+        <h2>Phim kết thúc.<br />Kỷ niệm thì còn mãi.</h2>
+        <p>
+          Chọn phim, chọn suất, chọn chỗ ngồi.<br />N6 giúp bạn sẵn sàng cho
+          cuộc hẹn tiếp theo.
+        </p>
+        <a class="button light" href="#movies">Tìm phim của bạn ↗</a>
+      </section>
+    </main>
+    <footer class="wrap">
+      <a class="logo" href="#"
+        ><b>N6<span>◉</span></b
+        ><small>CINEMA</small></a
+      >
+      <p>
+        Hệ thống đặt vé xem phim · Nhóm 6<br />Đặt vé, thanh toán thử và tích
+        điểm thành viên.
+      </p>
+      <a href="#movies">Lên đầu trang ↑</a>
+    </footer>
+    <div id="toast" class="toast" role="status" hidden></div>
 
-<dialog id="authDialog" aria-labelledby="authTitle"><button class="dialog-close" data-close="authDialog" aria-label="Đóng">×</button><p class="eyebrow">CHÀO MỪNG ĐẾN N6</p><h2 id="authTitle">Rất vui gặp lại bạn.</h2><p id="authSubtitle" class="muted">Đăng nhập để đặt vé và xem lịch sử của bạn.</p><div class="form-tabs"><button id="loginTab" class="active" type="button">Đăng nhập</button><button id="registerTab" type="button">Tạo tài khoản</button></div><form id="authForm"><fieldset id="authFields"><div id="registrationFields" hidden><label>Họ và tên<input name="fullName" autocomplete="name" minlength="2" maxlength="100"></label><label>Số điện thoại<input name="phone" autocomplete="tel" inputmode="tel" pattern="0[1-9][0-9]{8}" placeholder="10 chữ số, bắt đầu bằng 0"></label><label>Loại khách hàng<select name="customerType" id="registrationType"><option value="NORMAL">Khách thường</option><option value="STUDENT">Sinh viên</option></select></label><div id="registrationStudent" hidden><label>Mã sinh viên<input name="studentId" maxlength="20" pattern="[A-Za-z0-9]{6,20}" placeholder="6–20 ký tự chữ hoặc số"></label><button id="checkRegistrationStudent" type="button" class="text-button">Kiểm tra mã sinh viên ↗</button><p id="studentCheckStatus" class="muted" role="status"></p></div></div><label>Email<input name="email" type="email" autocomplete="email" required maxlength="254"></label><label>Mật khẩu<input name="password" type="password" id="password" autocomplete="current-password" required maxlength="128"></label><label id="confirmPasswordLabel" hidden>Nhập lại mật khẩu<input name="confirmPassword" type="password" autocomplete="new-password" maxlength="128"></label></fieldset><p id="authError" class="form-error" role="alert" hidden></p><button id="authSubmit" class="button orange full" type="submit">Đăng nhập →</button></form></dialog>
-
-<dialog id="bookingDialog" class="wide-dialog" aria-labelledby="bookingTitle"><button class="dialog-close" data-close="bookingDialog" aria-label="Đóng">×</button><p class="eyebrow">BUỔI HẸN CỦA BẠN</p><h2 id="bookingTitle">Chọn suất chiếu</h2><p id="bookingMeta" class="muted"></p><label>Ngày và giờ chiếu<select id="bookingShowtime"></select></label><div id="bookingStatus" role="status" class="muted"></div><div class="screen">MÀN HÌNH</div><div class="seat-scroll"><div id="seatGrid" class="seat-grid"></div></div><div class="seat-legend"><span>□ Ghế thường</span><span class="vip-text">□ VIP / Đôi</span><span>▧ Không khả dụng</span><span class="selected-text">■ Đang chọn</span></div><div class="booking-summary"><div><small>GHẾ ĐÃ CHỌN</small><strong id="selectedSeats">Chưa chọn ghế</strong><p id="quoteDiscount" class="muted">Giá vé được tính theo hạng thành viên.</p></div><div class="total"><small>TỔNG THANH TOÁN</small><strong id="quoteTotal">—</strong></div></div><p class="muted">Đặt chỗ và thanh toán tại quầy. Đây chưa phải xác nhận đã thanh toán.</p><p id="bookingError" class="form-error" role="alert" hidden></p><button id="confirmBooking" class="button orange full" disabled>Xác nhận đặt vé →</button></dialog>
-
-<dialog id="profileDialog" aria-labelledby="profileTitle"><button class="dialog-close" data-close="profileDialog" aria-label="Đóng">×</button><p class="eyebrow">THÀNH VIÊN N6</p><h2 id="profileTitle">Thông tin của bạn.</h2><p id="membershipInfo" class="muted"></p><form id="profileForm"><fieldset id="profileFields"><label>Họ và tên<input name="fullName" required minlength="2" maxlength="100" autocomplete="name"></label><label>Số điện thoại<input name="phone" required pattern="0[1-9][0-9]{8}" autocomplete="tel"></label><label>Email<input name="email" type="email" required autocomplete="email"></label><label>Loại khách hàng<select name="customerType" id="profileType"><option value="NORMAL">Khách thường</option><option value="STUDENT">Sinh viên</option></select></label><label id="profileStudentLabel">Mã sinh viên<input name="studentId" maxlength="20" pattern="[A-Za-z0-9]{6,20}"></label></fieldset><p id="profileError" class="form-error" role="alert" hidden></p><button class="button orange full" type="submit">Lưu thông tin →</button></form></dialog>
-
-<dialog id="ticketsDialog" class="wide-dialog" aria-labelledby="ticketsTitle"><button class="dialog-close" data-close="ticketsDialog" aria-label="Đóng">×</button><p class="eyebrow">NHỮNG CUỘC HẸN ĐIỆN ẢNH</p><h2 id="ticketsTitle">Vé của tôi.</h2><p class="muted">Xuất trình mã vé tại quầy để thanh toán và nhận vé. Bạn có thể hủy vé chưa thanh toán.</p><div id="ticketsList" class="tickets-list"></div></dialog>
-</body></html>
+    <dialog id="authDialog" aria-labelledby="authTitle">
+      <button class="dialog-close" data-close="authDialog" aria-label="Đóng">
+        ×
+      </button>
+      <p class="eyebrow">CHÀO MỪNG ĐẾN N6</p>
+      <h2 id="authTitle">Rất vui gặp lại bạn.</h2>
+      <p id="authSubtitle" class="muted">
+        Đăng nhập để đặt vé và xem lịch sử của bạn.
+      </p>
+      <div class="form-tabs">
+        <button id="loginTab" class="active" type="button">Đăng nhập</button
+        ><button id="registerTab" type="button">Tạo tài khoản</button>
+      </div>
+      <form id="authForm">
+        <fieldset id="authFields">
+          <div id="registrationFields" hidden>
+            <label
+              >Họ và tên<input
+                name="fullName"
+                autocomplete="name"
+                minlength="2"
+                maxlength="100" /></label
+            ><label
+              >Số điện thoại<input
+                name="phone"
+                autocomplete="tel"
+                inputmode="tel"
+                pattern="0[1-9][0-9]{8}"
+                placeholder="10 chữ số, bắt đầu bằng 0" /></label
+            ><label
+              >Loại khách hàng<select name="customerType" id="registrationType">
+                <option value="NORMAL">Khách thường</option>
+                <option value="STUDENT">Sinh viên</option>
+              </select></label
+            >
+            <div id="registrationStudent" hidden>
+              <label
+                >Mã sinh viên<input
+                  name="studentId"
+                  maxlength="20"
+                  pattern="[A-Za-z0-9]{6,20}"
+                  placeholder="6–20 ký tự chữ hoặc số" /></label
+              ><button
+                id="checkRegistrationStudent"
+                type="button"
+                class="text-button"
+              >
+                Kiểm tra mã sinh viên ↗
+              </button>
+              <p id="studentCheckStatus" class="muted" role="status"></p>
+            </div>
+          </div>
+          <label
+            >Email<input
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              maxlength="254" /></label
+          ><label
+            >Mật khẩu<input
+              name="password"
+              type="password"
+              id="password"
+              autocomplete="current-password"
+              required
+              maxlength="128" /></label
+          ><label id="confirmPasswordLabel" hidden
+            >Nhập lại mật khẩu<input
+              name="confirmPassword"
+              type="password"
+              autocomplete="new-password"
+              maxlength="128"
+          /></label>
+        </fieldset>
+        <p id="authError" class="form-error" role="alert" hidden></p>
+        <button id="authSubmit" class="button orange full" type="submit">
+          Đăng nhập →
+        </button>
+      </form>
+    </dialog>
+  </body>
+</html>

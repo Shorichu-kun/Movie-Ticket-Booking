@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tài khoản thành viên · N6 Cinema</title>
+    <link rel="stylesheet" href="commerce.css" />
+    <script src="session.js" defer></script>
+    <script src="commerce-ui.js" defer></script>
+    <script src="account.js" defer></script>
+  </head>
+  <body>
+    <div class="demo-strip">
+      N6 DEMO · Điểm, voucher và giao dịch là dữ liệu thử nghiệm
+    </div>
+    <header class="site-header wrap commerce-header">
+      <a class="logo" href="welcome.html"
+        ><b>N6<span>◉</span></b
+        ><small>CINEMA</small></a
+      >
+      <nav>
+        <a href="welcome.html#movies">Phim & lịch chiếu</a
+        ><a href="offers.html">Ưu đãi</a
+        ><button id="accountLogout" class="text-button">Đăng xuất ↗</button>
+      </nav>
+    </header>
+    <main class="wrap commerce-main">
+      <p class="eyebrow">MỖI BUỔI PHIM, THÊM MỘT ĐẶC QUYỀN</p>
+      <h1>Góc điện ảnh của bạn.</h1>
+      <div id="pageError" class="error-box" role="alert" hidden></div>
+      <div id="notice" class="notice-box" role="status" hidden></div>
+      <div class="account-layout">
+        <aside class="account-sidebar">
+          <div class="account-identity">
+            <div id="memberAvatar" class="member-avatar">N6</div>
+            <strong id="memberName">Đang tải…</strong>
+            <p id="memberEmail" class="fine-print"></p>
+          </div>
+          <nav class="account-nav" role="tablist" aria-label="Tài khoản">
+            <button
+              role="tab"
+              id="tab-overview"
+              aria-controls="panel-overview"
+              aria-selected="true"
+              data-tab="overview"
+            >
+              ◉ Tổng quan</button
+            ><button
+              role="tab"
+              id="tab-orders"
+              aria-controls="panel-orders"
+              aria-selected="false"
+              data-tab="orders"
+            >
+              ▤ Lịch sử đặt vé</button
+            ><button
+              role="tab"
+              id="tab-points"
+              aria-controls="panel-points"
+              aria-selected="false"
+              data-tab="points"
+            >
+              ✳ Điểm N6</button
+            ><button
+              role="tab"
+              id="tab-vouchers"
+              aria-controls="panel-vouchers"
+              aria-selected="false"
+              data-tab="vouchers"
+            >
+              ◇ Ví voucher</button
+            ><button
+              role="tab"
+              id="tab-membership"
+              aria-controls="panel-membership"
+              aria-selected="false"
+              data-tab="membership"
+            >
+              ✦ Hội viên</button
+            ><button
+              role="tab"
+              id="tab-profile"
+              aria-controls="panel-profile"
+              aria-selected="false"
+              data-tab="profile"
+            >
+              ♙ Hồ sơ & bảo mật</button
+            ><button
+              role="tab"
+              id="tab-notifications"
+              aria-controls="panel-notifications"
+              aria-selected="false"
+              data-tab="notifications"
+            >
+              ◷ Thông báo
+            </button>
+          </nav>
+        </aside>
+        <div>
+          <section
+            id="panel-overview"
+            role="tabpanel"
+            aria-labelledby="tab-overview"
+          >
+            <div class="membership-card">
+              <div class="split-row">
+                <p class="eyebrow">N6 CINEMA / MEMBER CARD</p>
+                <span id="overviewTier"></span>
+              </div>
+              <h2 id="cardName">Chào bạn.</h2>
+              <p id="cardId" class="mono"></p>
+              <div
+                class="membership-progress"
+                role="progressbar"
+                aria-label="Tiến trình nâng hạng"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                id="memberProgress"
+              >
+                <span id="memberProgressFill"></span>
+              </div>
+              <p id="nextTierText" class="fine-print muted"></p>
+            </div>
+            <div class="stats-grid">
+              <div class="stat">
+                <small>Điểm khả dụng</small
+                ><strong id="availablePoints">—</strong>
+              </div>
+              <div class="stat">
+                <small>Chi tiêu 365 ngày</small
+                ><strong id="memberSpend">—</strong>
+              </div>
+              <div class="stat">
+                <small>Voucher có thể dùng</small
+                ><strong id="voucherCount">—</strong>
+              </div>
+            </div>
+            <div class="split-row section-space">
+              <h2>Buổi hẹn sắp tới</h2>
+              <button data-go="orders" class="text-button">Xem tất cả →</button>
+            </div>
+            <div id="upcomingOrders" class="card-list"></div>
+            <div class="split-row section-space">
+              <h2>Đừng bỏ lỡ ưu đãi</h2>
+              <a href="offers.html" class="text-button">Khám phá →</a>
+            </div>
+            <div id="expiringVouchers" class="card-list"></div>
+          </section>
+          <section
+            id="panel-orders"
+            role="tabpanel"
+            aria-labelledby="tab-orders"
+            hidden
+          >
+            <div class="account-page-title">
+              <h2>Lịch sử đặt vé</h2>
+              <p class="muted">
+                Theo dõi từng buổi phim và diễn biến giao dịch của bạn.
+              </p>
+            </div>
+            <div class="filters">
+              <label class="field"
+                >Tìm đơn<input
+                  id="orderSearch"
+                  type="search"
+                  placeholder="Mã đơn hoặc tên phim…" /></label
+              ><label class="field"
+                >Trạng thái<select id="orderFilter">
+                  <option value="">Tất cả</option>
+                  <option value="PENDING_PAYMENT">Chờ thanh toán</option>
+                  <option value="PAID">Đã thanh toán</option>
+                  <option value="REFUND_PENDING">Đang hoàn</option>
+                  <option value="REFUNDED">Đã hoàn</option>
+                  <option value="CANCELLED">Đã hủy</option>
+                  <option value="EXPIRED">Hết hạn</option>
+                </select></label
+              >
+            </div>
+            <div id="accountOrders" class="card-list"></div>
+            <div id="orderPagination" class="step-actions"></div>
+            <details class="section-space">
+              <summary>Vé được tạo trước khi có đơn hàng</summary>
+              <p class="fine-print">
+                Dữ liệu cũ chưa có thời điểm mua hoặc chi tiết giao dịch, nên
+                không tự cộng điểm và chi tiêu xét hạng.
+              </p>
+              <div id="legacyTickets" class="card-list"></div>
+            </details>
+          </section>
+          <section
+            id="panel-points"
+            role="tabpanel"
+            aria-labelledby="tab-points"
+            hidden
+          >
+            <h2>Điểm N6 của bạn</h2>
+            <p class="muted">
+              Tích thêm niềm vui, dùng cho buổi hẹn tiếp theo.
+            </p>
+            <div class="stats-grid">
+              <div class="stat">
+                <small>Khả dụng</small><strong id="pointsAvailable">—</strong>
+              </div>
+              <div class="stat">
+                <small>Đang giữ trong đơn</small
+                ><strong id="pointsReserved">—</strong>
+              </div>
+              <div class="stat">
+                <small>Hết hạn trong 30 ngày</small
+                ><strong id="pointsExpiring">—</strong>
+              </div>
+            </div>
+            <p class="fine-print">
+              1 điểm = 1.000đ · Dùng tối thiểu 10 điểm · Điểm có hạn 12 tháng.
+              Điểm được tích trên phần tiền thực trả đủ điều kiện. Vé seed/cũ
+              không tự sinh điểm.
+            </p>
+            <p id="pointDebt" class="notice-box" hidden></p>
+            <h3 class="section-space">Đổi điểm lấy quà</h3>
+            <div id="pointRewards" class="card-list"></div>
+            <h3 class="section-space">Sổ điểm</h3>
+            <div class="table-scroll">
+              <table class="ledger">
+                <thead>
+                  <tr>
+                    <th>Thời gian</th>
+                    <th>Nội dung</th>
+                    <th>Điểm</th>
+                    <th>Hạn sử dụng</th>
+                  </tr>
+                </thead>
+                <tbody id="pointLedger"></tbody>
+              </table>
+            </div>
+          </section>
+          <section
+            id="panel-vouchers"
+            role="tabpanel"
+            aria-labelledby="tab-vouchers"
+            hidden
+          >
+            <div class="split-row">
+              <h2>Ví voucher</h2>
+              <a href="offers.html" class="text-button">Nhận ưu đãi →</a>
+            </div>
+            <form id="claimVoucherForm" class="filters">
+              <label class="field"
+                >Nhập mã ưu đãi<input
+                  name="code"
+                  placeholder="Ví dụ N6WELCOME30"
+                  maxlength="50"
+                  required /></label
+              ><button class="button dark small">Nhận vào ví</button>
+            </form>
+            <label class="field"
+              >Trạng thái<select id="voucherFilter">
+                <option value="">Tất cả</option>
+                <option value="AVAILABLE">Có thể dùng</option>
+                <option value="RESERVED">Đang giữ</option>
+                <option value="USED">Đã dùng</option>
+                <option value="EXPIRED">Hết hạn</option>
+              </select></label
+            >
+            <div id="voucherWallet" class="card-list section-space"></div>
+          </section>
+          <section
+            id="panel-membership"
+            role="tabpanel"
+            aria-labelledby="tab-membership"
+            hidden
+          >
+            <h2>Thêm buổi phim. Thêm đặc quyền.</h2>
+            <p id="membershipExplain" class="muted"></p>
+            <div id="tierCards" class="tier-grid"></div>
+            <section class="surface section-space">
+              <h3>Ưu đãi khách hàng hiện có</h3>
+              <p id="legacyBenefit" class="muted"></p>
+              <p class="fine-print">
+                Loại khách hàng và hạng hội viên là hai thông tin độc lập. Hạng
+                được tính từ chi tiêu, không tự chọn trong hồ sơ. Ưu đãi mặc
+                định không cộng dồn; hệ thống chọn phương án có lợi hơn.
+              </p>
+            </section>
+          </section>
+          <section
+            id="panel-profile"
+            role="tabpanel"
+            aria-labelledby="tab-profile"
+            hidden
+          >
+            <h2>Thông tin cá nhân</h2>
+            <form id="accountProfileForm" class="surface">
+              <div class="form-grid">
+                <label class="field span-full"
+                  >Họ và tên<input
+                    name="fullName"
+                    required
+                    minlength="2"
+                    maxlength="100"
+                    autocomplete="name" /></label
+                ><label class="field"
+                  >Số điện thoại<input
+                    name="phone"
+                    required
+                    pattern="0[1-9][0-9]{8}"
+                    autocomplete="tel" /></label
+                ><label class="field"
+                  >Email<input
+                    name="email"
+                    type="email"
+                    required
+                    autocomplete="email" /></label
+                ><label class="field span-full"
+                  >Mật khẩu hiện tại khi đổi email<input
+                    name="currentPassword"
+                    type="password"
+                    autocomplete="current-password"
+                /></label>
+              </div>
+              <p class="fine-print">
+                Email dùng để đăng nhập. Bản demo chưa xác minh email hoặc gửi
+                mã xác nhận thật.
+              </p>
+              <button class="button orange form-submit">Lưu hồ sơ →</button>
+            </form>
+            <h3 class="section-space">Sở thích & thông báo</h3>
+            <form id="preferencesForm" class="surface">
+              <div class="form-grid">
+                <label class="field"
+                  >Ngày sinh<input name="birthDate" type="date" /></label
+                ><label class="field"
+                  >Thể loại yêu thích<input
+                    name="favoriteGenre"
+                    maxlength="100"
+                    placeholder="Hài, tình cảm, hành động…"
+                /></label>
+              </div>
+              <p class="fine-print">
+                Ngày sinh chỉ xác nhận một lần để bảo vệ quyền lợi sinh nhật.
+              </p>
+              <label class="check-field"
+                ><input name="notifyShowtime" type="checkbox" />Nhắc lịch chiếu
+                trong tài khoản</label
+              ><label class="check-field"
+                ><input name="notifyOffers" type="checkbox" />Nhận thông báo ưu
+                đãi trong tài khoản</label
+              ><button class="button dark small form-submit">
+                Lưu tùy chọn
+              </button>
+            </form>
+            <h3 class="section-space">Đổi mật khẩu</h3>
+            <form id="passwordForm" class="surface">
+              <div class="form-grid">
+                <label class="field span-full"
+                  >Mật khẩu hiện tại<input
+                    name="currentPassword"
+                    type="password"
+                    autocomplete="current-password"
+                    required /></label
+                ><label class="field"
+                  >Mật khẩu mới<input
+                    name="newPassword"
+                    type="password"
+                    minlength="8"
+                    maxlength="72"
+                    autocomplete="new-password"
+                    required /></label
+                ><label class="field"
+                  >Nhập lại mật khẩu mới<input
+                    name="confirmation"
+                    type="password"
+                    autocomplete="new-password"
+                    required
+                /></label>
+              </div>
+              <p class="fine-print">
+                Từ 8 ký tự, tối đa 72 byte. Các phiên cũ sẽ phải đăng nhập lại
+                sau khi đổi mật khẩu.
+              </p>
+              <button class="button dark small form-submit">
+                Cập nhật mật khẩu
+              </button>
+            </form>
+          </section>
+          <section
+            id="panel-notifications"
+            role="tabpanel"
+            aria-labelledby="tab-notifications"
+            hidden
+          >
+            <h2>Thông báo của bạn</h2>
+            <p class="muted">
+              Cập nhật giao dịch, điểm và quà tặng thành viên.
+            </p>
+            <div id="accountNotifications" class="card-list"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer class="wrap commerce-footer">
+      N6 Cinema · Hồ sơ thành viên và quyền lợi trong môi trường demo
+    </footer>
+  </body>
+</html>

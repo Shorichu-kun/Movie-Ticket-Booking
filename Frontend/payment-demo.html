@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Thanh toán thử · N6 Cinema</title>
+    <link rel="stylesheet" href="commerce.css" />
+    <script src="session.js" defer></script>
+    <script src="commerce-ui.js" defer></script>
+    <script src="payment-demo.js" defer></script>
+  </head>
+  <body>
+    <div class="demo-strip">
+      MÔ PHỎNG NỘI BỘ N6 · Không liên kết ngân hàng hoặc ví thật · Không thu
+      tiền
+    </div>
+    <header class="site-header wrap commerce-header">
+      <a class="logo" href="welcome.html"
+        ><b>N6<span>◉</span></b
+        ><small>CINEMA</small></a
+      >
+      <nav>
+        <a href="account.html#orders">Lịch sử đơn</a
+        ><a href="offers.html">Ưu đãi</a>
+      </nav>
+    </header>
+    <main class="wrap commerce-main">
+      <div class="surface demo-payment-panel">
+        <div id="providerSymbol" class="provider-symbol" aria-hidden="true">
+          N6
+        </div>
+        <p class="eyebrow">TRẠM THANH TOÁN THỬ</p>
+        <h1 id="providerTitle">Đang tải giao dịch…</h1>
+        <p id="paymentReference" class="mono"></p>
+        <p id="paymentAmount" class="payment-amount"></p>
+        <img
+          id="paymentQr"
+          width="180"
+          height="180"
+          alt="QR thanh toán thử N6, không dùng để chuyển tiền"
+          hidden
+        />
+        <p id="paymentDeadline" class="muted"></p>
+        <div id="pageError" class="error-box" role="alert" hidden></div>
+        <div id="notice" class="notice-box" role="status" hidden></div>
+        <p>
+          Chọn kết quả thử để kiểm tra luồng đặt vé. Không nhập thông tin thẻ,
+          tài khoản ngân hàng hoặc OTP thật.
+        </p>
+        <div id="scenarioButtons" class="demo-scenarios">
+          <button data-scenario="SUCCESS" class="button orange">
+            Xác nhận thành công thử</button
+          ><button data-scenario="FAILED" class="button light">
+            Mô phỏng bị từ chối</button
+          ><button data-scenario="PROCESSING" class="button light">
+            Mô phỏng đang xử lý</button
+          ><button data-scenario="CANCELLED" class="button light">
+            Hủy giao dịch thử
+          </button>
+        </div>
+        <p class="fine-print">
+          Kết quả được ghi nhận tại máy chủ. Vé chỉ được cấp khi đơn đã được xác
+          nhận thanh toán thành công.
+        </p>
+        <div class="step-actions">
+          <a id="backToOrder" class="text-button" href="account.html#orders"
+            >← Xem trạng thái đơn</a
+          >
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
