@@ -91,7 +91,7 @@ class WelcomeSecurityIntegrationTest {
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(
                                         "{\"fullName\":\"Test"
-                                            + " User\",\"phone\":\"0912345678\",\"email\":\"new@example.com\",\"customerType\":\"NORMAL\"}"))
+                                            + " User\",\"phone\":\"0912345678\",\"email\":\"new@example.com\",\"customerType\":\"NORMAL\",\"currentPassword\":\"Password123!\"}"))
                 .andExpect(status().isOk());
         send("/api/auth/logout", session, "{}").andExpect(status().isOk());
         MockHttpSession login = new MockHttpSession();
@@ -317,7 +317,7 @@ class WelcomeSecurityIntegrationTest {
                         passwordEncoder.encode("Password123!"),
                         "ADMIN",
                         null));
-        String profile = registration("old-admin@example.com", "0912345678");
+        String profile = registration("old-admin@example.com", "0912345678").replace("}", ",\"currentPassword\":\"Password123!\"}");
         String[] token = csrf(customer);
         mvc.perform(
                         put("/api/auth/profile")

@@ -152,11 +152,18 @@ public class AccountService {
     }
 
     public UserView profile(Authentication auth, CustomerRequest request) {
+        return profile(auth, request, null);
+    }
+
+    public UserView profile(Authentication auth, CustomerRequest request, String currentPassword) {
         synchronized (AccountRepository.LOCK) {
             Account a = require(auth);
             if (!a.role().equals("CUSTOMER"))
                 throw new ApiException(403, "Chỉ khách hàng có hồ sơ cá nhân.");
             CustomerResponse old = customerService.getCustomer(a.customerId());
+            if (!old.email().equalsIgnoreCase(request.email())) {
+                verifyCurrentPassword(a, currentPassword);
+            }
             if (request.customerType() == CustomerType.VIP
                     && old.customerType() != CustomerType.VIP)
                 throw new ApiException(400, "Không thể tự nâng hạng VIP.");
@@ -171,6 +178,21 @@ public class AccountService {
                             : request;
             customerService.updateCustomer(a.customerId(), safe);
             return view(a);
+        }
+    }
+
+    public void changePassword(Authentication authentication, String currentPassword, String newPassword) {
+        synchronized (AccountRepository.LOCK) {
+            Account account = require(authentication);
+            verifyCurrentPassword(account, currentPassword);
+            validatePassword(newPassword);
+            accounts.replacePassword(account.id(), passwords.encode(newPassword));
+        }
+    }
+
+    private void verifyCurrentPassword(Account account, String currentPassword) {
+        if (currentPassword == null || !passwords.matches(currentPassword, account.passwordHash())) {
+            throw new ApiException(401, "Mật khẩu hiện tại không đúng.");
         }
     }
 

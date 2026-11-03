@@ -60,6 +60,22 @@ public class AccountRepository {
         }
     }
 
+    public void replacePassword(String accountId, String passwordHash) {
+        synchronized (LOCK) {
+            List<Account> all = findAll();
+            for (int i = 0; i < all.size(); i++) {
+                Account account = all.get(i);
+                if (account.id().equals(accountId)) {
+                    all.set(i, new Account(account.id(), account.email(), passwordHash,
+                            account.role(), account.customerId()));
+                    writeAll(all);
+                    return;
+                }
+            }
+            throw new handler.ApiException(404, "Không tìm thấy tài khoản.");
+        }
+    }
+
     private void writeAll(List<Account> all) {
         Path tmp = null;
         try {

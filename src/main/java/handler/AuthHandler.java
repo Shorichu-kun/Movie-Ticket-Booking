@@ -72,8 +72,18 @@ public class AuthHandler {
 
     @PutMapping("/profile")
     public AccountService.UserView profile(
-            Authentication auth, @RequestBody CustomerRequest request) {
-        return accounts.profile(auth, request);
+            Authentication auth, @RequestBody ProfileUpdate request) {
+        return accounts.profile(auth, new CustomerRequest(request.fullName(), request.phone(),
+                request.email(), request.customerType(), request.studentId()), request.currentPassword());
+    }
+
+    @PostMapping("/change-password")
+    public Map<String, String> changePassword(Authentication auth, @RequestBody PasswordChange change,
+                                             HttpServletRequest request) {
+        accounts.changePassword(auth, change.currentPassword(), change.newPassword());
+        SecurityContextHolder.clearContext();
+        if (request.getSession(false) != null) request.getSession(false).invalidate();
+        return Map.of("message", "Đã đổi mật khẩu. Vui lòng đăng nhập lại.");
     }
 
     private void authenticate(Account a, HttpServletRequest req, HttpServletResponse res) {
@@ -84,8 +94,13 @@ public class AuthHandler {
                         a.id(), null, List.of(new SimpleGrantedAuthority("ROLE_" + a.role()))));
         SecurityContextHolder.setContext(context);
         contexts.saveContext(context, req, res);
+        req.getSession().setAttribute(SessionCredentialFilter.CREDENTIAL_VERSION, a.passwordHash());
         csrf.saveToken(null, req, res);
     }
 
     public record Login(String email, String password) {}
+    public record PasswordChange(String currentPassword, String newPassword) {}
+    public record ProfileUpdate(String fullName, String phone, String email,
+                                model.CustomerType customerType, String studentId,
+                                String currentPassword) {}
 }

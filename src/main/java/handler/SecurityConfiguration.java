@@ -35,9 +35,12 @@ public class SecurityConfiguration {
             HttpSecurity http,
             ObjectMapper json,
             SecurityContextRepository contexts,
-            CsrfTokenRepository csrf)
+            CsrfTokenRepository csrf,
+            repository.AccountRepository accounts)
             throws Exception {
         return http.securityContext(c -> c.securityContextRepository(contexts))
+                .addFilterAfter(new SessionCredentialFilter(accounts),
+                        org.springframework.security.web.context.SecurityContextHolderFilter.class)
                 .csrf(c -> c.csrfTokenRepository(csrf))
                 .authorizeHttpRequests(
                         a ->
@@ -47,6 +50,14 @@ public class SecurityConfiguration {
                                                 "/api/auth/register")
                                         .permitAll()
                                         .requestMatchers("/api/auth/me", "/api/auth/logout")
+                                        .authenticated()
+                                        .requestMatchers("/api/auth/change-password")
+                                        .authenticated()
+                                        .requestMatchers(HttpMethod.GET, "/api/commerce/catalog", "/api/commerce/shows/*/seats")
+                                        .permitAll()
+                                        .requestMatchers("/api/commerce/admin/**")
+                                        .hasRole("ADMIN")
+                                        .requestMatchers("/api/commerce/**")
                                         .authenticated()
                                         .requestMatchers("/api/auth/profile", "/api/bookings/mine")
                                         .hasRole("CUSTOMER")

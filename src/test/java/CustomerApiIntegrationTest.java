@@ -23,7 +23,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest(classes = MovieTicketBookingApplication.class)
-@org.springframework.security.test.context.support.WithMockUser(roles="ADMIN")
 @AutoConfigureMockMvc
 class CustomerApiIntegrationTest {
     @TempDir
@@ -33,10 +32,15 @@ class CustomerApiIntegrationTest {
     private MockMvc mockMvc;
 
     @Autowired
+    private org.springframework.web.context.WebApplicationContext context;
+
+    @Autowired
     private ObjectMapper objectMapper;
 
     @DynamicPropertySource
     static void configureStorage(DynamicPropertyRegistry registry) {
+        registry.add("admin.email", () -> "test-admin@example.test");
+        registry.add("admin.password", () -> "AdminTest123!");
         registry.add("accounts.storage-path", () -> directory.resolve("accounts.json").toString());
         registry.add("cinema.data-dir", () -> directory.toString());
         registry.add("customers.storage-path", () -> directory.resolve("customers.json").toString());
@@ -44,7 +48,19 @@ class CustomerApiIntegrationTest {
 
     @BeforeEach
     void clearStorage() throws Exception {
+        utils.JsonFileUtil.setDataDirectory(directory.toString());
         Files.deleteIfExists(directory.resolve("customers.json"));
+        var loginSession = new org.springframework.mock.web.MockHttpSession();
+        var token = objectMapper.readTree(mockMvc.perform(get("/api/auth/csrf").session(loginSession))
+                .andReturn().getResponse().getContentAsString());
+        mockMvc.perform(post("/api/auth/login").session(loginSession)
+                .header(token.get("headerName").asText(), token.get("token").asText())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"email\":\"test-admin@example.test\",\"password\":\"AdminTest123!\"}"))
+                .andExpect(status().isOk());
+        mockMvc = org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup(context)
+                .apply(org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity())
+                .defaultRequest(get("/").session(loginSession)).build();
     }
 
     @Test
