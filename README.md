@@ -27,8 +27,8 @@ customers.html + customers.js (admin)
 | Người dùng | Chức năng |
 |---|---|
 | Chưa đăng nhập | Xem phim, tìm kiếm, lọc đang/sắp chiếu, xem ưu đãi, đăng ký/đăng nhập |
-| Khách hàng | Chỉnh sửa hồ sơ, chọn suất/ghế, nhận báo giá, đặt vé, xem vé của mình, hủy vé chưa thanh toán |
-| Admin | Quản lý phim, lịch chiếu, phòng/ghế, khách hàng và hạng VIP; xem toàn bộ vé và xác nhận đã thu tiền tại quầy |
+| Khách hàng | Checkout nhiều bước, combo, thanh toán mô phỏng, vé QR, lịch sử đơn, điểm, voucher, hội viên và hồ sơ/bảo mật |
+| Admin | Quản lý danh mục/khách; xem đơn, xác nhận thu tiền thử tại quầy, duyệt hoàn thử và kiểm soát QR/nhận combo |
 
 Phân quyền được kiểm tra tại API và trang quản trị. Người đăng ký không được tự cấp ADMIN/VIP. Phiên dùng cookie HttpOnly, SameSite=Lax, hết hạn sau 30 phút không hoạt động. Thao tác ghi có CSRF; client cập nhật token một lần nếu token hết hiệu lực. Không lưu mật khẩu hoặc token đăng nhập vào localStorage.
 
@@ -99,18 +99,60 @@ Mật khẩu chung cho tài khoản demo: **`N6Demo!2026`**
 | Sinh viên | `demo002@example.test` |
 | VIP | `demo003@example.test` |
 
-## Luồng đặt vé
+## Đặt vé, thanh toán demo và hội viên
 
-1. Đăng nhập tài khoản khách hàng; chọn phim và suất còn ở tương lai.
-2. Chọn 1–20 ghế đang hoạt động, thuộc đúng phòng và chưa có vé đang giữ chỗ.
-3. Backend tính `(giá suất + phụ phí ghế) × (1 − ưu đãi khách hàng)` cho từng ghế. Phụ phí: thường 0đ, VIP 20.000đ, đôi 50.000đ.
-4. Backend khóa thao tác đặt vé trong tiến trình và lưu toàn bộ ghế trong một lần; một ghế xung đột làm cả yêu cầu bị từ chối. Giá và customerId trong client không được dùng để quyết định giá/quyền sở hữu.
-5. Vé mới là `PENDING`: **thanh toán tại quầy**, chưa thu tiền trực tuyến. Admin xác nhận đã thu tiền sẽ chuyển `SUCCESS`. Hủy vé pending chuyển `FAILED` theo enum hiện có và giải phóng ghế.
+1. Mở `/welcome.html`, chọn phim và sang `/booking.html` để chọn ngày/suất.
+2. Chọn 1–8 vị trí ghế, đăng nhập rồi giữ cả tập ghế tại server trong 7 phút. Tải lại trang không gia hạn.
+3. Chọn tối đa 5 combo, biến thể bắp/nước hoặc bỏ qua.
+4. Chọn voucher đã nhận trong ví, điểm muốn dùng và phương thức thanh toán. Server tính và chốt giá; ưu đãi mặc định không cộng dồn.
+5. Tạo đơn, sang trạm thanh toán thử và chọn kết quả. Thành công mới phát vé QR; thất bại có thể thử lại khi còn hạn. Đơn, lịch sử các lần trả tiền, điểm và quyền lợi được lưu trong tài khoản.
 
-Chưa tích hợp VNPay/MoMo/ngân hàng; không có thanh toán trực tuyến giả thành công. Vé pending hiện giữ ghế đến khi người dùng/admin hủy; chưa có cơ chế tự hết hạn giữ chỗ. Kiểm tra mã SV hiện kiểm tra định dạng và trùng mã trong hệ thống, chưa xác minh với trường. Giao diện poster là minh họa chữ, vì model Movie hiện chưa lưu ảnh/trailer.
+Các phương thức: MoMo, ZaloPay, ShopeePay, VNPAY QR, ATM, thẻ quốc tế, chuyển khoản, tại quầy; tất cả đều **mô phỏng nội bộ, không thu tiền thật**. QR thanh toán chứa dữ liệu `N6-DEMO`, không phải mã ngân hàng. Không nhập thẻ/CVV/OTP thật. Đơn được điểm phủ hết giá trị hoàn tất nội bộ bằng `LOYALTY`.
+
+Tại quầy áp dụng cho suất còn ít nhất 60 phút; hạn tối đa 15 phút tính từ lúc giữ đầu tiên, không được làm mới bằng cách đổi phương thức. Admin xác nhận thu tiền thử cả đơn. Các callback lặp/đến muộn có xử lý riêng để không cấp vé, cộng điểm hoặc thu thử hai lần.
+
+Trang `/account.html` có tổng quan, lịch sử đặt vé, sổ điểm, ví voucher, quyền lợi hạng, hồ sơ, đổi mật khẩu và thông báo. Đổi email cần mật khẩu hiện tại. Đổi mật khẩu khiến các phiên cũ phải đăng nhập lại.
+
+| Hạng N6 | Chi tiêu ròng trong 365 ngày | Tích điểm trên tiền đủ điều kiện |
+|---|---:|---:|
+| Member | Dưới 1.500.000đ | 3% |
+| Silver | Từ 1.500.000đ | 4% |
+| Gold | Từ 3.000.000đ | 5% |
+| Platinum | Từ 6.000.000đ | 7% |
+
+1 điểm = 1.000đ, dùng tối thiểu 10 điểm, hạn 12 tháng. Điểm đang giữ trong đơn khác không dùng lại được. Phần trả bằng điểm không sinh điểm/chi tiêu mới. Hạng hội viên độc lập với ưu đãi sinh viên/VIP cũ; dữ liệu vé seed/legacy không tự tạo điểm.
+
+Các chương trình mẫu: `N6WELCOME30` (đơn đầu từ 250.000đ, giảm 30.000đ), `N6WEEKDAY10` (vé ngày thường giảm 10%, tối đa 30.000đ), đổi 60 điểm lấy voucher combo. Nhận mã tại `/offers.html` hoặc ví voucher trước khi sử dụng. Danh mục combo/chính sách demo hiện được cấu hình trong các lớp service, chưa có màn hình CRUD chiến dịch.
+
+Đơn đã trả tiền, chưa sử dụng vé/nhận combo và còn ít nhất 60 phút trước suất được gửi yêu cầu hoàn toàn bộ. Admin duyệt/từ chối; hoàn thử trả tiền/điểm/voucher theo chính sách và đảo điểm đã tích đúng một lần. Chưa hỗ trợ đổi suất hoặc hoàn một phần. Admin check-in QR trong khoảng 60 phút trước suất đến khi kết thúc; sử dụng vé và nhận combo là hai trạng thái riêng.
+
+### Lưu trữ và dữ liệu cũ
+
+`commerce-state.json` trong `CINEMA_DATA_DIR` lưu nguyên tử đơn, giữ ghế, lần trả tiền, hoàn tiền, vé QR, điểm và voucher; được `.gitignore` bỏ qua. Mọi thao tác tranh chấp dùng chung khóa của repository vé cũ. Dự án hỗ trợ một tiến trình ghi; chưa dùng cho nhiều server đồng thời.
+
+Khi khởi động, vé PENDING cũ chưa có hạn được sao lưu vào `data/migration-backups/`, sau đó cấp hạn giữ 15 phút. Vé cũ vẫn hiển thị riêng trong lịch sử, không đoán thời điểm mua hoặc cấp điểm ngược. Trạng thái hết hạn không còn chiếm ghế. Thay/xóa suất, phòng, ghế hoặc phim đang có quyền giữ/vé chưa dùng bị chặn.
+
+Bật/tắt trạm xác nhận thử bằng `COMMERCE_DEMO_ENABLED` (mặc định `true`). Tắt không biến hệ thống thành cổng thanh toán thật; các lệnh xác nhận mô phỏng bị từ chối.
+
+### Cấu trúc OOP để thuyết trình
+
+- `Customer extends User`; `OrderItem` có `TicketItem` và `ComboItem`.
+- `Order` đóng gói các chuyển trạng thái; controller không tự gán trạng thái đã trả tiền.
+- `PaymentMethod` và các implementation ví/thẻ/chuyển khoản/tại quầy thể hiện đa hình.
+- `DiscountStrategy` gồm giảm tiền, giảm phần trăm và combo; chính sách hội viên nằm trong `LoyaltyService`.
+- `PricingService`, `VoucherService`, `SeatInventoryService`, `CommerceService` chia trách nhiệm tính giá, quyền lợi, ghế và điều phối.
+- `CommerceRepository` có implementation JSON nguyên tử và bộ nhớ cho kiểm thử; domain không gọi HTTP hoặc tự ghi file.
+
+Xem [đặc tả và sơ đồ UML](docs/booking-payment-membership-oop-design.md) và [kế hoạch triển khai](docs/superpowers/plans/2026-11-03-cinema-commerce.md).
 
 ## Kiểm thử
 
-`mvn test` chạy kiểm thử Customer, Repository, policy giá và integration đăng ký/đăng nhập/phân quyền/CSRF/đặt ghế. Integration sử dụng thư mục tạm riêng. Kiểm thử bao gồm hai yêu cầu đặt cùng ghế, từ chối thay đổi hạng VIP, quyền sở hữu vé, lỗi lưu file, ngày chiếu đã qua và ghế không hoạt động.
+```bash
+mvn clean test
+mvn package
+java -jar target/Movie-Ticket-Booking-0.0.1-SNAPSHOT.jar
+```
 
-Các file giao diện chính: `welcome.html`, `welcome.css`, `welcome.js`, `session.js`, `admin.html`, `admin.js`. Các màn hình quản lý cũ ở `movies.html`, `showtimes.html`, `rooms.html`, `customers.html`.
+Kiểm thử bao gồm giữ ghế đồng thời, báo giá tại server, quyền sở hữu/CSRF, retry/idempotency, callback lặp và đến muộn, lỗi ghi file/khởi động lại, voucher/điểm đang giữ, hoàn điểm theo nguồn, hạng hội viên, QR, check-in so với hoàn vé và vô hiệu phiên sau đổi mật khẩu. Integration sử dụng thư mục tạm, không ghi đè dữ liệu local.
+
+Để chạy giao diện cùng API khi phát triển: `mvn spring-boot:run`. Sau khi thay file HTML/JS với JAR đang chạy, cần đóng server và build/chạy lại JAR để nhận static resources mới.

@@ -1,6 +1,6 @@
 # Thiết kế OOP: đặt vé, thanh toán và thành viên N6 Cinema
 
-Ngày khảo sát: 03/11/2026. Trạng thái: bản thiết kế đề xuất, chưa triển khai chức năng.
+Ngày khảo sát: 03/11/2026. Trạng thái: thiết kế tham chiếu; xem README để biết chức năng đã triển khai và giới hạn của bản demo.
 
 ## 1. Phạm vi đã thống nhất
 
