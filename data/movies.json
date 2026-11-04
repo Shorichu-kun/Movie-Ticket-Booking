@@ -1,0 +1,23 @@
+[
+  {
+    "id": "0123",
+    "title": "jhansd",
+    "duration": 142,
+    "genre": "Hành động",
+    "status": "NOW_SHOWING"
+  },
+  {
+    "id": "0014",
+    "title": "Jason belu",
+    "duration": 143,
+    "genre": "Hành động",
+    "status": "COMING_SOON"
+  },
+  {
+    "id": "001",
+    "title": "ada",
+    "duration": 123,
+    "genre": "Hành động",
+    "status": "NOW_SHOWING"
+  }
+]
