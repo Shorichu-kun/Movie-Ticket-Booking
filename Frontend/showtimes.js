@@ -1,5 +1,6 @@
-const API_URL = 'http://localhost:8080/api/showtimes';
-const MOVIE_API_URL = 'http://localhost:8080/api/movies';
+const escapeMarkup = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const API_URL = '/api/showtimes';
+const MOVIE_API_URL = '/api/movies';
 
 
 let movies = [];
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fillMovieDropdowns();
             fetchShowtimes();
         })
-        .catch(error => console.error('Lỗi khi tải danh sách phim:', error));
+        .catch(error => alert('Không tải được danh sách phim: ' + error.message));
 });
 
 function fillMovieDropdowns() {
@@ -24,8 +25,8 @@ function fillMovieDropdowns() {
     filterSelect.innerHTML = '<option value="">Tất cả phim</option>';
 
     movies.forEach(movie => {
-        movieSelect.innerHTML += `<option value="${movie.id}">${movie.title}</option>`;
-        filterSelect.innerHTML += `<option value="${movie.id}">${movie.title}</option>`;
+        movieSelect.innerHTML += `<option value="${escapeMarkup(movie.id)}">${escapeMarkup(movie.title)}</option>`;
+        filterSelect.innerHTML += `<option value="${escapeMarkup(movie.id)}">${escapeMarkup(movie.title)}</option>`;
     });
 }
 
@@ -64,16 +65,17 @@ function fetchShowtimes() {
             data.forEach(s => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <td><b>${s.id}</b></td>
-                    <td>${getMovieTitle(s.movieId)}</td>
-                    <td>${s.roomId}</td>
-                    <td>${formatTime(s.startTime)}</td>
-                    <td>${formatTime(s.endTime)}</td>
+                    <td><b>${escapeMarkup(s.id)}</b></td>
+                    <td>${escapeMarkup(getMovieTitle(s.movieId))}</td>
+                    <td>${escapeMarkup(s.roomId)}</td>
+                    <td>${escapeMarkup(formatTime(s.startTime))}</td>
+                    <td>${escapeMarkup(formatTime(s.endTime))}</td>
                     <td>${s.price.toLocaleString('vi-VN')} đ</td>
                     <td>
-                        <button class="btn-delete" onclick="deleteShowtime('${s.id}')">Xóa</button>
+                        <button class="btn-delete" data-delete-id="${escapeMarkup(s.id)}">Xóa</button>
                     </td>
                 `;
+                tr.querySelector('[data-delete-id]').addEventListener('click', () => deleteShowtime(s.id));
                 tbody.appendChild(tr);
             });
         })
@@ -121,7 +123,7 @@ document.getElementById('showtimeForm').addEventListener('submit', function (e) 
 
 function deleteShowtime(id) {
     if (confirm(`Bạn có chắc muốn xóa suất chiếu ${id}?`)) {
-        fetch(`${API_URL}/${id}`, { method: 'DELETE' })
+        fetch(`${API_URL}/${encodeURIComponent(id)}`, { method: 'DELETE' })
             .then(response => {
                 if (response.ok) {
                     alert('Xóa suất chiếu thành công!');

@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:8080/api/movies';
+const escapeMarkup = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const API_URL = '/api/movies';
 
 // Khi trang web tải xong -> Load danh sách phim
 document.addEventListener('DOMContentLoaded', fetchMovies);
@@ -14,19 +15,20 @@ function fetchMovies() {
             data.forEach(movie => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <td><b>${movie.id}</b></td>
-                    <td>${movie.title}</td>
-                    <td>${movie.duration} phút</td>
-                    <td>${movie.genre}</td>
-                    <td><span style="color: ${movie.status === 'NOW_SHOWING' ? 'green' : 'orange'}">${movie.status}</span></td>
+                    <td><b>${escapeMarkup(movie.id)}</b></td>
+                    <td>${escapeMarkup(movie.title)}</td>
+                    <td>${escapeMarkup(movie.duration)} phút</td>
+                    <td>${escapeMarkup(movie.genre)}</td>
+                    <td><span style="color: ${movie.status === 'NOW_SHOWING' ? 'green' : 'orange'}">${escapeMarkup(movie.status)}</span></td>
                     <td>
-                        <button class="btn-delete" onclick="deleteMovie('${movie.id}')">Xóa</button>
+                        <button class="btn-delete" data-delete-id="${escapeMarkup(movie.id)}">Xóa</button>
                     </td>
                 `;
+                tr.querySelector('[data-delete-id]').addEventListener('click', () => deleteMovie(movie.id));
                 tbody.appendChild(tr);
             });
         })
-        .catch(error => console.error('Lỗi khi tải danh sách phim:', error));
+        .catch(error => alert('Không tải được danh sách phim: ' + error.message));
 }
 
 //  Xử lý khi Submit Form (Gửi POST API thêm phim)
@@ -63,7 +65,7 @@ document.getElementById('movieForm').addEventListener('submit', function(e) {
 //  Hàm xóa phim
 function deleteMovie(id) {
     if (confirm(`Bạn có chắc muốn xóa phim ${id}?`)) {
-        fetch(`${API_URL}/${id}`, {
+        fetch(`${API_URL}/${encodeURIComponent(id)}`, {
             method: 'DELETE'
         })
             .then(response => {

@@ -1,10 +1,261 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Đặt vé · N6 Cinema</title>
+    <link rel="stylesheet" href="commerce.css" />
+    <script src="session.js" defer></script>
+    <script src="commerce-ui.js" defer></script>
+    <script src="booking.js" defer></script>
+  </head>
+  <body>
+    <div class="demo-strip">
+      N6 DEMO · Trải nghiệm đặt vé thử — không thu tiền thật
+    </div>
+    <header class="site-header wrap commerce-header">
+      <a class="logo" href="welcome.html"
+        ><b>N6<span>◉</span></b
+        ><small>CINEMA</small></a
+      >
+      <nav aria-label="Điều hướng">
+        <a href="welcome.html#movies">Phim & lịch chiếu</a
+        ><a href="offers.html">Ưu đãi</a><a href="account.html">Tài khoản ↗</a>
+      </nav>
+    </header>
+    <main class="wrap commerce-main">
+      <p class="eyebrow">MỘT CHỖ NGỒI. MỘT CÂU CHUYỆN MỚI.</p>
+      <h1>Buổi hẹn của bạn.</h1>
+      <ol class="checkout-steps" aria-label="Tiến trình đặt vé">
+        <li class="active" data-step="1">Suất chiếu</li>
+        <li data-step="2">Chọn ghế</li>
+        <li data-step="3">Bắp nước</li>
+        <li data-step="4">Thanh toán</li>
+        <li data-step="5">Vé điện tử</li>
+      </ol>
+      <div id="pageError" class="error-box" role="alert" hidden></div>
+      <div id="notice" class="notice-box" role="status" hidden></div>
+      <section id="checkoutLogin" class="surface" hidden>
+        <h2>Đăng nhập để giữ ghế</h2>
+        <p class="muted">
+          Xem lịch chiếu thoải mái. Đăng nhập khi bạn đã tìm được chỗ ngồi ưng
+          ý.
+        </p>
+        <form id="checkoutLoginForm">
+          <div class="form-grid">
+            <label class="field"
+              >Email<input
+                name="email"
+                type="email"
+                autocomplete="email"
+                required /></label
+            ><label class="field"
+              >Mật khẩu<input
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+            /></label>
+          </div>
+          <div class="step-actions">
+            <a href="welcome.html?register=1" class="text-button"
+              >Chưa có tài khoản? Đăng ký ↗</a
+            ><button class="button orange">Đăng nhập & tiếp tục →</button>
+          </div>
+        </form>
+      </section>
+      <div class="checkout-grid" id="checkoutGrid">
+        <div class="checkout-body">
+          <section data-panel="1">
+            <p class="eyebrow">01 / LÊN LỊCH CHO BUỔI HẸN</p>
+            <h2>Chọn suất chiếu.</h2>
+            <div class="form-grid">
+              <label class="field"
+                >Bộ phim<select id="movieSelect">
+                  <option value="">Đang tải phim…</option>
+                </select></label
+              ><label class="field"
+                >Ngày chiếu<select id="dateSelect"></select
+              ></label>
+            </div>
+            <div
+              id="showChoices"
+              class="show-choices"
+              aria-label="Giờ chiếu"
+            ></div>
+            <p id="showDescription" class="muted"></p>
+            <label class="check-field"
+              ><input id="ageConsent" type="checkbox" />Tôi đã kiểm tra đúng
+              phim, ngày chiếu và điều kiện độ tuổi của phim.</label
+            >
+            <div class="step-actions">
+              <a href="welcome.html#movies" class="text-button"
+                >← Khám phá phim</a
+              ><button id="toSeats" class="button orange" disabled>
+                Chọn ghế →
+              </button>
+            </div>
+          </section>
+          <section data-panel="2" hidden>
+            <p class="eyebrow">02 / CHỌN VỊ TRÍ YÊU THÍCH</p>
+            <h2>Màn hình đẹp hơn khi có bạn.</h2>
+            <p class="fine-print">
+              Chọn tối đa 8 vị trí. Ghế chỉ được giữ sau khi bạn bấm tiếp tục.
+              Mỗi vị trí ghế đôi hiện được tính là một đơn vị vé có phụ phí.
+            </p>
+            <div class="screen-bar">MÀN HÌNH</div>
+            <div class="seat-map-wrap">
+              <div
+                id="seatMap"
+                class="cinema-seat-map"
+                aria-label="Sơ đồ ghế"
+              ></div>
+            </div>
+            <div class="seat-keys">
+              <span>Thường</span><span class="key-vip">VIP</span
+              ><span class="key-couple">Đôi</span
+              ><span class="key-selected">Đang chọn</span
+              ><span class="key-unavailable">Không khả dụng</span>
+            </div>
+            <div class="selected-line">
+              Ghế đã chọn: <strong id="seatSelection">Chưa chọn</strong>
+            </div>
+            <div class="step-actions">
+              <button id="backToShows" class="text-button">← Đổi suất</button
+              ><button id="holdSeats" class="button orange" disabled>
+                Giữ ghế & tiếp tục →
+              </button>
+            </div>
+          </section>
+          <section data-panel="3" hidden>
+            <p class="eyebrow">03 / THÊM CHÚT VỊ CHO BUỔI PHIM</p>
+            <h2>Bắp giòn. Nước mát.</h2>
+            <p class="muted">
+              Chọn combo yêu thích, nhận tại quầy bằng mã đơn. Bạn cũng có thể
+              bỏ qua bước này.
+            </p>
+            <div id="products" class="product-grid"></div>
+            <div class="step-actions">
+              <button id="backToSeats" class="text-button">← Xem lại ghế</button
+              ><button id="toCheckout" class="button orange">
+                Ưu đãi & thanh toán →
+              </button>
+            </div>
+          </section>
+          <section data-panel="4" hidden>
+            <p class="eyebrow">04 / KIỂM TRA LẦN CUỐI</p>
+            <h2>Sẵn sàng cho buổi hẹn.</h2>
+            <form id="paymentForm">
+              <h3>Thông tin nhận vé</h3>
+              <div class="form-grid">
+                <label class="field span-full"
+                  >Họ và tên<input
+                    name="name"
+                    required
+                    maxlength="100"
+                    autocomplete="name" /></label
+                ><label class="field"
+                  >Email<input
+                    name="email"
+                    type="email"
+                    required
+                    autocomplete="email" /></label
+                ><label class="field"
+                  >Số điện thoại<input
+                    name="phone"
+                    required
+                    pattern="0[1-9][0-9]{8}"
+                    autocomplete="tel"
+                /></label>
+              </div>
+              <p class="fine-print">
+                Vé được lưu trong tài khoản. Bản demo không gửi email hoặc SMS
+                thật.
+              </p>
+              <h3 class="section-space">Ưu đãi của bạn</h3>
+              <div class="form-grid">
+                <label class="field"
+                  >Mã voucher<select id="voucherSelect">
+                    <option value="">Tự động chọn ưu đãi tốt nhất</option>
+                  </select></label
+                ><label class="field"
+                  >Điểm muốn sử dụng<input
+                    id="pointsInput"
+                    type="number"
+                    min="0"
+                    step="1"
+                    value="0"
+                    inputmode="numeric"
+                /></label>
+              </div>
+              <p id="pointsHelp" class="fine-print"></p>
+              <div class="split-row">
+                <span class="fine-print"
+                  >Điểm và lượt voucher được kiểm tra lại tại máy chủ.</span
+                ><button id="updateQuote" type="button" class="text-button">
+                  Cập nhật giá ↻
+                </button>
+              </div>
+              <h3 class="section-space">Phương thức thanh toán thử</h3>
+              <div id="paymentMethods" class="method-grid"></div>
+              <p id="methodHelp" class="fine-print"></p>
+              <div class="surface section-space" id="checkoutPrice"></div>
+              <p id="pointsEstimate" class="fine-print"></p>
+              <details class="section-space">
+                <summary>Điều kiện giữ chỗ, hủy và hoàn thử</summary>
+                <p class="fine-print">
+                  Online giữ 7 phút từ lượt giữ đầu. Tại quầy giữ tối đa 15 phút
+                  từ mốc đó cho suất còn ít nhất 60 phút. Sau thanh toán, đơn
+                  chưa sử dụng có thể yêu cầu hoàn toàn bộ trước giờ chiếu ít
+                  nhất 60 phút. Admin duyệt hoàn thử; điểm và voucher được hoàn
+                  theo điều kiện. Không thu tiền thật.
+                </p>
+              </details>
+              <label class="check-field"
+                ><input id="termsConsent" type="checkbox" required />Tôi đã kiểm
+                tra phim, suất, ghế, số tiền và đồng ý điều kiện giao dịch
+                thử.</label
+              >
+              <div class="step-actions">
+                <button id="backToCombos" type="button" class="text-button">
+                  ← Bắp nước</button
+                ><button
+                  id="payButton"
+                  type="submit"
+                  class="button orange"
+                  disabled
+                >
+                  Đang tính giá…
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+        <aside class="summary-panel" aria-label="Tóm tắt đơn">
+          <h2>Buổi phim của bạn</h2>
+          <div class="summary-film">
+            <p class="eyebrow">N6 CINEMA</p>
+            <h3 id="summaryMovie">Chọn bộ phim yêu thích</h3>
+            <p id="summaryShow" class="muted"></p>
+            <p id="summarySeats"></p>
+          </div>
+          <div id="holdClock" class="hold-clock" hidden>
+            <span>Giữ ghế còn lại</span
+            ><strong id="countdown" aria-live="off">07:00</strong>
+          </div>
+          <div id="priceSummary"></div>
+          <p class="fine-print">
+            Giá cuối cùng được tính tại máy chủ. Phiên này chỉ dành cho giao
+            dịch thử.
+          </p>
+          <button id="releaseHold" class="text-button" hidden>
+            Hủy giữ chỗ
+          </button>
+        </aside>
+      </div>
+    </main>
+    <footer class="wrap commerce-footer">
+      N6 Cinema · Đồ án lập trình hướng đối tượng · Mô phỏng thanh toán
+    </footer>
+  </body>
 </html>

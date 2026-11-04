@@ -26,3 +26,13 @@ replay_pid*
 target/
 data/customers.json
 data/.customers-*.tmp
+
+data/accounts.json
+data/tickets.json
+data/.accounts-*.tmp
+data/.cinema-*.tmp
+
+data/commerce-state.json
+data/.commerce-*.tmp
+data/legacy-reservations.json
+data/migration-backups/

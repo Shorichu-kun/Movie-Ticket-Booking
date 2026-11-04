@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chi tiết đơn · N6 Cinema</title>
+    <link rel="stylesheet" href="commerce.css" />
+    <script src="session.js" defer></script>
+    <script src="commerce-ui.js" defer></script>
+    <script src="order.js" defer></script>
+  </head>
+  <body>
+    <div class="demo-strip">
+      PHIẾU XÁC NHẬN DEMO · Không phải hóa đơn điện tử · Không thu tiền thật
+    </div>
+    <header class="site-header wrap commerce-header">
+      <a class="logo" href="welcome.html"
+        ><b>N6<span>◉</span></b
+        ><small>CINEMA</small></a
+      >
+      <nav>
+        <a href="welcome.html#movies">Phim & lịch chiếu</a
+        ><a href="account.html#orders">Lịch sử đặt vé</a
+        ><a href="account.html">Tài khoản ↗</a>
+      </nav>
+    </header>
+    <main class="wrap commerce-main">
+      <div class="receipt-hero">
+        <div id="receiptIcon" class="receipt-icon" aria-hidden="true">✓</div>
+        <div>
+          <p class="eyebrow">BUỔI HẸN CÙNG N6 CINEMA</p>
+          <h1 id="orderTitle">Đang tải đơn…</h1>
+          <p id="orderCaption" class="muted"></p>
+        </div>
+      </div>
+      <div id="pageError" class="error-box" role="alert" hidden></div>
+      <div id="notice" class="notice-box" role="status" hidden></div>
+      <div id="orderContent" class="checkout-grid" hidden>
+        <div>
+          <section class="surface">
+            <div class="split-row">
+              <h2 id="orderMovie"></h2>
+              <span id="orderStatus" class="status-badge"></span>
+            </div>
+            <p id="orderMeta" class="muted"></p>
+            <p id="orderCode" class="mono"></p>
+            <div id="orderTickets" class="card-list"></div>
+            <h3 class="section-space">Chi tiết vé & bắp nước</h3>
+            <ul id="orderItems" class="order-lines"></ul>
+            <p id="orderContact" class="fine-print"></p>
+            <div id="orderActions" class="admin-order-actions no-print"></div>
+            <div
+              id="retryPayment"
+              class="form-grid section-space no-print"
+              hidden
+            >
+              <label class="field"
+                >Chọn lại phương thức<select id="retryMethod"></select></label
+              ><button id="retryButton" class="button orange">
+                Thử thanh toán lại →
+              </button>
+            </div>
+          </section>
+          <section class="surface section-space">
+            <h2>Diễn biến đơn hàng</h2>
+            <ul id="orderTimeline" class="timeline"></ul>
+            <h3>Các lần thanh toán</h3>
+            <div id="orderAttempts" class="card-list"></div>
+          </section>
+        </div>
+        <aside class="summary-panel">
+          <h2>Tổng kết thanh toán</h2>
+          <div id="orderPrice"></div>
+          <p id="orderReward" class="fine-print"></p>
+          <p class="fine-print">
+            Thanh toán thành công mới có vé vào cửa. Khi hoàn, điểm và quyền lợi
+            liên quan được xử lý theo chính sách N6.
+          </p>
+          <a class="button dark full no-print" href="account.html#orders"
+            >Về lịch sử đặt vé →</a
+          ><button id="printReceipt" class="text-button no-print">
+            In / lưu phiếu demo
+          </button>
+        </aside>
+      </div>
+    </main>
+    <footer class="wrap commerce-footer">
+      N6 Cinema · Vé điện tử thử nghiệm · Không có giao dịch tiền thật
+    </footer>
+  </body>
+</html>
