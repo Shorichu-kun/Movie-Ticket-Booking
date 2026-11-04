@@ -263,6 +263,8 @@
         ":" +
         String(left % 60).padStart(2, "0");
       $("holdClock").classList.toggle("urgent", left < 60);
+      $("toCheckout").disabled = !left;
+      if (left) $("backToSeats").textContent = "← Xem lại ghế";
       if (!left) {
         clearInterval(timer);
         state.hold.status = "EXPIRED";
