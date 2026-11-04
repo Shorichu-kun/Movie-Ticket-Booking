@@ -32,16 +32,35 @@ class CustomerApiIntegrationTest {
     private MockMvc mockMvc;
 
     @Autowired
+    private org.springframework.web.context.WebApplicationContext context;
+
+    @Autowired
     private ObjectMapper objectMapper;
 
     @DynamicPropertySource
     static void configureStorage(DynamicPropertyRegistry registry) {
+        registry.add("admin.email", () -> "test-admin@example.test");
+        registry.add("admin.password", () -> "AdminTest123!");
+        registry.add("accounts.storage-path", () -> directory.resolve("accounts.json").toString());
+        registry.add("cinema.data-dir", () -> directory.toString());
         registry.add("customers.storage-path", () -> directory.resolve("customers.json").toString());
     }
 
     @BeforeEach
     void clearStorage() throws Exception {
+        utils.JsonFileUtil.setDataDirectory(directory.toString());
         Files.deleteIfExists(directory.resolve("customers.json"));
+        var loginSession = new org.springframework.mock.web.MockHttpSession();
+        var token = objectMapper.readTree(mockMvc.perform(get("/api/auth/csrf").session(loginSession))
+                .andReturn().getResponse().getContentAsString());
+        mockMvc.perform(post("/api/auth/login").session(loginSession)
+                .header(token.get("headerName").asText(), token.get("token").asText())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"email\":\"test-admin@example.test\",\"password\":\"AdminTest123!\"}"))
+                .andExpect(status().isOk());
+        mockMvc = org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup(context)
+                .apply(org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity())
+                .defaultRequest(get("/").session(loginSession)).build();
     }
 
     @Test
@@ -62,17 +81,17 @@ class CustomerApiIntegrationTest {
     @Test
     void returnsConflictWithFieldErrorsForDuplicateRegistration() throws Exception {
         createStudent();
-        mockMvc.perform(post("/api/customers").contentType(MediaType.APPLICATION_JSON).content(studentJson()))
+        mockMvc.perform(post("/api/customers").with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON).content(studentJson()))
                 .andExpect(status().isConflict()).andExpect(jsonPath("$.fieldErrors.phone").isNotEmpty());
     }
 
     @Test
     void returnsBadRequestForMissingStudentIdAndInvalidContactDetails() throws Exception {
-        mockMvc.perform(post("/api/customers").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/api/customers").with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(Map.of("fullName", "Nguyễn An", "phone", "0912345678",
                                 "email", "an@example.com", "customerType", "STUDENT"))))
                 .andExpect(status().isBadRequest()).andExpect(jsonPath("$.fieldErrors.studentId").isNotEmpty());
-        mockMvc.perform(post("/api/customers").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/api/customers").with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(Map.of("fullName", " ", "phone", "abc",
                                 "email", "invalid", "customerType", "NORMAL"))))
                 .andExpect(status().isBadRequest()).andExpect(jsonPath("$.fieldErrors.fullName").isNotEmpty())
@@ -83,12 +102,12 @@ class CustomerApiIntegrationTest {
     @Test
     void updatesTypeAndCalculatesNewDiscount() throws Exception {
         String id = createStudent();
-        mockMvc.perform(put("/api/customers/{id}", id).contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(put("/api/customers/{id}", id).with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(Map.of("fullName", "Nguyễn Văn An", "phone", "0912345678",
                                 "email", "an@example.com", "customerType", "VIP"))))
                 .andExpect(status().isOk()).andExpect(jsonPath("$.id").value(id))
                 .andExpect(jsonPath("$.customerType").value("VIP")).andExpect(jsonPath("$.studentId").isEmpty());
-        mockMvc.perform(post("/api/customers/{id}/price-quote", id).contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/api/customers/{id}/price-quote", id).with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON)
                         .content("{\"basePrice\":100000,\"seatSurcharge\":20000}"))
                 .andExpect(status().isOk()).andExpect(jsonPath("$.finalPrice").value(96000))
                 .andExpect(jsonPath("$.discountAmount").value(24000));
@@ -114,15 +133,15 @@ class CustomerApiIntegrationTest {
     void returns404ForMissingCustomer() throws Exception {
         mockMvc.perform(get("/api/customers/missing")).andExpect(status().isNotFound())
                 .andExpect(jsonPath("$.status").value(404));
-        mockMvc.perform(put("/api/customers/missing").contentType(MediaType.APPLICATION_JSON).content(studentJson()))
+        mockMvc.perform(put("/api/customers/missing").with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON).content(studentJson()))
                 .andExpect(status().isNotFound());
     }
 
     @Test
     void returns400ForInvalidJsonEnumsAndMissingParameters() throws Exception {
-        mockMvc.perform(post("/api/customers").contentType(MediaType.APPLICATION_JSON).content("not-json"))
+        mockMvc.perform(post("/api/customers").with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON).content("not-json"))
                 .andExpect(status().isBadRequest());
-        mockMvc.perform(post("/api/customers").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/api/customers").with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON)
                         .content(studentJson().replace("STUDENT", "UNKNOWN")))
                 .andExpect(status().isBadRequest());
         mockMvc.perform(get("/api/customers").param("customerType", "UNKNOWN"))
@@ -134,7 +153,7 @@ class CustomerApiIntegrationTest {
     @Test
     void rejectsNonPositivePricesThroughApi() throws Exception {
         String id = createStudent();
-        mockMvc.perform(post("/api/customers/{id}/price-quote", id).contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/api/customers/{id}/price-quote", id).with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON)
                         .content("{\"basePrice\":0,\"seatSurcharge\":0}"))
                 .andExpect(status().isBadRequest()).andExpect(jsonPath("$.fieldErrors.basePrice").isNotEmpty());
     }
@@ -158,7 +177,7 @@ class CustomerApiIntegrationTest {
     }
 
     private String createStudent() throws Exception {
-        String result = mockMvc.perform(post("/api/customers").contentType(MediaType.APPLICATION_JSON)
+        String result = mockMvc.perform(post("/api/customers").with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON)
                         .content(studentJson()))
                 .andExpect(status().isCreated()).andExpect(header().exists("Location"))
                 .andReturn().getResponse().getContentAsString();

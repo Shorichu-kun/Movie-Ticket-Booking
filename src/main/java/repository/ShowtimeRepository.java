@@ -26,9 +26,12 @@ public class ShowtimeRepository {
     }
 
     public void deleteById(String id) {
+        synchronized (TicketRepository.LOCK) {
+        utils.CommerceInventory.requireShowtimeMutable(id);
         List<Showtime> list = findAll();
         list.removeIf(s -> s.getId().equalsIgnoreCase(id));
         JsonFileUtil.writeJsonToFile(FILE_PATH, list);
+        }
     }
 }
 

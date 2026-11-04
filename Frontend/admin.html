@@ -1,10 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quản trị · N6 Cinema</title>
+    <link rel="stylesheet" href="commerce.css" />
+    <script src="session.js" defer></script>
+    <script src="commerce-ui.js" defer></script>
+    <script src="admin-commerce.js" defer></script>
+    <script src="admin.js" defer></script>
+  </head>
+  <body>
+    <div class="top-strip">
+      <span>N6 CINEMA / KHU VỰC QUẢN TRỊ</span><span>ADMIN ACCESS</span>
+    </div>
+    <header class="site-header wrap">
+      <a class="logo" href="welcome.html"
+        ><b>N6<span>◉</span></b
+        ><small>CINEMA</small></a
+      >
+      <div class="account-actions">
+        <a href="welcome.html" class="text-button">Xem trang khách hàng ↗</a
+        ><button id="adminLogout" class="button dark small">Đăng xuất</button>
+      </div>
+    </header>
+    <main class="wrap admin-main">
+      <div class="admin-title">
+        <p class="eyebrow">MỌI THỨ CHO MỘT SUẤT CHIẾU TRỌN VẸN</p>
+        <h1>Quản lý rạp.</h1>
+        <p class="muted" id="adminIdentity">Đang kiểm tra quyền truy cập…</p>
+      </div>
+      <div class="admin-grid">
+        <a href="movies.html" class="admin-card"
+          ><span>▤</span>
+          <h2>Phim</h2>
+          <p>Danh sách, thêm phim và trạng thái công chiếu.</p></a
+        ><a href="showtimes.html" class="admin-card"
+          ><span>◷</span>
+          <h2>Lịch chiếu</h2>
+          <p>Tạo suất chiếu, giá vé và kiểm tra trùng lịch.</p></a
+        ><a href="rooms.html" class="admin-card"
+          ><span>▦</span>
+          <h2>Phòng & ghế</h2>
+          <p>Sơ đồ ghế, loại ghế và trạng thái hoạt động.</p></a
+        ><a href="customers.html" class="admin-card"
+          ><span>♙</span>
+          <h2>Khách hàng</h2>
+          <p>Hồ sơ, mã sinh viên và cấp hạng VIP.</p></a
+        >
+      </div>
+      <section class="section-space">
+        <div class="admin-heading">
+          <div>
+            <p class="eyebrow">ĐƠN HÀNG / THANH TOÁN DEMO</p>
+            <h2>Quản lý giao dịch mới.</h2>
+          </div>
+          <button id="refreshCommerceOrders" class="button dark small">
+            Tải lại đơn ↻
+          </button>
+        </div>
+        <p id="commerceAdminStats" class="admin-notice">Đang tải đơn…</p>
+        <div
+          id="commerceAdminError"
+          class="error-box"
+          role="alert"
+          hidden
+        ></div>
+        <div class="filters">
+          <label class="field"
+            >Tìm đơn<input
+              id="commerceOrderSearch"
+              type="search"
+              placeholder="Mã đơn, phim hoặc email…" /></label
+          ><label class="field"
+            >Trạng thái<select id="commerceOrderFilter">
+              <option value="">Tất cả</option>
+              <option value="PENDING_PAYMENT">Chờ thanh toán</option>
+              <option value="PAID">Đã thanh toán</option>
+              <option value="REFUND_PENDING">Chờ duyệt hoàn</option>
+              <option value="REFUNDED">Đã hoàn</option>
+              <option value="EXPIRED">Hết hạn</option>
+            </select></label
+          >
+        </div>
+        <div id="commerceAdminOrders" class="card-list"></div>
+        <form id="checkInForm" class="surface section-space">
+          <h3>Kiểm soát vé & nhận bắp nước</h3>
+          <label class="field"
+            >Token từ QR vé demo<input
+              name="token"
+              required
+              placeholder="N6-DEMO:… hoặc token vé" /></label
+          ><label class="check-field"
+            ><input name="collectCombo" type="checkbox" />Đồng thời xác nhận
+            nhận combo</label
+          ><button class="button dark small">Kiểm tra & sử dụng vé</button>
+          <p id="checkInResult" class="fine-print" role="status"></p>
+        </form>
+      </section>
+      <section>
+        <div class="admin-heading">
+          <div>
+            <p class="eyebrow">VÉ & THANH TOÁN TẠI QUẦY</p>
+            <h2>Danh sách đặt vé.</h2>
+          </div>
+          <button id="refreshBookings" class="button dark small">
+            Tải lại ↻
+          </button>
+        </div>
+        <p class="admin-notice" id="bookingStats">Đang tải dữ liệu…</p>
+        <label class="search-box"
+          ><span>⌕</span
+          ><input
+            type="search"
+            id="bookingSearch"
+            placeholder="Tìm mã vé, tên khách hoặc phim…"
+            aria-label="Tìm vé"
+        /></label>
+        <div id="adminBookings" class="tickets-list"></div>
+      </section>
+    </main>
+  </body>
 </html>

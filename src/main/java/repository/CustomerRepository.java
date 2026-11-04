@@ -82,6 +82,12 @@ public class CustomerRepository {
         return customer;
     }
 
+    public synchronized void deleteById(String id) {
+        List<Customer> customers=findAll();
+        customers.removeIf(c->c.getId().equals(id));
+        writeAll(customers);
+    }
+
     private void checkUniqueFields(List<Customer> customers, Customer candidate) {
         for (Customer customer : customers) {
             if (customer.getId().equalsIgnoreCase(candidate.getId())) {

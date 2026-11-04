@@ -10,6 +10,7 @@ public class Ticket {
     private String seatId;
     private BigDecimal price;
     private PaymentStatus paymentStatus;
+    private String reservationExpiresAt;
 
     public Ticket() {
     }
@@ -23,6 +24,9 @@ public class Ticket {
         this.seatId = seatId;
         this.price = price;
         this.paymentStatus = paymentStatus;
+        if (paymentStatus == PaymentStatus.PENDING) {
+            this.reservationExpiresAt = java.time.Instant.now().plusSeconds(900).toString();
+        }
     }
 
     public String getId() {
@@ -71,5 +75,13 @@ public class Ticket {
 
     public void setPaymentStatus(PaymentStatus paymentStatus) {
         this.paymentStatus = paymentStatus;
+    }
+
+    public String getReservationExpiresAt() {
+        return reservationExpiresAt;
+    }
+
+    public void setReservationExpiresAt(String expiresAt) {
+        this.reservationExpiresAt = expiresAt;
     }
 }

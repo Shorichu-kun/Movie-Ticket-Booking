@@ -20,7 +20,7 @@ import java.time.Instant;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@RestControllerAdvice(assignableTypes = CustomerHandler.class)
+@RestControllerAdvice
 public class GlobalExceptionHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
@@ -78,6 +78,17 @@ public class GlobalExceptionHandler {
         LOGGER.error("Customer storage operation failed", e);
         return error(HttpStatus.INTERNAL_SERVER_ERROR,
                 "Không thể đọc hoặc lưu dữ liệu khách hàng. Vui lòng kiểm tra nơi lưu trữ và thử lại.", Map.of());
+    }
+
+    @ExceptionHandler(ApiException.class)
+    public ResponseEntity<ApiError> handleApi(ApiException e) {
+        return error(HttpStatus.valueOf(e.status), e.getMessage(), Map.of());
+    }
+
+    @ExceptionHandler(exception.StorageException.class)
+    public ResponseEntity<ApiError> handleOtherStorage(exception.StorageException e) {
+        LOGGER.error("Storage operation failed", e);
+        return error(HttpStatus.INTERNAL_SERVER_ERROR, "Không thể đọc hoặc lưu dữ liệu. Vui lòng thử lại.", Map.of());
     }
 
     private ResponseEntity<ApiError> error(HttpStatus status, String message, Map<String, String> fieldErrors) {

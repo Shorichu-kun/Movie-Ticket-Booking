@@ -1,1 +1,6402 @@
-[]
+[
+  {
+    "id": "SEED-R01-A01",
+    "roomId": "SEED-R01",
+    "rowLabel": "A",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-A02",
+    "roomId": "SEED-R01",
+    "rowLabel": "A",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-A03",
+    "roomId": "SEED-R01",
+    "rowLabel": "A",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-A04",
+    "roomId": "SEED-R01",
+    "rowLabel": "A",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-A05",
+    "roomId": "SEED-R01",
+    "rowLabel": "A",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-A06",
+    "roomId": "SEED-R01",
+    "rowLabel": "A",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-A07",
+    "roomId": "SEED-R01",
+    "rowLabel": "A",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-A08",
+    "roomId": "SEED-R01",
+    "rowLabel": "A",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-A09",
+    "roomId": "SEED-R01",
+    "rowLabel": "A",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-A10",
+    "roomId": "SEED-R01",
+    "rowLabel": "A",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "MAINTENANCE"
+  },
+  {
+    "id": "SEED-R01-B01",
+    "roomId": "SEED-R01",
+    "rowLabel": "B",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-B02",
+    "roomId": "SEED-R01",
+    "rowLabel": "B",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-B03",
+    "roomId": "SEED-R01",
+    "rowLabel": "B",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-B04",
+    "roomId": "SEED-R01",
+    "rowLabel": "B",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-B05",
+    "roomId": "SEED-R01",
+    "rowLabel": "B",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-B06",
+    "roomId": "SEED-R01",
+    "rowLabel": "B",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-B07",
+    "roomId": "SEED-R01",
+    "rowLabel": "B",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-B08",
+    "roomId": "SEED-R01",
+    "rowLabel": "B",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-B09",
+    "roomId": "SEED-R01",
+    "rowLabel": "B",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-B10",
+    "roomId": "SEED-R01",
+    "rowLabel": "B",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "DISABLED"
+  },
+  {
+    "id": "SEED-R01-C01",
+    "roomId": "SEED-R01",
+    "rowLabel": "C",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-C02",
+    "roomId": "SEED-R01",
+    "rowLabel": "C",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-C03",
+    "roomId": "SEED-R01",
+    "rowLabel": "C",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-C04",
+    "roomId": "SEED-R01",
+    "rowLabel": "C",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-C05",
+    "roomId": "SEED-R01",
+    "rowLabel": "C",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-C06",
+    "roomId": "SEED-R01",
+    "rowLabel": "C",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-C07",
+    "roomId": "SEED-R01",
+    "rowLabel": "C",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-C08",
+    "roomId": "SEED-R01",
+    "rowLabel": "C",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-C09",
+    "roomId": "SEED-R01",
+    "rowLabel": "C",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-C10",
+    "roomId": "SEED-R01",
+    "rowLabel": "C",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-D01",
+    "roomId": "SEED-R01",
+    "rowLabel": "D",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-D02",
+    "roomId": "SEED-R01",
+    "rowLabel": "D",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-D03",
+    "roomId": "SEED-R01",
+    "rowLabel": "D",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-D04",
+    "roomId": "SEED-R01",
+    "rowLabel": "D",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-D05",
+    "roomId": "SEED-R01",
+    "rowLabel": "D",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-D06",
+    "roomId": "SEED-R01",
+    "rowLabel": "D",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-D07",
+    "roomId": "SEED-R01",
+    "rowLabel": "D",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-D08",
+    "roomId": "SEED-R01",
+    "rowLabel": "D",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-D09",
+    "roomId": "SEED-R01",
+    "rowLabel": "D",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-D10",
+    "roomId": "SEED-R01",
+    "rowLabel": "D",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-E01",
+    "roomId": "SEED-R01",
+    "rowLabel": "E",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-E02",
+    "roomId": "SEED-R01",
+    "rowLabel": "E",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-E03",
+    "roomId": "SEED-R01",
+    "rowLabel": "E",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-E04",
+    "roomId": "SEED-R01",
+    "rowLabel": "E",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-E05",
+    "roomId": "SEED-R01",
+    "rowLabel": "E",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-E06",
+    "roomId": "SEED-R01",
+    "rowLabel": "E",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-E07",
+    "roomId": "SEED-R01",
+    "rowLabel": "E",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-E08",
+    "roomId": "SEED-R01",
+    "rowLabel": "E",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-E09",
+    "roomId": "SEED-R01",
+    "rowLabel": "E",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-E10",
+    "roomId": "SEED-R01",
+    "rowLabel": "E",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-F01",
+    "roomId": "SEED-R01",
+    "rowLabel": "F",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-F02",
+    "roomId": "SEED-R01",
+    "rowLabel": "F",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-F03",
+    "roomId": "SEED-R01",
+    "rowLabel": "F",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-F04",
+    "roomId": "SEED-R01",
+    "rowLabel": "F",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-F05",
+    "roomId": "SEED-R01",
+    "rowLabel": "F",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-F06",
+    "roomId": "SEED-R01",
+    "rowLabel": "F",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-F07",
+    "roomId": "SEED-R01",
+    "rowLabel": "F",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-F08",
+    "roomId": "SEED-R01",
+    "rowLabel": "F",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-F09",
+    "roomId": "SEED-R01",
+    "rowLabel": "F",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-F10",
+    "roomId": "SEED-R01",
+    "rowLabel": "F",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-G01",
+    "roomId": "SEED-R01",
+    "rowLabel": "G",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-G02",
+    "roomId": "SEED-R01",
+    "rowLabel": "G",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-G03",
+    "roomId": "SEED-R01",
+    "rowLabel": "G",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-G04",
+    "roomId": "SEED-R01",
+    "rowLabel": "G",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-G05",
+    "roomId": "SEED-R01",
+    "rowLabel": "G",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-G06",
+    "roomId": "SEED-R01",
+    "rowLabel": "G",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-G07",
+    "roomId": "SEED-R01",
+    "rowLabel": "G",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-G08",
+    "roomId": "SEED-R01",
+    "rowLabel": "G",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-G09",
+    "roomId": "SEED-R01",
+    "rowLabel": "G",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-G10",
+    "roomId": "SEED-R01",
+    "rowLabel": "G",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-H01",
+    "roomId": "SEED-R01",
+    "rowLabel": "H",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-H02",
+    "roomId": "SEED-R01",
+    "rowLabel": "H",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-H03",
+    "roomId": "SEED-R01",
+    "rowLabel": "H",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-H04",
+    "roomId": "SEED-R01",
+    "rowLabel": "H",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-H05",
+    "roomId": "SEED-R01",
+    "rowLabel": "H",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-H06",
+    "roomId": "SEED-R01",
+    "rowLabel": "H",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-H07",
+    "roomId": "SEED-R01",
+    "rowLabel": "H",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-H08",
+    "roomId": "SEED-R01",
+    "rowLabel": "H",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-H09",
+    "roomId": "SEED-R01",
+    "rowLabel": "H",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-H10",
+    "roomId": "SEED-R01",
+    "rowLabel": "H",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-I01",
+    "roomId": "SEED-R01",
+    "rowLabel": "I",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-I02",
+    "roomId": "SEED-R01",
+    "rowLabel": "I",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-I03",
+    "roomId": "SEED-R01",
+    "rowLabel": "I",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-I04",
+    "roomId": "SEED-R01",
+    "rowLabel": "I",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-I05",
+    "roomId": "SEED-R01",
+    "rowLabel": "I",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-I06",
+    "roomId": "SEED-R01",
+    "rowLabel": "I",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-I07",
+    "roomId": "SEED-R01",
+    "rowLabel": "I",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-I08",
+    "roomId": "SEED-R01",
+    "rowLabel": "I",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-I09",
+    "roomId": "SEED-R01",
+    "rowLabel": "I",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-I10",
+    "roomId": "SEED-R01",
+    "rowLabel": "I",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-J01",
+    "roomId": "SEED-R01",
+    "rowLabel": "J",
+    "seatNumber": 1,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-J02",
+    "roomId": "SEED-R01",
+    "rowLabel": "J",
+    "seatNumber": 2,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-J03",
+    "roomId": "SEED-R01",
+    "rowLabel": "J",
+    "seatNumber": 3,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-J04",
+    "roomId": "SEED-R01",
+    "rowLabel": "J",
+    "seatNumber": 4,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-J05",
+    "roomId": "SEED-R01",
+    "rowLabel": "J",
+    "seatNumber": 5,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-J06",
+    "roomId": "SEED-R01",
+    "rowLabel": "J",
+    "seatNumber": 6,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-J07",
+    "roomId": "SEED-R01",
+    "rowLabel": "J",
+    "seatNumber": 7,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-J08",
+    "roomId": "SEED-R01",
+    "rowLabel": "J",
+    "seatNumber": 8,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-J09",
+    "roomId": "SEED-R01",
+    "rowLabel": "J",
+    "seatNumber": 9,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R01-J10",
+    "roomId": "SEED-R01",
+    "rowLabel": "J",
+    "seatNumber": 10,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-A01",
+    "roomId": "SEED-R02",
+    "rowLabel": "A",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-A02",
+    "roomId": "SEED-R02",
+    "rowLabel": "A",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-A03",
+    "roomId": "SEED-R02",
+    "rowLabel": "A",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-A04",
+    "roomId": "SEED-R02",
+    "rowLabel": "A",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-A05",
+    "roomId": "SEED-R02",
+    "rowLabel": "A",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-A06",
+    "roomId": "SEED-R02",
+    "rowLabel": "A",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-A07",
+    "roomId": "SEED-R02",
+    "rowLabel": "A",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-A08",
+    "roomId": "SEED-R02",
+    "rowLabel": "A",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-A09",
+    "roomId": "SEED-R02",
+    "rowLabel": "A",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-A10",
+    "roomId": "SEED-R02",
+    "rowLabel": "A",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "MAINTENANCE"
+  },
+  {
+    "id": "SEED-R02-B01",
+    "roomId": "SEED-R02",
+    "rowLabel": "B",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-B02",
+    "roomId": "SEED-R02",
+    "rowLabel": "B",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-B03",
+    "roomId": "SEED-R02",
+    "rowLabel": "B",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-B04",
+    "roomId": "SEED-R02",
+    "rowLabel": "B",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-B05",
+    "roomId": "SEED-R02",
+    "rowLabel": "B",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-B06",
+    "roomId": "SEED-R02",
+    "rowLabel": "B",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-B07",
+    "roomId": "SEED-R02",
+    "rowLabel": "B",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-B08",
+    "roomId": "SEED-R02",
+    "rowLabel": "B",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-B09",
+    "roomId": "SEED-R02",
+    "rowLabel": "B",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-B10",
+    "roomId": "SEED-R02",
+    "rowLabel": "B",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "DISABLED"
+  },
+  {
+    "id": "SEED-R02-C01",
+    "roomId": "SEED-R02",
+    "rowLabel": "C",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-C02",
+    "roomId": "SEED-R02",
+    "rowLabel": "C",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-C03",
+    "roomId": "SEED-R02",
+    "rowLabel": "C",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-C04",
+    "roomId": "SEED-R02",
+    "rowLabel": "C",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-C05",
+    "roomId": "SEED-R02",
+    "rowLabel": "C",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-C06",
+    "roomId": "SEED-R02",
+    "rowLabel": "C",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-C07",
+    "roomId": "SEED-R02",
+    "rowLabel": "C",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-C08",
+    "roomId": "SEED-R02",
+    "rowLabel": "C",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-C09",
+    "roomId": "SEED-R02",
+    "rowLabel": "C",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-C10",
+    "roomId": "SEED-R02",
+    "rowLabel": "C",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-D01",
+    "roomId": "SEED-R02",
+    "rowLabel": "D",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-D02",
+    "roomId": "SEED-R02",
+    "rowLabel": "D",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-D03",
+    "roomId": "SEED-R02",
+    "rowLabel": "D",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-D04",
+    "roomId": "SEED-R02",
+    "rowLabel": "D",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-D05",
+    "roomId": "SEED-R02",
+    "rowLabel": "D",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-D06",
+    "roomId": "SEED-R02",
+    "rowLabel": "D",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-D07",
+    "roomId": "SEED-R02",
+    "rowLabel": "D",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-D08",
+    "roomId": "SEED-R02",
+    "rowLabel": "D",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-D09",
+    "roomId": "SEED-R02",
+    "rowLabel": "D",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-D10",
+    "roomId": "SEED-R02",
+    "rowLabel": "D",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-E01",
+    "roomId": "SEED-R02",
+    "rowLabel": "E",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-E02",
+    "roomId": "SEED-R02",
+    "rowLabel": "E",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-E03",
+    "roomId": "SEED-R02",
+    "rowLabel": "E",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-E04",
+    "roomId": "SEED-R02",
+    "rowLabel": "E",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-E05",
+    "roomId": "SEED-R02",
+    "rowLabel": "E",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-E06",
+    "roomId": "SEED-R02",
+    "rowLabel": "E",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-E07",
+    "roomId": "SEED-R02",
+    "rowLabel": "E",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-E08",
+    "roomId": "SEED-R02",
+    "rowLabel": "E",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-E09",
+    "roomId": "SEED-R02",
+    "rowLabel": "E",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-E10",
+    "roomId": "SEED-R02",
+    "rowLabel": "E",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-F01",
+    "roomId": "SEED-R02",
+    "rowLabel": "F",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-F02",
+    "roomId": "SEED-R02",
+    "rowLabel": "F",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-F03",
+    "roomId": "SEED-R02",
+    "rowLabel": "F",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-F04",
+    "roomId": "SEED-R02",
+    "rowLabel": "F",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-F05",
+    "roomId": "SEED-R02",
+    "rowLabel": "F",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-F06",
+    "roomId": "SEED-R02",
+    "rowLabel": "F",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-F07",
+    "roomId": "SEED-R02",
+    "rowLabel": "F",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-F08",
+    "roomId": "SEED-R02",
+    "rowLabel": "F",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-F09",
+    "roomId": "SEED-R02",
+    "rowLabel": "F",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-F10",
+    "roomId": "SEED-R02",
+    "rowLabel": "F",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-G01",
+    "roomId": "SEED-R02",
+    "rowLabel": "G",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-G02",
+    "roomId": "SEED-R02",
+    "rowLabel": "G",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-G03",
+    "roomId": "SEED-R02",
+    "rowLabel": "G",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-G04",
+    "roomId": "SEED-R02",
+    "rowLabel": "G",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-G05",
+    "roomId": "SEED-R02",
+    "rowLabel": "G",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-G06",
+    "roomId": "SEED-R02",
+    "rowLabel": "G",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-G07",
+    "roomId": "SEED-R02",
+    "rowLabel": "G",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-G08",
+    "roomId": "SEED-R02",
+    "rowLabel": "G",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-G09",
+    "roomId": "SEED-R02",
+    "rowLabel": "G",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-G10",
+    "roomId": "SEED-R02",
+    "rowLabel": "G",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-H01",
+    "roomId": "SEED-R02",
+    "rowLabel": "H",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-H02",
+    "roomId": "SEED-R02",
+    "rowLabel": "H",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-H03",
+    "roomId": "SEED-R02",
+    "rowLabel": "H",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-H04",
+    "roomId": "SEED-R02",
+    "rowLabel": "H",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-H05",
+    "roomId": "SEED-R02",
+    "rowLabel": "H",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-H06",
+    "roomId": "SEED-R02",
+    "rowLabel": "H",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-H07",
+    "roomId": "SEED-R02",
+    "rowLabel": "H",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-H08",
+    "roomId": "SEED-R02",
+    "rowLabel": "H",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-H09",
+    "roomId": "SEED-R02",
+    "rowLabel": "H",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-H10",
+    "roomId": "SEED-R02",
+    "rowLabel": "H",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-I01",
+    "roomId": "SEED-R02",
+    "rowLabel": "I",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-I02",
+    "roomId": "SEED-R02",
+    "rowLabel": "I",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-I03",
+    "roomId": "SEED-R02",
+    "rowLabel": "I",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-I04",
+    "roomId": "SEED-R02",
+    "rowLabel": "I",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-I05",
+    "roomId": "SEED-R02",
+    "rowLabel": "I",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-I06",
+    "roomId": "SEED-R02",
+    "rowLabel": "I",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-I07",
+    "roomId": "SEED-R02",
+    "rowLabel": "I",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-I08",
+    "roomId": "SEED-R02",
+    "rowLabel": "I",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-I09",
+    "roomId": "SEED-R02",
+    "rowLabel": "I",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-I10",
+    "roomId": "SEED-R02",
+    "rowLabel": "I",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-J01",
+    "roomId": "SEED-R02",
+    "rowLabel": "J",
+    "seatNumber": 1,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-J02",
+    "roomId": "SEED-R02",
+    "rowLabel": "J",
+    "seatNumber": 2,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-J03",
+    "roomId": "SEED-R02",
+    "rowLabel": "J",
+    "seatNumber": 3,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-J04",
+    "roomId": "SEED-R02",
+    "rowLabel": "J",
+    "seatNumber": 4,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-J05",
+    "roomId": "SEED-R02",
+    "rowLabel": "J",
+    "seatNumber": 5,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-J06",
+    "roomId": "SEED-R02",
+    "rowLabel": "J",
+    "seatNumber": 6,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-J07",
+    "roomId": "SEED-R02",
+    "rowLabel": "J",
+    "seatNumber": 7,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-J08",
+    "roomId": "SEED-R02",
+    "rowLabel": "J",
+    "seatNumber": 8,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-J09",
+    "roomId": "SEED-R02",
+    "rowLabel": "J",
+    "seatNumber": 9,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R02-J10",
+    "roomId": "SEED-R02",
+    "rowLabel": "J",
+    "seatNumber": 10,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-A01",
+    "roomId": "SEED-R03",
+    "rowLabel": "A",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-A02",
+    "roomId": "SEED-R03",
+    "rowLabel": "A",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-A03",
+    "roomId": "SEED-R03",
+    "rowLabel": "A",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-A04",
+    "roomId": "SEED-R03",
+    "rowLabel": "A",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-A05",
+    "roomId": "SEED-R03",
+    "rowLabel": "A",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-A06",
+    "roomId": "SEED-R03",
+    "rowLabel": "A",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-A07",
+    "roomId": "SEED-R03",
+    "rowLabel": "A",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-A08",
+    "roomId": "SEED-R03",
+    "rowLabel": "A",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-A09",
+    "roomId": "SEED-R03",
+    "rowLabel": "A",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-A10",
+    "roomId": "SEED-R03",
+    "rowLabel": "A",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "MAINTENANCE"
+  },
+  {
+    "id": "SEED-R03-B01",
+    "roomId": "SEED-R03",
+    "rowLabel": "B",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-B02",
+    "roomId": "SEED-R03",
+    "rowLabel": "B",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-B03",
+    "roomId": "SEED-R03",
+    "rowLabel": "B",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-B04",
+    "roomId": "SEED-R03",
+    "rowLabel": "B",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-B05",
+    "roomId": "SEED-R03",
+    "rowLabel": "B",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-B06",
+    "roomId": "SEED-R03",
+    "rowLabel": "B",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-B07",
+    "roomId": "SEED-R03",
+    "rowLabel": "B",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-B08",
+    "roomId": "SEED-R03",
+    "rowLabel": "B",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-B09",
+    "roomId": "SEED-R03",
+    "rowLabel": "B",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-B10",
+    "roomId": "SEED-R03",
+    "rowLabel": "B",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "DISABLED"
+  },
+  {
+    "id": "SEED-R03-C01",
+    "roomId": "SEED-R03",
+    "rowLabel": "C",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-C02",
+    "roomId": "SEED-R03",
+    "rowLabel": "C",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-C03",
+    "roomId": "SEED-R03",
+    "rowLabel": "C",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-C04",
+    "roomId": "SEED-R03",
+    "rowLabel": "C",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-C05",
+    "roomId": "SEED-R03",
+    "rowLabel": "C",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-C06",
+    "roomId": "SEED-R03",
+    "rowLabel": "C",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-C07",
+    "roomId": "SEED-R03",
+    "rowLabel": "C",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-C08",
+    "roomId": "SEED-R03",
+    "rowLabel": "C",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-C09",
+    "roomId": "SEED-R03",
+    "rowLabel": "C",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-C10",
+    "roomId": "SEED-R03",
+    "rowLabel": "C",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-D01",
+    "roomId": "SEED-R03",
+    "rowLabel": "D",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-D02",
+    "roomId": "SEED-R03",
+    "rowLabel": "D",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-D03",
+    "roomId": "SEED-R03",
+    "rowLabel": "D",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-D04",
+    "roomId": "SEED-R03",
+    "rowLabel": "D",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-D05",
+    "roomId": "SEED-R03",
+    "rowLabel": "D",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-D06",
+    "roomId": "SEED-R03",
+    "rowLabel": "D",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-D07",
+    "roomId": "SEED-R03",
+    "rowLabel": "D",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-D08",
+    "roomId": "SEED-R03",
+    "rowLabel": "D",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-D09",
+    "roomId": "SEED-R03",
+    "rowLabel": "D",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-D10",
+    "roomId": "SEED-R03",
+    "rowLabel": "D",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-E01",
+    "roomId": "SEED-R03",
+    "rowLabel": "E",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-E02",
+    "roomId": "SEED-R03",
+    "rowLabel": "E",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-E03",
+    "roomId": "SEED-R03",
+    "rowLabel": "E",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-E04",
+    "roomId": "SEED-R03",
+    "rowLabel": "E",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-E05",
+    "roomId": "SEED-R03",
+    "rowLabel": "E",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-E06",
+    "roomId": "SEED-R03",
+    "rowLabel": "E",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-E07",
+    "roomId": "SEED-R03",
+    "rowLabel": "E",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-E08",
+    "roomId": "SEED-R03",
+    "rowLabel": "E",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-E09",
+    "roomId": "SEED-R03",
+    "rowLabel": "E",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-E10",
+    "roomId": "SEED-R03",
+    "rowLabel": "E",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-F01",
+    "roomId": "SEED-R03",
+    "rowLabel": "F",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-F02",
+    "roomId": "SEED-R03",
+    "rowLabel": "F",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-F03",
+    "roomId": "SEED-R03",
+    "rowLabel": "F",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-F04",
+    "roomId": "SEED-R03",
+    "rowLabel": "F",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-F05",
+    "roomId": "SEED-R03",
+    "rowLabel": "F",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-F06",
+    "roomId": "SEED-R03",
+    "rowLabel": "F",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-F07",
+    "roomId": "SEED-R03",
+    "rowLabel": "F",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-F08",
+    "roomId": "SEED-R03",
+    "rowLabel": "F",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-F09",
+    "roomId": "SEED-R03",
+    "rowLabel": "F",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-F10",
+    "roomId": "SEED-R03",
+    "rowLabel": "F",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-G01",
+    "roomId": "SEED-R03",
+    "rowLabel": "G",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-G02",
+    "roomId": "SEED-R03",
+    "rowLabel": "G",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-G03",
+    "roomId": "SEED-R03",
+    "rowLabel": "G",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-G04",
+    "roomId": "SEED-R03",
+    "rowLabel": "G",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-G05",
+    "roomId": "SEED-R03",
+    "rowLabel": "G",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-G06",
+    "roomId": "SEED-R03",
+    "rowLabel": "G",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-G07",
+    "roomId": "SEED-R03",
+    "rowLabel": "G",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-G08",
+    "roomId": "SEED-R03",
+    "rowLabel": "G",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-G09",
+    "roomId": "SEED-R03",
+    "rowLabel": "G",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-G10",
+    "roomId": "SEED-R03",
+    "rowLabel": "G",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-H01",
+    "roomId": "SEED-R03",
+    "rowLabel": "H",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-H02",
+    "roomId": "SEED-R03",
+    "rowLabel": "H",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-H03",
+    "roomId": "SEED-R03",
+    "rowLabel": "H",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-H04",
+    "roomId": "SEED-R03",
+    "rowLabel": "H",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-H05",
+    "roomId": "SEED-R03",
+    "rowLabel": "H",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-H06",
+    "roomId": "SEED-R03",
+    "rowLabel": "H",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-H07",
+    "roomId": "SEED-R03",
+    "rowLabel": "H",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-H08",
+    "roomId": "SEED-R03",
+    "rowLabel": "H",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-H09",
+    "roomId": "SEED-R03",
+    "rowLabel": "H",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-H10",
+    "roomId": "SEED-R03",
+    "rowLabel": "H",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-I01",
+    "roomId": "SEED-R03",
+    "rowLabel": "I",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-I02",
+    "roomId": "SEED-R03",
+    "rowLabel": "I",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-I03",
+    "roomId": "SEED-R03",
+    "rowLabel": "I",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-I04",
+    "roomId": "SEED-R03",
+    "rowLabel": "I",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-I05",
+    "roomId": "SEED-R03",
+    "rowLabel": "I",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-I06",
+    "roomId": "SEED-R03",
+    "rowLabel": "I",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-I07",
+    "roomId": "SEED-R03",
+    "rowLabel": "I",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-I08",
+    "roomId": "SEED-R03",
+    "rowLabel": "I",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-I09",
+    "roomId": "SEED-R03",
+    "rowLabel": "I",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-I10",
+    "roomId": "SEED-R03",
+    "rowLabel": "I",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-J01",
+    "roomId": "SEED-R03",
+    "rowLabel": "J",
+    "seatNumber": 1,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-J02",
+    "roomId": "SEED-R03",
+    "rowLabel": "J",
+    "seatNumber": 2,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-J03",
+    "roomId": "SEED-R03",
+    "rowLabel": "J",
+    "seatNumber": 3,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-J04",
+    "roomId": "SEED-R03",
+    "rowLabel": "J",
+    "seatNumber": 4,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-J05",
+    "roomId": "SEED-R03",
+    "rowLabel": "J",
+    "seatNumber": 5,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-J06",
+    "roomId": "SEED-R03",
+    "rowLabel": "J",
+    "seatNumber": 6,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-J07",
+    "roomId": "SEED-R03",
+    "rowLabel": "J",
+    "seatNumber": 7,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-J08",
+    "roomId": "SEED-R03",
+    "rowLabel": "J",
+    "seatNumber": 8,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-J09",
+    "roomId": "SEED-R03",
+    "rowLabel": "J",
+    "seatNumber": 9,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R03-J10",
+    "roomId": "SEED-R03",
+    "rowLabel": "J",
+    "seatNumber": 10,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-A01",
+    "roomId": "SEED-R04",
+    "rowLabel": "A",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-A02",
+    "roomId": "SEED-R04",
+    "rowLabel": "A",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-A03",
+    "roomId": "SEED-R04",
+    "rowLabel": "A",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-A04",
+    "roomId": "SEED-R04",
+    "rowLabel": "A",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-A05",
+    "roomId": "SEED-R04",
+    "rowLabel": "A",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-A06",
+    "roomId": "SEED-R04",
+    "rowLabel": "A",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-A07",
+    "roomId": "SEED-R04",
+    "rowLabel": "A",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-A08",
+    "roomId": "SEED-R04",
+    "rowLabel": "A",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-A09",
+    "roomId": "SEED-R04",
+    "rowLabel": "A",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-A10",
+    "roomId": "SEED-R04",
+    "rowLabel": "A",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "MAINTENANCE"
+  },
+  {
+    "id": "SEED-R04-B01",
+    "roomId": "SEED-R04",
+    "rowLabel": "B",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-B02",
+    "roomId": "SEED-R04",
+    "rowLabel": "B",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-B03",
+    "roomId": "SEED-R04",
+    "rowLabel": "B",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-B04",
+    "roomId": "SEED-R04",
+    "rowLabel": "B",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-B05",
+    "roomId": "SEED-R04",
+    "rowLabel": "B",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-B06",
+    "roomId": "SEED-R04",
+    "rowLabel": "B",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-B07",
+    "roomId": "SEED-R04",
+    "rowLabel": "B",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-B08",
+    "roomId": "SEED-R04",
+    "rowLabel": "B",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-B09",
+    "roomId": "SEED-R04",
+    "rowLabel": "B",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-B10",
+    "roomId": "SEED-R04",
+    "rowLabel": "B",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "DISABLED"
+  },
+  {
+    "id": "SEED-R04-C01",
+    "roomId": "SEED-R04",
+    "rowLabel": "C",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-C02",
+    "roomId": "SEED-R04",
+    "rowLabel": "C",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-C03",
+    "roomId": "SEED-R04",
+    "rowLabel": "C",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-C04",
+    "roomId": "SEED-R04",
+    "rowLabel": "C",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-C05",
+    "roomId": "SEED-R04",
+    "rowLabel": "C",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-C06",
+    "roomId": "SEED-R04",
+    "rowLabel": "C",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-C07",
+    "roomId": "SEED-R04",
+    "rowLabel": "C",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-C08",
+    "roomId": "SEED-R04",
+    "rowLabel": "C",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-C09",
+    "roomId": "SEED-R04",
+    "rowLabel": "C",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-C10",
+    "roomId": "SEED-R04",
+    "rowLabel": "C",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-D01",
+    "roomId": "SEED-R04",
+    "rowLabel": "D",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-D02",
+    "roomId": "SEED-R04",
+    "rowLabel": "D",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-D03",
+    "roomId": "SEED-R04",
+    "rowLabel": "D",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-D04",
+    "roomId": "SEED-R04",
+    "rowLabel": "D",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-D05",
+    "roomId": "SEED-R04",
+    "rowLabel": "D",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-D06",
+    "roomId": "SEED-R04",
+    "rowLabel": "D",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-D07",
+    "roomId": "SEED-R04",
+    "rowLabel": "D",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-D08",
+    "roomId": "SEED-R04",
+    "rowLabel": "D",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-D09",
+    "roomId": "SEED-R04",
+    "rowLabel": "D",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-D10",
+    "roomId": "SEED-R04",
+    "rowLabel": "D",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-E01",
+    "roomId": "SEED-R04",
+    "rowLabel": "E",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-E02",
+    "roomId": "SEED-R04",
+    "rowLabel": "E",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-E03",
+    "roomId": "SEED-R04",
+    "rowLabel": "E",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-E04",
+    "roomId": "SEED-R04",
+    "rowLabel": "E",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-E05",
+    "roomId": "SEED-R04",
+    "rowLabel": "E",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-E06",
+    "roomId": "SEED-R04",
+    "rowLabel": "E",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-E07",
+    "roomId": "SEED-R04",
+    "rowLabel": "E",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-E08",
+    "roomId": "SEED-R04",
+    "rowLabel": "E",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-E09",
+    "roomId": "SEED-R04",
+    "rowLabel": "E",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-E10",
+    "roomId": "SEED-R04",
+    "rowLabel": "E",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-F01",
+    "roomId": "SEED-R04",
+    "rowLabel": "F",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-F02",
+    "roomId": "SEED-R04",
+    "rowLabel": "F",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-F03",
+    "roomId": "SEED-R04",
+    "rowLabel": "F",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-F04",
+    "roomId": "SEED-R04",
+    "rowLabel": "F",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-F05",
+    "roomId": "SEED-R04",
+    "rowLabel": "F",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-F06",
+    "roomId": "SEED-R04",
+    "rowLabel": "F",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-F07",
+    "roomId": "SEED-R04",
+    "rowLabel": "F",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-F08",
+    "roomId": "SEED-R04",
+    "rowLabel": "F",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-F09",
+    "roomId": "SEED-R04",
+    "rowLabel": "F",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-F10",
+    "roomId": "SEED-R04",
+    "rowLabel": "F",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-G01",
+    "roomId": "SEED-R04",
+    "rowLabel": "G",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-G02",
+    "roomId": "SEED-R04",
+    "rowLabel": "G",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-G03",
+    "roomId": "SEED-R04",
+    "rowLabel": "G",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-G04",
+    "roomId": "SEED-R04",
+    "rowLabel": "G",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-G05",
+    "roomId": "SEED-R04",
+    "rowLabel": "G",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-G06",
+    "roomId": "SEED-R04",
+    "rowLabel": "G",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-G07",
+    "roomId": "SEED-R04",
+    "rowLabel": "G",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-G08",
+    "roomId": "SEED-R04",
+    "rowLabel": "G",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-G09",
+    "roomId": "SEED-R04",
+    "rowLabel": "G",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-G10",
+    "roomId": "SEED-R04",
+    "rowLabel": "G",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-H01",
+    "roomId": "SEED-R04",
+    "rowLabel": "H",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-H02",
+    "roomId": "SEED-R04",
+    "rowLabel": "H",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-H03",
+    "roomId": "SEED-R04",
+    "rowLabel": "H",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-H04",
+    "roomId": "SEED-R04",
+    "rowLabel": "H",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-H05",
+    "roomId": "SEED-R04",
+    "rowLabel": "H",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-H06",
+    "roomId": "SEED-R04",
+    "rowLabel": "H",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-H07",
+    "roomId": "SEED-R04",
+    "rowLabel": "H",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-H08",
+    "roomId": "SEED-R04",
+    "rowLabel": "H",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-H09",
+    "roomId": "SEED-R04",
+    "rowLabel": "H",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-H10",
+    "roomId": "SEED-R04",
+    "rowLabel": "H",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-I01",
+    "roomId": "SEED-R04",
+    "rowLabel": "I",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-I02",
+    "roomId": "SEED-R04",
+    "rowLabel": "I",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-I03",
+    "roomId": "SEED-R04",
+    "rowLabel": "I",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-I04",
+    "roomId": "SEED-R04",
+    "rowLabel": "I",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-I05",
+    "roomId": "SEED-R04",
+    "rowLabel": "I",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-I06",
+    "roomId": "SEED-R04",
+    "rowLabel": "I",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-I07",
+    "roomId": "SEED-R04",
+    "rowLabel": "I",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-I08",
+    "roomId": "SEED-R04",
+    "rowLabel": "I",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-I09",
+    "roomId": "SEED-R04",
+    "rowLabel": "I",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-I10",
+    "roomId": "SEED-R04",
+    "rowLabel": "I",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-J01",
+    "roomId": "SEED-R04",
+    "rowLabel": "J",
+    "seatNumber": 1,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-J02",
+    "roomId": "SEED-R04",
+    "rowLabel": "J",
+    "seatNumber": 2,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-J03",
+    "roomId": "SEED-R04",
+    "rowLabel": "J",
+    "seatNumber": 3,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-J04",
+    "roomId": "SEED-R04",
+    "rowLabel": "J",
+    "seatNumber": 4,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-J05",
+    "roomId": "SEED-R04",
+    "rowLabel": "J",
+    "seatNumber": 5,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-J06",
+    "roomId": "SEED-R04",
+    "rowLabel": "J",
+    "seatNumber": 6,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-J07",
+    "roomId": "SEED-R04",
+    "rowLabel": "J",
+    "seatNumber": 7,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-J08",
+    "roomId": "SEED-R04",
+    "rowLabel": "J",
+    "seatNumber": 8,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-J09",
+    "roomId": "SEED-R04",
+    "rowLabel": "J",
+    "seatNumber": 9,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R04-J10",
+    "roomId": "SEED-R04",
+    "rowLabel": "J",
+    "seatNumber": 10,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-A01",
+    "roomId": "SEED-R05",
+    "rowLabel": "A",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-A02",
+    "roomId": "SEED-R05",
+    "rowLabel": "A",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-A03",
+    "roomId": "SEED-R05",
+    "rowLabel": "A",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-A04",
+    "roomId": "SEED-R05",
+    "rowLabel": "A",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-A05",
+    "roomId": "SEED-R05",
+    "rowLabel": "A",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-A06",
+    "roomId": "SEED-R05",
+    "rowLabel": "A",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-A07",
+    "roomId": "SEED-R05",
+    "rowLabel": "A",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-A08",
+    "roomId": "SEED-R05",
+    "rowLabel": "A",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-A09",
+    "roomId": "SEED-R05",
+    "rowLabel": "A",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-A10",
+    "roomId": "SEED-R05",
+    "rowLabel": "A",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "MAINTENANCE"
+  },
+  {
+    "id": "SEED-R05-B01",
+    "roomId": "SEED-R05",
+    "rowLabel": "B",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-B02",
+    "roomId": "SEED-R05",
+    "rowLabel": "B",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-B03",
+    "roomId": "SEED-R05",
+    "rowLabel": "B",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-B04",
+    "roomId": "SEED-R05",
+    "rowLabel": "B",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-B05",
+    "roomId": "SEED-R05",
+    "rowLabel": "B",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-B06",
+    "roomId": "SEED-R05",
+    "rowLabel": "B",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-B07",
+    "roomId": "SEED-R05",
+    "rowLabel": "B",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-B08",
+    "roomId": "SEED-R05",
+    "rowLabel": "B",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-B09",
+    "roomId": "SEED-R05",
+    "rowLabel": "B",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-B10",
+    "roomId": "SEED-R05",
+    "rowLabel": "B",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "DISABLED"
+  },
+  {
+    "id": "SEED-R05-C01",
+    "roomId": "SEED-R05",
+    "rowLabel": "C",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-C02",
+    "roomId": "SEED-R05",
+    "rowLabel": "C",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-C03",
+    "roomId": "SEED-R05",
+    "rowLabel": "C",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-C04",
+    "roomId": "SEED-R05",
+    "rowLabel": "C",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-C05",
+    "roomId": "SEED-R05",
+    "rowLabel": "C",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-C06",
+    "roomId": "SEED-R05",
+    "rowLabel": "C",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-C07",
+    "roomId": "SEED-R05",
+    "rowLabel": "C",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-C08",
+    "roomId": "SEED-R05",
+    "rowLabel": "C",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-C09",
+    "roomId": "SEED-R05",
+    "rowLabel": "C",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-C10",
+    "roomId": "SEED-R05",
+    "rowLabel": "C",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-D01",
+    "roomId": "SEED-R05",
+    "rowLabel": "D",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-D02",
+    "roomId": "SEED-R05",
+    "rowLabel": "D",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-D03",
+    "roomId": "SEED-R05",
+    "rowLabel": "D",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-D04",
+    "roomId": "SEED-R05",
+    "rowLabel": "D",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-D05",
+    "roomId": "SEED-R05",
+    "rowLabel": "D",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-D06",
+    "roomId": "SEED-R05",
+    "rowLabel": "D",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-D07",
+    "roomId": "SEED-R05",
+    "rowLabel": "D",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-D08",
+    "roomId": "SEED-R05",
+    "rowLabel": "D",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-D09",
+    "roomId": "SEED-R05",
+    "rowLabel": "D",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-D10",
+    "roomId": "SEED-R05",
+    "rowLabel": "D",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-E01",
+    "roomId": "SEED-R05",
+    "rowLabel": "E",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-E02",
+    "roomId": "SEED-R05",
+    "rowLabel": "E",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-E03",
+    "roomId": "SEED-R05",
+    "rowLabel": "E",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-E04",
+    "roomId": "SEED-R05",
+    "rowLabel": "E",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-E05",
+    "roomId": "SEED-R05",
+    "rowLabel": "E",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-E06",
+    "roomId": "SEED-R05",
+    "rowLabel": "E",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-E07",
+    "roomId": "SEED-R05",
+    "rowLabel": "E",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-E08",
+    "roomId": "SEED-R05",
+    "rowLabel": "E",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-E09",
+    "roomId": "SEED-R05",
+    "rowLabel": "E",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-E10",
+    "roomId": "SEED-R05",
+    "rowLabel": "E",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-F01",
+    "roomId": "SEED-R05",
+    "rowLabel": "F",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-F02",
+    "roomId": "SEED-R05",
+    "rowLabel": "F",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-F03",
+    "roomId": "SEED-R05",
+    "rowLabel": "F",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-F04",
+    "roomId": "SEED-R05",
+    "rowLabel": "F",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-F05",
+    "roomId": "SEED-R05",
+    "rowLabel": "F",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-F06",
+    "roomId": "SEED-R05",
+    "rowLabel": "F",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-F07",
+    "roomId": "SEED-R05",
+    "rowLabel": "F",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-F08",
+    "roomId": "SEED-R05",
+    "rowLabel": "F",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-F09",
+    "roomId": "SEED-R05",
+    "rowLabel": "F",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-F10",
+    "roomId": "SEED-R05",
+    "rowLabel": "F",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-G01",
+    "roomId": "SEED-R05",
+    "rowLabel": "G",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-G02",
+    "roomId": "SEED-R05",
+    "rowLabel": "G",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-G03",
+    "roomId": "SEED-R05",
+    "rowLabel": "G",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-G04",
+    "roomId": "SEED-R05",
+    "rowLabel": "G",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-G05",
+    "roomId": "SEED-R05",
+    "rowLabel": "G",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-G06",
+    "roomId": "SEED-R05",
+    "rowLabel": "G",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-G07",
+    "roomId": "SEED-R05",
+    "rowLabel": "G",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-G08",
+    "roomId": "SEED-R05",
+    "rowLabel": "G",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-G09",
+    "roomId": "SEED-R05",
+    "rowLabel": "G",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-G10",
+    "roomId": "SEED-R05",
+    "rowLabel": "G",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-H01",
+    "roomId": "SEED-R05",
+    "rowLabel": "H",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-H02",
+    "roomId": "SEED-R05",
+    "rowLabel": "H",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-H03",
+    "roomId": "SEED-R05",
+    "rowLabel": "H",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-H04",
+    "roomId": "SEED-R05",
+    "rowLabel": "H",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-H05",
+    "roomId": "SEED-R05",
+    "rowLabel": "H",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-H06",
+    "roomId": "SEED-R05",
+    "rowLabel": "H",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-H07",
+    "roomId": "SEED-R05",
+    "rowLabel": "H",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-H08",
+    "roomId": "SEED-R05",
+    "rowLabel": "H",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-H09",
+    "roomId": "SEED-R05",
+    "rowLabel": "H",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-H10",
+    "roomId": "SEED-R05",
+    "rowLabel": "H",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-I01",
+    "roomId": "SEED-R05",
+    "rowLabel": "I",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-I02",
+    "roomId": "SEED-R05",
+    "rowLabel": "I",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-I03",
+    "roomId": "SEED-R05",
+    "rowLabel": "I",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-I04",
+    "roomId": "SEED-R05",
+    "rowLabel": "I",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-I05",
+    "roomId": "SEED-R05",
+    "rowLabel": "I",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-I06",
+    "roomId": "SEED-R05",
+    "rowLabel": "I",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-I07",
+    "roomId": "SEED-R05",
+    "rowLabel": "I",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-I08",
+    "roomId": "SEED-R05",
+    "rowLabel": "I",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-I09",
+    "roomId": "SEED-R05",
+    "rowLabel": "I",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-I10",
+    "roomId": "SEED-R05",
+    "rowLabel": "I",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-J01",
+    "roomId": "SEED-R05",
+    "rowLabel": "J",
+    "seatNumber": 1,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-J02",
+    "roomId": "SEED-R05",
+    "rowLabel": "J",
+    "seatNumber": 2,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-J03",
+    "roomId": "SEED-R05",
+    "rowLabel": "J",
+    "seatNumber": 3,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-J04",
+    "roomId": "SEED-R05",
+    "rowLabel": "J",
+    "seatNumber": 4,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-J05",
+    "roomId": "SEED-R05",
+    "rowLabel": "J",
+    "seatNumber": 5,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-J06",
+    "roomId": "SEED-R05",
+    "rowLabel": "J",
+    "seatNumber": 6,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-J07",
+    "roomId": "SEED-R05",
+    "rowLabel": "J",
+    "seatNumber": 7,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-J08",
+    "roomId": "SEED-R05",
+    "rowLabel": "J",
+    "seatNumber": 8,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-J09",
+    "roomId": "SEED-R05",
+    "rowLabel": "J",
+    "seatNumber": 9,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R05-J10",
+    "roomId": "SEED-R05",
+    "rowLabel": "J",
+    "seatNumber": 10,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-A01",
+    "roomId": "SEED-R06",
+    "rowLabel": "A",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-A02",
+    "roomId": "SEED-R06",
+    "rowLabel": "A",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-A03",
+    "roomId": "SEED-R06",
+    "rowLabel": "A",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-A04",
+    "roomId": "SEED-R06",
+    "rowLabel": "A",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-A05",
+    "roomId": "SEED-R06",
+    "rowLabel": "A",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-A06",
+    "roomId": "SEED-R06",
+    "rowLabel": "A",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-A07",
+    "roomId": "SEED-R06",
+    "rowLabel": "A",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-A08",
+    "roomId": "SEED-R06",
+    "rowLabel": "A",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-A09",
+    "roomId": "SEED-R06",
+    "rowLabel": "A",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-A10",
+    "roomId": "SEED-R06",
+    "rowLabel": "A",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "MAINTENANCE"
+  },
+  {
+    "id": "SEED-R06-B01",
+    "roomId": "SEED-R06",
+    "rowLabel": "B",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-B02",
+    "roomId": "SEED-R06",
+    "rowLabel": "B",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-B03",
+    "roomId": "SEED-R06",
+    "rowLabel": "B",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-B04",
+    "roomId": "SEED-R06",
+    "rowLabel": "B",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-B05",
+    "roomId": "SEED-R06",
+    "rowLabel": "B",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-B06",
+    "roomId": "SEED-R06",
+    "rowLabel": "B",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-B07",
+    "roomId": "SEED-R06",
+    "rowLabel": "B",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-B08",
+    "roomId": "SEED-R06",
+    "rowLabel": "B",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-B09",
+    "roomId": "SEED-R06",
+    "rowLabel": "B",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-B10",
+    "roomId": "SEED-R06",
+    "rowLabel": "B",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "DISABLED"
+  },
+  {
+    "id": "SEED-R06-C01",
+    "roomId": "SEED-R06",
+    "rowLabel": "C",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-C02",
+    "roomId": "SEED-R06",
+    "rowLabel": "C",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-C03",
+    "roomId": "SEED-R06",
+    "rowLabel": "C",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-C04",
+    "roomId": "SEED-R06",
+    "rowLabel": "C",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-C05",
+    "roomId": "SEED-R06",
+    "rowLabel": "C",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-C06",
+    "roomId": "SEED-R06",
+    "rowLabel": "C",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-C07",
+    "roomId": "SEED-R06",
+    "rowLabel": "C",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-C08",
+    "roomId": "SEED-R06",
+    "rowLabel": "C",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-C09",
+    "roomId": "SEED-R06",
+    "rowLabel": "C",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-C10",
+    "roomId": "SEED-R06",
+    "rowLabel": "C",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-D01",
+    "roomId": "SEED-R06",
+    "rowLabel": "D",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-D02",
+    "roomId": "SEED-R06",
+    "rowLabel": "D",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-D03",
+    "roomId": "SEED-R06",
+    "rowLabel": "D",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-D04",
+    "roomId": "SEED-R06",
+    "rowLabel": "D",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-D05",
+    "roomId": "SEED-R06",
+    "rowLabel": "D",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-D06",
+    "roomId": "SEED-R06",
+    "rowLabel": "D",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-D07",
+    "roomId": "SEED-R06",
+    "rowLabel": "D",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-D08",
+    "roomId": "SEED-R06",
+    "rowLabel": "D",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-D09",
+    "roomId": "SEED-R06",
+    "rowLabel": "D",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-D10",
+    "roomId": "SEED-R06",
+    "rowLabel": "D",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-E01",
+    "roomId": "SEED-R06",
+    "rowLabel": "E",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-E02",
+    "roomId": "SEED-R06",
+    "rowLabel": "E",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-E03",
+    "roomId": "SEED-R06",
+    "rowLabel": "E",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-E04",
+    "roomId": "SEED-R06",
+    "rowLabel": "E",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-E05",
+    "roomId": "SEED-R06",
+    "rowLabel": "E",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-E06",
+    "roomId": "SEED-R06",
+    "rowLabel": "E",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-E07",
+    "roomId": "SEED-R06",
+    "rowLabel": "E",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-E08",
+    "roomId": "SEED-R06",
+    "rowLabel": "E",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-E09",
+    "roomId": "SEED-R06",
+    "rowLabel": "E",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-E10",
+    "roomId": "SEED-R06",
+    "rowLabel": "E",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-F01",
+    "roomId": "SEED-R06",
+    "rowLabel": "F",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-F02",
+    "roomId": "SEED-R06",
+    "rowLabel": "F",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-F03",
+    "roomId": "SEED-R06",
+    "rowLabel": "F",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-F04",
+    "roomId": "SEED-R06",
+    "rowLabel": "F",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-F05",
+    "roomId": "SEED-R06",
+    "rowLabel": "F",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-F06",
+    "roomId": "SEED-R06",
+    "rowLabel": "F",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-F07",
+    "roomId": "SEED-R06",
+    "rowLabel": "F",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-F08",
+    "roomId": "SEED-R06",
+    "rowLabel": "F",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-F09",
+    "roomId": "SEED-R06",
+    "rowLabel": "F",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-F10",
+    "roomId": "SEED-R06",
+    "rowLabel": "F",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-G01",
+    "roomId": "SEED-R06",
+    "rowLabel": "G",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-G02",
+    "roomId": "SEED-R06",
+    "rowLabel": "G",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-G03",
+    "roomId": "SEED-R06",
+    "rowLabel": "G",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-G04",
+    "roomId": "SEED-R06",
+    "rowLabel": "G",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-G05",
+    "roomId": "SEED-R06",
+    "rowLabel": "G",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-G06",
+    "roomId": "SEED-R06",
+    "rowLabel": "G",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-G07",
+    "roomId": "SEED-R06",
+    "rowLabel": "G",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-G08",
+    "roomId": "SEED-R06",
+    "rowLabel": "G",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-G09",
+    "roomId": "SEED-R06",
+    "rowLabel": "G",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-G10",
+    "roomId": "SEED-R06",
+    "rowLabel": "G",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-H01",
+    "roomId": "SEED-R06",
+    "rowLabel": "H",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-H02",
+    "roomId": "SEED-R06",
+    "rowLabel": "H",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-H03",
+    "roomId": "SEED-R06",
+    "rowLabel": "H",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-H04",
+    "roomId": "SEED-R06",
+    "rowLabel": "H",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-H05",
+    "roomId": "SEED-R06",
+    "rowLabel": "H",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-H06",
+    "roomId": "SEED-R06",
+    "rowLabel": "H",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-H07",
+    "roomId": "SEED-R06",
+    "rowLabel": "H",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-H08",
+    "roomId": "SEED-R06",
+    "rowLabel": "H",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-H09",
+    "roomId": "SEED-R06",
+    "rowLabel": "H",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-H10",
+    "roomId": "SEED-R06",
+    "rowLabel": "H",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-I01",
+    "roomId": "SEED-R06",
+    "rowLabel": "I",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-I02",
+    "roomId": "SEED-R06",
+    "rowLabel": "I",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-I03",
+    "roomId": "SEED-R06",
+    "rowLabel": "I",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-I04",
+    "roomId": "SEED-R06",
+    "rowLabel": "I",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-I05",
+    "roomId": "SEED-R06",
+    "rowLabel": "I",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-I06",
+    "roomId": "SEED-R06",
+    "rowLabel": "I",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-I07",
+    "roomId": "SEED-R06",
+    "rowLabel": "I",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-I08",
+    "roomId": "SEED-R06",
+    "rowLabel": "I",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-I09",
+    "roomId": "SEED-R06",
+    "rowLabel": "I",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-I10",
+    "roomId": "SEED-R06",
+    "rowLabel": "I",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-J01",
+    "roomId": "SEED-R06",
+    "rowLabel": "J",
+    "seatNumber": 1,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-J02",
+    "roomId": "SEED-R06",
+    "rowLabel": "J",
+    "seatNumber": 2,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-J03",
+    "roomId": "SEED-R06",
+    "rowLabel": "J",
+    "seatNumber": 3,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-J04",
+    "roomId": "SEED-R06",
+    "rowLabel": "J",
+    "seatNumber": 4,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-J05",
+    "roomId": "SEED-R06",
+    "rowLabel": "J",
+    "seatNumber": 5,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-J06",
+    "roomId": "SEED-R06",
+    "rowLabel": "J",
+    "seatNumber": 6,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-J07",
+    "roomId": "SEED-R06",
+    "rowLabel": "J",
+    "seatNumber": 7,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-J08",
+    "roomId": "SEED-R06",
+    "rowLabel": "J",
+    "seatNumber": 8,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-J09",
+    "roomId": "SEED-R06",
+    "rowLabel": "J",
+    "seatNumber": 9,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R06-J10",
+    "roomId": "SEED-R06",
+    "rowLabel": "J",
+    "seatNumber": 10,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-A01",
+    "roomId": "SEED-R07",
+    "rowLabel": "A",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-A02",
+    "roomId": "SEED-R07",
+    "rowLabel": "A",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-A03",
+    "roomId": "SEED-R07",
+    "rowLabel": "A",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-A04",
+    "roomId": "SEED-R07",
+    "rowLabel": "A",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-A05",
+    "roomId": "SEED-R07",
+    "rowLabel": "A",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-A06",
+    "roomId": "SEED-R07",
+    "rowLabel": "A",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-A07",
+    "roomId": "SEED-R07",
+    "rowLabel": "A",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-A08",
+    "roomId": "SEED-R07",
+    "rowLabel": "A",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-A09",
+    "roomId": "SEED-R07",
+    "rowLabel": "A",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-A10",
+    "roomId": "SEED-R07",
+    "rowLabel": "A",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "MAINTENANCE"
+  },
+  {
+    "id": "SEED-R07-B01",
+    "roomId": "SEED-R07",
+    "rowLabel": "B",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-B02",
+    "roomId": "SEED-R07",
+    "rowLabel": "B",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-B03",
+    "roomId": "SEED-R07",
+    "rowLabel": "B",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-B04",
+    "roomId": "SEED-R07",
+    "rowLabel": "B",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-B05",
+    "roomId": "SEED-R07",
+    "rowLabel": "B",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-B06",
+    "roomId": "SEED-R07",
+    "rowLabel": "B",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-B07",
+    "roomId": "SEED-R07",
+    "rowLabel": "B",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-B08",
+    "roomId": "SEED-R07",
+    "rowLabel": "B",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-B09",
+    "roomId": "SEED-R07",
+    "rowLabel": "B",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-B10",
+    "roomId": "SEED-R07",
+    "rowLabel": "B",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "DISABLED"
+  },
+  {
+    "id": "SEED-R07-C01",
+    "roomId": "SEED-R07",
+    "rowLabel": "C",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-C02",
+    "roomId": "SEED-R07",
+    "rowLabel": "C",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-C03",
+    "roomId": "SEED-R07",
+    "rowLabel": "C",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-C04",
+    "roomId": "SEED-R07",
+    "rowLabel": "C",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-C05",
+    "roomId": "SEED-R07",
+    "rowLabel": "C",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-C06",
+    "roomId": "SEED-R07",
+    "rowLabel": "C",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-C07",
+    "roomId": "SEED-R07",
+    "rowLabel": "C",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-C08",
+    "roomId": "SEED-R07",
+    "rowLabel": "C",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-C09",
+    "roomId": "SEED-R07",
+    "rowLabel": "C",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-C10",
+    "roomId": "SEED-R07",
+    "rowLabel": "C",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-D01",
+    "roomId": "SEED-R07",
+    "rowLabel": "D",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-D02",
+    "roomId": "SEED-R07",
+    "rowLabel": "D",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-D03",
+    "roomId": "SEED-R07",
+    "rowLabel": "D",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-D04",
+    "roomId": "SEED-R07",
+    "rowLabel": "D",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-D05",
+    "roomId": "SEED-R07",
+    "rowLabel": "D",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-D06",
+    "roomId": "SEED-R07",
+    "rowLabel": "D",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-D07",
+    "roomId": "SEED-R07",
+    "rowLabel": "D",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-D08",
+    "roomId": "SEED-R07",
+    "rowLabel": "D",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-D09",
+    "roomId": "SEED-R07",
+    "rowLabel": "D",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-D10",
+    "roomId": "SEED-R07",
+    "rowLabel": "D",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-E01",
+    "roomId": "SEED-R07",
+    "rowLabel": "E",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-E02",
+    "roomId": "SEED-R07",
+    "rowLabel": "E",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-E03",
+    "roomId": "SEED-R07",
+    "rowLabel": "E",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-E04",
+    "roomId": "SEED-R07",
+    "rowLabel": "E",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-E05",
+    "roomId": "SEED-R07",
+    "rowLabel": "E",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-E06",
+    "roomId": "SEED-R07",
+    "rowLabel": "E",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-E07",
+    "roomId": "SEED-R07",
+    "rowLabel": "E",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-E08",
+    "roomId": "SEED-R07",
+    "rowLabel": "E",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-E09",
+    "roomId": "SEED-R07",
+    "rowLabel": "E",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-E10",
+    "roomId": "SEED-R07",
+    "rowLabel": "E",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-F01",
+    "roomId": "SEED-R07",
+    "rowLabel": "F",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-F02",
+    "roomId": "SEED-R07",
+    "rowLabel": "F",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-F03",
+    "roomId": "SEED-R07",
+    "rowLabel": "F",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-F04",
+    "roomId": "SEED-R07",
+    "rowLabel": "F",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-F05",
+    "roomId": "SEED-R07",
+    "rowLabel": "F",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-F06",
+    "roomId": "SEED-R07",
+    "rowLabel": "F",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-F07",
+    "roomId": "SEED-R07",
+    "rowLabel": "F",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-F08",
+    "roomId": "SEED-R07",
+    "rowLabel": "F",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-F09",
+    "roomId": "SEED-R07",
+    "rowLabel": "F",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-F10",
+    "roomId": "SEED-R07",
+    "rowLabel": "F",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-G01",
+    "roomId": "SEED-R07",
+    "rowLabel": "G",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-G02",
+    "roomId": "SEED-R07",
+    "rowLabel": "G",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-G03",
+    "roomId": "SEED-R07",
+    "rowLabel": "G",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-G04",
+    "roomId": "SEED-R07",
+    "rowLabel": "G",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-G05",
+    "roomId": "SEED-R07",
+    "rowLabel": "G",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-G06",
+    "roomId": "SEED-R07",
+    "rowLabel": "G",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-G07",
+    "roomId": "SEED-R07",
+    "rowLabel": "G",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-G08",
+    "roomId": "SEED-R07",
+    "rowLabel": "G",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-G09",
+    "roomId": "SEED-R07",
+    "rowLabel": "G",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-G10",
+    "roomId": "SEED-R07",
+    "rowLabel": "G",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-H01",
+    "roomId": "SEED-R07",
+    "rowLabel": "H",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-H02",
+    "roomId": "SEED-R07",
+    "rowLabel": "H",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-H03",
+    "roomId": "SEED-R07",
+    "rowLabel": "H",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-H04",
+    "roomId": "SEED-R07",
+    "rowLabel": "H",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-H05",
+    "roomId": "SEED-R07",
+    "rowLabel": "H",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-H06",
+    "roomId": "SEED-R07",
+    "rowLabel": "H",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-H07",
+    "roomId": "SEED-R07",
+    "rowLabel": "H",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-H08",
+    "roomId": "SEED-R07",
+    "rowLabel": "H",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-H09",
+    "roomId": "SEED-R07",
+    "rowLabel": "H",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-H10",
+    "roomId": "SEED-R07",
+    "rowLabel": "H",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-I01",
+    "roomId": "SEED-R07",
+    "rowLabel": "I",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-I02",
+    "roomId": "SEED-R07",
+    "rowLabel": "I",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-I03",
+    "roomId": "SEED-R07",
+    "rowLabel": "I",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-I04",
+    "roomId": "SEED-R07",
+    "rowLabel": "I",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-I05",
+    "roomId": "SEED-R07",
+    "rowLabel": "I",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-I06",
+    "roomId": "SEED-R07",
+    "rowLabel": "I",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-I07",
+    "roomId": "SEED-R07",
+    "rowLabel": "I",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-I08",
+    "roomId": "SEED-R07",
+    "rowLabel": "I",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-I09",
+    "roomId": "SEED-R07",
+    "rowLabel": "I",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-I10",
+    "roomId": "SEED-R07",
+    "rowLabel": "I",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-J01",
+    "roomId": "SEED-R07",
+    "rowLabel": "J",
+    "seatNumber": 1,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-J02",
+    "roomId": "SEED-R07",
+    "rowLabel": "J",
+    "seatNumber": 2,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-J03",
+    "roomId": "SEED-R07",
+    "rowLabel": "J",
+    "seatNumber": 3,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-J04",
+    "roomId": "SEED-R07",
+    "rowLabel": "J",
+    "seatNumber": 4,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-J05",
+    "roomId": "SEED-R07",
+    "rowLabel": "J",
+    "seatNumber": 5,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-J06",
+    "roomId": "SEED-R07",
+    "rowLabel": "J",
+    "seatNumber": 6,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-J07",
+    "roomId": "SEED-R07",
+    "rowLabel": "J",
+    "seatNumber": 7,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-J08",
+    "roomId": "SEED-R07",
+    "rowLabel": "J",
+    "seatNumber": 8,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-J09",
+    "roomId": "SEED-R07",
+    "rowLabel": "J",
+    "seatNumber": 9,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R07-J10",
+    "roomId": "SEED-R07",
+    "rowLabel": "J",
+    "seatNumber": 10,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-A01",
+    "roomId": "SEED-R08",
+    "rowLabel": "A",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-A02",
+    "roomId": "SEED-R08",
+    "rowLabel": "A",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-A03",
+    "roomId": "SEED-R08",
+    "rowLabel": "A",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-A04",
+    "roomId": "SEED-R08",
+    "rowLabel": "A",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-A05",
+    "roomId": "SEED-R08",
+    "rowLabel": "A",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-A06",
+    "roomId": "SEED-R08",
+    "rowLabel": "A",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-A07",
+    "roomId": "SEED-R08",
+    "rowLabel": "A",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-A08",
+    "roomId": "SEED-R08",
+    "rowLabel": "A",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-A09",
+    "roomId": "SEED-R08",
+    "rowLabel": "A",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-A10",
+    "roomId": "SEED-R08",
+    "rowLabel": "A",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "MAINTENANCE"
+  },
+  {
+    "id": "SEED-R08-B01",
+    "roomId": "SEED-R08",
+    "rowLabel": "B",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-B02",
+    "roomId": "SEED-R08",
+    "rowLabel": "B",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-B03",
+    "roomId": "SEED-R08",
+    "rowLabel": "B",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-B04",
+    "roomId": "SEED-R08",
+    "rowLabel": "B",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-B05",
+    "roomId": "SEED-R08",
+    "rowLabel": "B",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-B06",
+    "roomId": "SEED-R08",
+    "rowLabel": "B",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-B07",
+    "roomId": "SEED-R08",
+    "rowLabel": "B",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-B08",
+    "roomId": "SEED-R08",
+    "rowLabel": "B",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-B09",
+    "roomId": "SEED-R08",
+    "rowLabel": "B",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-B10",
+    "roomId": "SEED-R08",
+    "rowLabel": "B",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "DISABLED"
+  },
+  {
+    "id": "SEED-R08-C01",
+    "roomId": "SEED-R08",
+    "rowLabel": "C",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-C02",
+    "roomId": "SEED-R08",
+    "rowLabel": "C",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-C03",
+    "roomId": "SEED-R08",
+    "rowLabel": "C",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-C04",
+    "roomId": "SEED-R08",
+    "rowLabel": "C",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-C05",
+    "roomId": "SEED-R08",
+    "rowLabel": "C",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-C06",
+    "roomId": "SEED-R08",
+    "rowLabel": "C",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-C07",
+    "roomId": "SEED-R08",
+    "rowLabel": "C",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-C08",
+    "roomId": "SEED-R08",
+    "rowLabel": "C",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-C09",
+    "roomId": "SEED-R08",
+    "rowLabel": "C",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-C10",
+    "roomId": "SEED-R08",
+    "rowLabel": "C",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-D01",
+    "roomId": "SEED-R08",
+    "rowLabel": "D",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-D02",
+    "roomId": "SEED-R08",
+    "rowLabel": "D",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-D03",
+    "roomId": "SEED-R08",
+    "rowLabel": "D",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-D04",
+    "roomId": "SEED-R08",
+    "rowLabel": "D",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-D05",
+    "roomId": "SEED-R08",
+    "rowLabel": "D",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-D06",
+    "roomId": "SEED-R08",
+    "rowLabel": "D",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-D07",
+    "roomId": "SEED-R08",
+    "rowLabel": "D",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-D08",
+    "roomId": "SEED-R08",
+    "rowLabel": "D",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-D09",
+    "roomId": "SEED-R08",
+    "rowLabel": "D",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-D10",
+    "roomId": "SEED-R08",
+    "rowLabel": "D",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-E01",
+    "roomId": "SEED-R08",
+    "rowLabel": "E",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-E02",
+    "roomId": "SEED-R08",
+    "rowLabel": "E",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-E03",
+    "roomId": "SEED-R08",
+    "rowLabel": "E",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-E04",
+    "roomId": "SEED-R08",
+    "rowLabel": "E",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-E05",
+    "roomId": "SEED-R08",
+    "rowLabel": "E",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-E06",
+    "roomId": "SEED-R08",
+    "rowLabel": "E",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-E07",
+    "roomId": "SEED-R08",
+    "rowLabel": "E",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-E08",
+    "roomId": "SEED-R08",
+    "rowLabel": "E",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-E09",
+    "roomId": "SEED-R08",
+    "rowLabel": "E",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-E10",
+    "roomId": "SEED-R08",
+    "rowLabel": "E",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-F01",
+    "roomId": "SEED-R08",
+    "rowLabel": "F",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-F02",
+    "roomId": "SEED-R08",
+    "rowLabel": "F",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-F03",
+    "roomId": "SEED-R08",
+    "rowLabel": "F",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-F04",
+    "roomId": "SEED-R08",
+    "rowLabel": "F",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-F05",
+    "roomId": "SEED-R08",
+    "rowLabel": "F",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-F06",
+    "roomId": "SEED-R08",
+    "rowLabel": "F",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-F07",
+    "roomId": "SEED-R08",
+    "rowLabel": "F",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-F08",
+    "roomId": "SEED-R08",
+    "rowLabel": "F",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-F09",
+    "roomId": "SEED-R08",
+    "rowLabel": "F",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-F10",
+    "roomId": "SEED-R08",
+    "rowLabel": "F",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-G01",
+    "roomId": "SEED-R08",
+    "rowLabel": "G",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-G02",
+    "roomId": "SEED-R08",
+    "rowLabel": "G",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-G03",
+    "roomId": "SEED-R08",
+    "rowLabel": "G",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-G04",
+    "roomId": "SEED-R08",
+    "rowLabel": "G",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-G05",
+    "roomId": "SEED-R08",
+    "rowLabel": "G",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-G06",
+    "roomId": "SEED-R08",
+    "rowLabel": "G",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-G07",
+    "roomId": "SEED-R08",
+    "rowLabel": "G",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-G08",
+    "roomId": "SEED-R08",
+    "rowLabel": "G",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-G09",
+    "roomId": "SEED-R08",
+    "rowLabel": "G",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-G10",
+    "roomId": "SEED-R08",
+    "rowLabel": "G",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-H01",
+    "roomId": "SEED-R08",
+    "rowLabel": "H",
+    "seatNumber": 1,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-H02",
+    "roomId": "SEED-R08",
+    "rowLabel": "H",
+    "seatNumber": 2,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-H03",
+    "roomId": "SEED-R08",
+    "rowLabel": "H",
+    "seatNumber": 3,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-H04",
+    "roomId": "SEED-R08",
+    "rowLabel": "H",
+    "seatNumber": 4,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-H05",
+    "roomId": "SEED-R08",
+    "rowLabel": "H",
+    "seatNumber": 5,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-H06",
+    "roomId": "SEED-R08",
+    "rowLabel": "H",
+    "seatNumber": 6,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-H07",
+    "roomId": "SEED-R08",
+    "rowLabel": "H",
+    "seatNumber": 7,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-H08",
+    "roomId": "SEED-R08",
+    "rowLabel": "H",
+    "seatNumber": 8,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-H09",
+    "roomId": "SEED-R08",
+    "rowLabel": "H",
+    "seatNumber": 9,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-H10",
+    "roomId": "SEED-R08",
+    "rowLabel": "H",
+    "seatNumber": 10,
+    "type": "VIP",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-I01",
+    "roomId": "SEED-R08",
+    "rowLabel": "I",
+    "seatNumber": 1,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-I02",
+    "roomId": "SEED-R08",
+    "rowLabel": "I",
+    "seatNumber": 2,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-I03",
+    "roomId": "SEED-R08",
+    "rowLabel": "I",
+    "seatNumber": 3,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-I04",
+    "roomId": "SEED-R08",
+    "rowLabel": "I",
+    "seatNumber": 4,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-I05",
+    "roomId": "SEED-R08",
+    "rowLabel": "I",
+    "seatNumber": 5,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-I06",
+    "roomId": "SEED-R08",
+    "rowLabel": "I",
+    "seatNumber": 6,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-I07",
+    "roomId": "SEED-R08",
+    "rowLabel": "I",
+    "seatNumber": 7,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-I08",
+    "roomId": "SEED-R08",
+    "rowLabel": "I",
+    "seatNumber": 8,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-I09",
+    "roomId": "SEED-R08",
+    "rowLabel": "I",
+    "seatNumber": 9,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-I10",
+    "roomId": "SEED-R08",
+    "rowLabel": "I",
+    "seatNumber": 10,
+    "type": "NORMAL",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-J01",
+    "roomId": "SEED-R08",
+    "rowLabel": "J",
+    "seatNumber": 1,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-J02",
+    "roomId": "SEED-R08",
+    "rowLabel": "J",
+    "seatNumber": 2,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-J03",
+    "roomId": "SEED-R08",
+    "rowLabel": "J",
+    "seatNumber": 3,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-J04",
+    "roomId": "SEED-R08",
+    "rowLabel": "J",
+    "seatNumber": 4,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-J05",
+    "roomId": "SEED-R08",
+    "rowLabel": "J",
+    "seatNumber": 5,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-J06",
+    "roomId": "SEED-R08",
+    "rowLabel": "J",
+    "seatNumber": 6,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-J07",
+    "roomId": "SEED-R08",
+    "rowLabel": "J",
+    "seatNumber": 7,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-J08",
+    "roomId": "SEED-R08",
+    "rowLabel": "J",
+    "seatNumber": 8,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-J09",
+    "roomId": "SEED-R08",
+    "rowLabel": "J",
+    "seatNumber": 9,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "SEED-R08-J10",
+    "roomId": "SEED-R08",
+    "rowLabel": "J",
+    "seatNumber": 10,
+    "type": "COUPLE",
+    "status": "ACTIVE"
+  }
+]

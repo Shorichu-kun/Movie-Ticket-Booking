@@ -29,13 +29,24 @@ import java.util.Map;
 
 @Service
 public class CustomerService {
+    @Value("${admin.email:}")
+    private String adminEmail = "";
     private final CustomerRepository customerRepository;
+    private final repository.AccountRepository accountRepository;
     private final Validator validator;
     private final Map<CustomerType, TicketPricePolicy> pricePolicies;
 
     public CustomerService(CustomerRepository customerRepository, Validator validator,
+                           BigDecimal studentDiscount, BigDecimal vipDiscount) {
+        this(customerRepository, validator, studentDiscount, vipDiscount, null);
+    }
+
+    @org.springframework.beans.factory.annotation.Autowired
+    public CustomerService(CustomerRepository customerRepository, Validator validator,
                            @Value("${customers.discount.student:0.10}") BigDecimal studentDiscount,
-                           @Value("${customers.discount.vip:0.20}") BigDecimal vipDiscount) {
+                           @Value("${customers.discount.vip:0.20}") BigDecimal vipDiscount,
+                           repository.AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
         this.customerRepository = customerRepository;
         this.validator = validator;
         this.pricePolicies = Map.of(
@@ -115,6 +126,11 @@ public class CustomerService {
 
     private void validateCustomer(CustomerRequest request) {
         validate(request);
+        if ((!adminEmail.isBlank() && adminEmail.equalsIgnoreCase(request.email()))
+                || (accountRepository != null && accountRepository.findAll().stream().anyMatch(account ->
+                    "ADMIN".equals(account.role()) && account.email().equalsIgnoreCase(request.email())))) {
+            throw new CustomerValidationException("email", "Email được dành cho quản trị viên.");
+        }
         if (request.customerType() == CustomerType.STUDENT
                 && (request.studentId() == null || !request.studentId().matches("[A-Z0-9]{6,20}"))) {
             throw new CustomerValidationException("studentId",
