@@ -1,4 +1,4 @@
-package handler;
+package config;
 
 import java.nio.file.Path;
 import org.springframework.beans.factory.annotation.Value;

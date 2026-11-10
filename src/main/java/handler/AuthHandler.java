@@ -15,6 +15,7 @@ import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.security.web.csrf.*;
 import org.springframework.web.bind.annotation.*;
 
+import security.SessionCredentialFilter;
 import service.AccountService;
 
 import java.util.*;

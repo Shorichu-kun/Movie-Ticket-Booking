@@ -17,7 +17,6 @@ import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.file.*;
-import java.util.*;
 
 @SpringBootTest(classes = MovieTicketBookingApplication.class)
 @AutoConfigureMockMvc
@@ -60,7 +59,7 @@ class WelcomeSecurityIntegrationTest {
     void protectsAdminDataAndPages() throws Exception {
         mvc.perform(get("/api/customers")).andExpect(status().isUnauthorized());
         mvc.perform(get("/api/bookings")).andExpect(status().isUnauthorized());
-        mvc.perform(get("/movies.html")).andExpect(status().is3xxRedirection());
+        mvc.perform(get("/static/html/movies.html")).andExpect(status().is3xxRedirection());
         mvc.perform(get("/api/movies")).andExpect(status().isOk());
         mvc.perform(
                         post("/api/auth/register")
@@ -73,7 +72,7 @@ class WelcomeSecurityIntegrationTest {
         send("/api/movies", customer, "{}")
                 .andExpect(status().isForbidden())
                 .andExpect(jsonPath("$.code").value("FORBIDDEN"));
-        mvc.perform(get("/movies.html").session(customer)).andExpect(status().is3xxRedirection());
+        mvc.perform(get("/static/html/movies.html").session(customer)).andExpect(status().is3xxRedirection());
     }
 
     @Test

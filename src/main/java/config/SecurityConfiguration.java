@@ -1,7 +1,8 @@
-package handler;
+package config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import security.SessionCredentialFilter;
 import org.springframework.context.annotation.*;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -81,11 +82,11 @@ public class SecurityConfiguration {
                                         .authenticated()
                                         .requestMatchers(
                                                 "/api/**",
-                                                "/admin.html",
-                                                "/movies.html",
-                                                "/showtimes.html",
-                                                "/rooms.html",
-                                                "/customers.html")
+                                                "/static/html/admin.html",
+                                                "/static/html/movies.html",
+                                                "/static/html/showtimes.html",
+                                                "/static/html/rooms.html",
+                                                "/static/html/customers.html")
                                         .hasRole("ADMIN")
                                         .anyRequest()
                                         .permitAll())
@@ -94,7 +95,7 @@ public class SecurityConfiguration {
                                 e.authenticationEntryPoint(
                                                 (req, res, ex) -> {
                                                     if (!req.getRequestURI().startsWith("/api/")) {
-                                                        res.sendRedirect("/welcome.html?login=1");
+                                                        res.sendRedirect("/static/html/welcome.html");
                                                         return;
                                                     }
                                                     res.setStatus(401);
@@ -109,7 +110,7 @@ public class SecurityConfiguration {
                                         .accessDeniedHandler(
                                                 (req, res, ex) -> {
                                                     if (!req.getRequestURI().startsWith("/api/")) {
-                                                        res.sendRedirect("/welcome.html");
+                                                        res.sendRedirect("/static/html/welcome.html");
                                                         return;
                                                     }
                                                     res.setStatus(403);
