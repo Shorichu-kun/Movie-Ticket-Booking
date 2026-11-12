@@ -22,19 +22,24 @@ public class SessionCredentialFilter extends OncePerRequestFilter {
 
   @Override
   protected void doFilterInternal(
-      HttpServletRequest request, HttpServletResponse response, FilterChain chain)
-      throws ServletException, IOException {
+          HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+          throws ServletException, IOException {
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     HttpSession session = request.getSession(false);
-    if (session != null && auth != null && auth.isAuthenticated()) {
+
+    // 🟢 CHỈ kiểm tra nếu đã Auth và Session có tồn tại CREDENTIAL_VERSION
+    if (session != null && auth != null && auth.isAuthenticated() && auth.getName() != null) {
       Object version = session.getAttribute(CREDENTIAL_VERSION);
-      boolean valid =
-          accounts.findAll().stream()
-              .anyMatch(
-                  a -> a.id().equals(auth.getName()) && Objects.equals(a.passwordHash(), version));
-      if (!valid) {
-        session.invalidate();
-        SecurityContextHolder.clearContext();
+
+      // Nếu lúc Login có lưu CREDENTIAL_VERSION thì mới đối soát để tránh invalidate nhầm phiên
+      if (version != null) {
+        boolean valid = accounts.findAll().stream()
+                .anyMatch(a -> (Objects.equals(a.id(), auth.getName()) || Objects.equals(a.username(), auth.getName()))
+                        && Objects.equals(a.passwordHash(), version));
+        if (!valid) {
+          session.invalidate();
+          SecurityContextHolder.clearContext();
+        }
       }
     }
     chain.doFilter(request, response);

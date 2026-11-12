@@ -7,6 +7,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.nio.file.*;
+import java.util.Map;
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/api/movies")
 @CrossOrigin(origins = "*")
@@ -50,5 +58,39 @@ public class MovieHandler {
             return ResponseEntity.ok("Xóa phim thành công!");
         }
         return ResponseEntity.badRequest().body("Xóa phim thất bại!");
+    }
+
+    @PostMapping("/poster")
+    public ResponseEntity<?> uploadPoster(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().body(Map.of("error", "File không được để trống"));
+        }
+
+        try {
+            // 1. Tạo thư mục data/posters nếu chưa có
+            Path uploadPath = Paths.get("data/posters").toAbsolutePath().normalize();
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath);
+            }
+
+            // 2. Tạo tên file ngẫu nhiên để tránh trùng
+            String originalFilename = file.getOriginalFilename();
+            String extension = ".jpg";
+            if (originalFilename != null && originalFilename.contains(".")) {
+                extension = originalFilename.substring(originalFilename.lastIndexOf("."));
+            }
+            String newFileName = UUID.randomUUID().toString() + extension;
+
+            // 3. Ghi file vào thư mục data/posters/
+            Path targetLocation = uploadPath.resolve(newFileName);
+            Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
+
+            // 4. Trả về đúng JSON format FE yêu cầu
+            return ResponseEntity.ok(Map.of("url", "/posters/" + newFileName));
+
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("error", "Không thể lưu poster: " + e.getMessage()));
+        }
     }
 }

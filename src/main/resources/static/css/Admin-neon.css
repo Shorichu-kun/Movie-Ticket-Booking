@@ -1,0 +1,41 @@
+/* Neon Cinema admin theme – mọi class đều có tiền tố n- để không đụng commerce.css */
+:root{--n-bg:#0a0710;--n-p:#0f0d17;--n-p2:#151220;--n-b:#2a2238;--n-t:#eee9f5;--n-m:#8a8099;--n-pk:#ff2e88;--n-gr:#2dffa0;--n-cy:#22d3ee;--n-gd:#fbbf24;--n-rd:#ff5470}
+body.neon{margin:0;min-height:100vh;color:var(--n-t);font:13px/1.45 "Inter",system-ui,"Segoe UI",sans-serif;background:radial-gradient(900px 500px at 70% -10%,#3a0c2b 0,transparent 60%),var(--n-bg)}
+[class^="n-"],[class*=" n-"]{box-sizing:border-box}
+.n-shell{display:grid;grid-template-columns:260px 1fr;gap:16px;padding:16px;max-width:1360px;margin:auto}
+.n-card{background:var(--n-p);border:1px solid var(--n-b);border-radius:16px;padding:18px}
+.n-side{align-self:start;position:sticky;top:16px}
+.n-logo{display:flex;align-items:center;gap:8px;font-weight:800;margin-bottom:16px}.n-logo i{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--n-cy),var(--n-pk));display:grid;place-items:center;font-style:normal}.n-logo b{color:var(--n-pk)}
+.n-av{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--n-pk),#7c3aed);display:grid;place-items:center;font-weight:800;font-size:20px;box-shadow:0 0 22px #ff2e8866;margin:6px 0 10px}
+.n-side h2{margin:0;font-size:17px}.n-sub{color:var(--n-m);font-size:12px;margin:2px 0}
+.n-chip{display:inline-block;margin:6px 0 14px;padding:2px 10px;border-radius:99px;border:1px solid #1d6b4d;color:var(--n-gr);font-size:11px;background:#2dffa010}
+.n-kv{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--n-b);color:var(--n-t);text-decoration:none;font-size:12px}.n-kv:hover{color:var(--n-pk)}.n-kv span:last-child{color:var(--n-m)}
+.n-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.n-tile{background:var(--n-p);border:1px solid var(--n-b);border-radius:16px;padding:16px;color:var(--n-t);text-decoration:none;transition:.15s}
+.n-tile span{font-size:22px}.n-tile b{display:block;margin-top:8px;font-size:14px}.n-tile small{color:var(--n-m)}
+.n-tile:hover{border-color:#5a3a6a;transform:translateY(-2px)}.n-tile.on{border-color:var(--n-pk);box-shadow:0 0 20px #ff2e8844;background:linear-gradient(160deg,#2a0f24,var(--n-p))}
+.n-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}.n-head h1{font-size:20px;margin:0}
+.n-btn{background:var(--n-pk);color:#fff;border:0;border-radius:9px;padding:8px 14px;font:600 12px inherit;cursor:pointer;box-shadow:0 0 14px #ff2e8855}
+.n-btn.g{background:none;border:1px solid var(--n-b);color:var(--n-t);box-shadow:none}.n-btn.d{background:none;border:1px solid #5a2030;color:var(--n-rd);box-shadow:none}.n-btn.sm{padding:4px 10px;font-size:11px}.n-btn:disabled{opacity:.4;cursor:default}
+.n-md input,.n-md select,.n-in{background:#09070f;border:1px solid var(--n-b);color:var(--n-t);border-radius:9px;padding:8px 10px;font:inherit;width:100%}
+.n-md input:focus,.n-md select:focus,.n-in:focus{outline:0;border-color:var(--n-pk)}
+.n-tw{overflow-x:auto}.n-tw table{width:100%;border-collapse:collapse;min-width:640px}
+.n-tw th{color:var(--n-m);font:600 10px inherit;text-transform:uppercase;letter-spacing:1px;text-align:left;padding:8px;border-bottom:1px solid var(--n-b)}
+.n-tw td{padding:9px 8px;border-bottom:1px solid #1c1829;vertical-align:middle}.n-tw tr:hover td{background:#ffffff05}.n-tw td.r{text-align:right;white-space:nowrap}
+.n-th{width:38px;height:54px;border-radius:6px;object-fit:cover;background:var(--n-p2);border:1px solid var(--n-b);display:grid;place-items:center;font-size:16px}
+.n-tag{display:inline-block;padding:2px 10px;border-radius:99px;font-size:11px;border:1px solid}
+.n-tag.now{color:var(--n-gr);border-color:#1d6b4d;background:#2dffa010}.n-tag.soon{color:var(--n-cy);border-color:#16596a;background:#22d3ee10}.n-tag.end{color:var(--n-m);border-color:var(--n-b)}
+.n-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.n-pill{background:var(--n-p2);border:1px solid var(--n-b);color:var(--n-m);border-radius:99px;padding:6px 14px;cursor:pointer;font:inherit}.n-pill.on{color:var(--n-pk);border-color:var(--n-pk)}.n-pill small{opacity:.7}
+.n-pager{display:flex;gap:12px;align-items:center;justify-content:center;margin-top:14px}
+.n-ov{position:fixed;inset:0;background:#000b;display:none;place-items:center;z-index:50;padding:16px;overflow:auto}.n-ov.on{display:grid}
+.n-md{background:var(--n-p);border:1px solid var(--n-b);border-radius:16px;padding:18px;width:min(480px,100%);box-shadow:0 0 40px #ff2e8815}.n-md h3{margin:0 0 4px;font-size:16px}
+.n-md label{display:block;font-size:11px;color:var(--n-m);margin:10px 0 4px}
+.n-two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.n-ft{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+.n-dz{border:2px dashed #4a3a5a;border-radius:12px;min-height:120px;display:grid;place-items:center;text-align:center;color:var(--n-m);cursor:pointer;padding:10px;gap:6px;transition:.15s}
+.n-dz.hv{border-color:var(--n-pk);background:#ff2e8810}.n-dz img{max-height:170px;border-radius:8px}
+.n-toasts{position:fixed;right:16px;bottom:16px;display:grid;gap:8px;z-index:60}
+.n-toast{background:var(--n-p2);border:1px solid #1d6b4d;color:var(--n-gr);padding:10px 14px;border-radius:10px;box-shadow:0 6px 24px #0008}.n-toast.err{border-color:#5a2030;color:var(--n-rd)}
+/* vùng giữ nguyên giao diện sáng của commerce.css */
+.n-legacy{background:#f5f3ee;color:#1f2420;border-radius:16px;padding:20px}
+@media(max-width:900px){.n-shell{grid-template-columns:1fr}.n-side{position:static}.n-tiles{grid-template-columns:1fr 1fr}.n-two{grid-template-columns:1fr}}

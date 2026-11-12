@@ -1,13 +1,22 @@
 package config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import utils.JsonFileUtil;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Configuration
-public class FileStorageConfiguration {
-    public FileStorageConfiguration(@Value("${cinema.data-dir:data}") String directory) {
-        JsonFileUtil.setDataDirectory(directory);
+public class FileStorageConfiguration implements WebMvcConfigurer {
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        // Trỏ về thư mục data/posters ở thư mục gốc project
+        Path posterDir = Paths.get("data/posters").toAbsolutePath().normalize();
+
+        // Cấu hình URL /posters/** trỏ tới file hệ thống
+        registry.addResourceHandler("/posters/**")
+                .addResourceLocations("file:" + posterDir.toString() + "/");
     }
 }

@@ -6,6 +6,8 @@ public class Movie {
     private int duration;
     private String genre;
     private MovieStatus status;
+    private String ageRating;
+    private String poster;
 
 
     public Movie() {
@@ -18,8 +20,25 @@ public class Movie {
         this.duration = duration;
         this.genre = genre;
         this.status = status;
+        this.ageRating = ageRating;
+        this.poster = poster;
     }
 
+    public String getAgeRating() {
+        return ageRating;
+    }
+
+    public void setAgeRating(String ageRating) {
+        this.ageRating = ageRating;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
+    }
 
     public String getId() {
         return id;
