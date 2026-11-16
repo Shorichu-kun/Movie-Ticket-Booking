@@ -14,10 +14,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -170,7 +172,14 @@ class CustomerApiIntegrationTest {
     @Test
     void servesCustomerFrontendFromPackagedResources() throws Exception {
         mockMvc.perform(get("/admin.html")).andExpect(status().isOk());
-        mockMvc.perform(get("/customers.html")).andExpect(status().isOk());
+        mockMvc.perform(get("/customers.html")).andExpect(status().isOk())
+                .andExpect(content().string(containsString("data-active=\"customers.html\"")))
+                .andExpect(content().string(containsString("../css/admin-neon.css")))
+                .andExpect(content().string(containsString("../js/app.js")))
+                .andExpect(content().string(containsString("../js/admin-guard.js")));
+        mockMvc.perform(get("/css/admin-neon.css")).andExpect(status().isOk());
+        mockMvc.perform(get("/js/admin-guard.js")).andExpect(status().isOk());
+        mockMvc.perform(get("/js/movie-admin.js")).andExpect(status().isOk());
         mockMvc.perform(get("/html/customers.html")).andExpect(status().isOk());
         mockMvc.perform(get("/static/html/customers.html")).andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", "text/html"));
