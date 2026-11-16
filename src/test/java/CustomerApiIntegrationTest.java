@@ -169,6 +169,9 @@ class CustomerApiIntegrationTest {
 
     @Test
     void servesCustomerFrontendFromPackagedResources() throws Exception {
+        mockMvc.perform(get("/admin.html")).andExpect(status().isOk());
+        mockMvc.perform(get("/customers.html")).andExpect(status().isOk());
+        mockMvc.perform(get("/html/customers.html")).andExpect(status().isOk());
         mockMvc.perform(get("/static/html/customers.html")).andExpect(status().isOk())
                 .andExpect(header().string("Content-Type", "text/html"));
         mockMvc.perform(get("/static/js/customers.js")).andExpect(status().isOk());

@@ -59,7 +59,12 @@ class WelcomeSecurityIntegrationTest {
     void protectsAdminDataAndPages() throws Exception {
         mvc.perform(get("/api/customers")).andExpect(status().isUnauthorized());
         mvc.perform(get("/api/bookings")).andExpect(status().isUnauthorized());
-        mvc.perform(get("/static/html/movies.html")).andExpect(status().is3xxRedirection());
+        mvc.perform(get("/welcome.html")).andExpect(status().isOk());
+        for (String path : new String[]{"/customers.html", "/html/customers.html", "/static/html/customers.html"}) {
+            mvc.perform(get(path)).andExpect(redirectedUrl("/welcome.html"));
+        }
+        mvc.perform(get("/admin.html")).andExpect(redirectedUrl("/welcome.html"));
+        mvc.perform(get("/static/html/movies.html")).andExpect(redirectedUrl("/welcome.html"));
         mvc.perform(get("/api/movies")).andExpect(status().isOk());
         mvc.perform(
                         post("/api/auth/register")
@@ -69,6 +74,7 @@ class WelcomeSecurityIntegrationTest {
                 .andExpect(jsonPath("$.code").value("CSRF_INVALID"));
         MockHttpSession customer = register("a@example.com", "0912345678");
         mvc.perform(get("/api/customers").session(customer)).andExpect(status().isForbidden());
+        mvc.perform(get("/customers.html").session(customer)).andExpect(redirectedUrl("/welcome.html"));
         send("/api/movies", customer, "{}")
                 .andExpect(status().isForbidden())
                 .andExpect(jsonPath("$.code").value("FORBIDDEN"));
