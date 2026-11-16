@@ -36,3 +36,6 @@ data/commerce-state.json
 data/.commerce-*.tmp
 data/legacy-reservations.json
 data/migration-backups/
+
+# Local Module 3 implementation plan
+/docs/superpowers/plans/2026-11-17-module-3-customers.md
