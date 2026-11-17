@@ -27,15 +27,13 @@ public class SessionCredentialFilter extends OncePerRequestFilter {
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     HttpSession session = request.getSession(false);
 
-    // 🟢 CHỈ kiểm tra nếu đã Auth và Session có tồn tại CREDENTIAL_VERSION
     if (session != null && auth != null && auth.isAuthenticated() && auth.getName() != null) {
       Object version = session.getAttribute(CREDENTIAL_VERSION);
 
-      // Nếu lúc Login có lưu CREDENTIAL_VERSION thì mới đối soát để tránh invalidate nhầm phiên
       if (version != null) {
         boolean valid = accounts.findAll().stream()
-                .anyMatch(a -> (Objects.equals(a.id(), auth.getName()) || Objects.equals(a.username(), auth.getName()))
-                        && Objects.equals(a.passwordHash(), version));
+                .anyMatch(account -> account.id().equals(auth.getName())
+                        && Objects.equals(account.passwordHash(), version));
         if (!valid) {
           session.invalidate();
           SecurityContextHolder.clearContext();

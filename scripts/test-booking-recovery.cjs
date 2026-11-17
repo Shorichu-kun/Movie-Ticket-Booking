@@ -74,7 +74,7 @@ async function exerciseRecovery({ quoteFails = false } = {}) {
       throw new Error("Unexpected POST " + path);
     },
   };
-  vm.runInNewContext(fs.readFileSync("Frontend/booking.js", "utf8"), {
+  vm.runInNewContext(fs.readFileSync("src/main/resources/static/js/booking.js", "utf8"), {
     CommerceUI: ui, Cinema: cinema, Date: BrowserDate, URLSearchParams,
     location: { search: "?showtimeId=SHOW" },
     sessionStorage: { getItem: (key) => storage.get(key) || null, setItem: (key, value) => storage.set(key, value), removeItem: (key) => storage.delete(key) },

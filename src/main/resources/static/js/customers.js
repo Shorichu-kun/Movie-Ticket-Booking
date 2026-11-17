@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.basePrice.addEventListener('input', invalidateQuote);
     elements.seatSurcharge.addEventListener('input', invalidateQuote);
     customerFields.forEach(field => elements[field].addEventListener('input', () => clearFieldError(field)));
-    loadCustomers();
+    document.addEventListener('admin:ready', loadCustomers, { once: true });
 });
 
 async function requestApi(path = '', options = {}) {
@@ -97,6 +97,7 @@ async function loadCustomers() {
 
 function updateStatistics() {
     elements.totalCount.textContent = customers.length;
+    App.tiles('customers.html', { 'customers.html': `${customers.length} khách hàng` });
     for (const type of Object.keys(customerTypes)) {
         const prefix = type.toLowerCase();
         elements[`${prefix}Count`].textContent = customers.filter(customer => customer.customerType === type).length;
@@ -131,11 +132,11 @@ function renderCustomers() {
         category.append(textElement('span', customerTypes[customer.customerType], `badge ${customer.customerType}`));
         const actions = document.createElement('td');
         const actionGroup = textElement('div', '', 'row-actions');
-        const edit = textElement('button', 'Chỉnh sửa', 'row-button');
+        const edit = textElement('button', 'Chỉnh sửa', 'n-btn g sm');
         edit.type = 'button';
         edit.setAttribute('aria-label', `Chỉnh sửa ${customer.fullName}`);
         edit.addEventListener('click', () => openCustomerForm(customer));
-        const quote = textElement('button', 'Tính giá', 'row-button');
+        const quote = textElement('button', 'Tính giá', 'n-btn g sm');
         quote.type = 'button';
         quote.setAttribute('aria-label', `Tính giá vé cho ${customer.fullName}`);
         quote.addEventListener('click', () => openPriceForm(customer));

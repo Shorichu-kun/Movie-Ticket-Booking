@@ -84,6 +84,11 @@ public class SecurityConfiguration {
                                         .authenticated()
                                         .requestMatchers(
                                                 "/api/**",
+                                                "/admin.html", "/html/admin.html",
+                                                "/movies.html", "/html/movies.html",
+                                                "/showtimes.html", "/html/showtimes.html",
+                                                "/rooms.html", "/html/rooms.html",
+                                                "/customers.html", "/html/customers.html",
                                                 "/static/html/admin.html",
                                                 "/static/html/movies.html",
                                                 "/static/html/showtimes.html",
@@ -97,7 +102,7 @@ public class SecurityConfiguration {
                                 e.authenticationEntryPoint(
                                                 (req, res, ex) -> {
                                                     if (!req.getRequestURI().startsWith("/api/")) {
-                                                        res.sendRedirect("/static/html/welcome.html");
+                                                        res.sendRedirect("/welcome.html");
                                                         return;
                                                     }
                                                     res.setStatus(401);
@@ -112,7 +117,7 @@ public class SecurityConfiguration {
                                         .accessDeniedHandler(
                                                 (req, res, ex) -> {
                                                     if (!req.getRequestURI().startsWith("/api/")) {
-                                                        res.sendRedirect("/static/html/welcome.html");
+                                                        res.sendRedirect("/welcome.html");
                                                         return;
                                                     }
                                                     res.setStatus(403);
