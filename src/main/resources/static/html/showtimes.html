@@ -1,284 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-    <script src="../js/session.js"></script><script src="../js/admin-guard.js" defer></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Suất Chiếu - Module 2</title>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0a0710">
+    <title>Suất chiếu · Neon Cinema</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            box-sizing: border-box;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            margin: 0;
-            padding: 40px;
-            background-color: #f8fafc;
-            color: #1e293b;
-            min-height: 100vh;
-        }
-
-        .page-header { margin-bottom: 32px; }
-
-        h1 {
-            font-size: 28px;
-            font-weight: 700;
-            color: #0f172a;
-            letter-spacing: -0.03em;
-            margin: 0 0 10px 0;
-        }
-
-        .nav-link {
-            display: inline-flex;
-            align-items: center;
-            color: #6366f1;
-            font-weight: 600;
-            font-size: 14px;
-            text-decoration: none;
-            padding: 6px 12px;
-            border-radius: 8px;
-            margin-right: 8px;
-        }
-
-        .nav-link:hover {
-            color: #4f46e5;
-            background: #6366f115;
-        }
-
-        .container {
-            display: flex;
-            gap: 28px;
-            align-items: flex-start;
-        }
-
-        .form-section, .list-section {
-            background: #ffffff;
-            padding: 28px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05), 0 4px 12px -4px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-        }
-
-        .form-section { flex: 1; }
-        .list-section { flex: 2; overflow: hidden; }
-
-        h2 {
-            font-size: 18px;
-            font-weight: 600;
-            color: #334155;
-            margin-top: 0;
-            margin-bottom: 24px;
-        }
-
-        .form-group { margin-bottom: 20px; }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            font-size: 13px;
-            color: #64748b;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 12px 16px;
-            font-size: 14px;
-            font-family: inherit;
-            color: #1e293b;
-            background-color: #f8fafc;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 12px;
-            outline: none;
-        }
-
-        input:focus, select:focus {
-            border-color: #6366f1;
-            background-color: #ffffff;
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
-        }
-
-        button[type="submit"] {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #6366f1, #4f46e5);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-weight: 600;
-            font-size: 15px;
-            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
-        }
-
-        button[type="submit"]:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
-        }
-
-        /* Bộ lọc theo phim và ngày */
-        .filter-row {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .filter-row .form-group { flex: 1; margin-bottom: 0; }
-
-        .btn-reset {
-            align-self: flex-end;
-            padding: 12px 16px;
-            background: #f1f5f9;
-            color: #475569;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            width: auto;
-        }
-
-        .btn-reset:hover { background: #e2e8f0; }
-
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin-top: 12px;
-        }
-
-        th {
-            background-color: #f1f5f9;
-            color: #475569;
-            font-weight: 600;
-            font-size: 12px;
-            padding: 14px 16px;
-            border: none;
-            text-align: left;
-        }
-
-        th:first-child { border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
-        th:last-child { border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
-
-        td {
-            padding: 16px;
-            font-size: 14px;
-            color: #334155;
-            border-bottom: 1px solid #f1f5f9;
-        }
-
-        tr:last-child td { border-bottom: none; }
-        tr:hover td { background-color: #f8fafc; }
-
-        .empty-row {
-            text-align: center;
-            color: #94a3b8;
-        }
-
-        .btn-delete {
-            background-color: #fef2f2;
-            color: #ef4444;
-            border: 1px solid #fecaca;
-            border-radius: 8px;
-            padding: 6px 12px;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        .btn-delete:hover {
-            background-color: #ef4444;
-            color: white;
-            border-color: #ef4444;
-        }
-
-        @media (max-width: 900px) {
-            body { padding: 20px; }
-            .container { flex-direction: column; }
-            .form-section, .list-section { width: 100%; }
-            .list-section { overflow-x: auto; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="showtimes.css">
 </head>
 <body>
-
-<div class="page-header">
-    <h1>Hệ Thống Đặt Vé Phim</h1>
-    <a href="movies.html" class="nav-link">Quản lý phim</a>
-    <a href="customers.html" class="nav-link">Quản lý khách hàng</a>
+<div class="shell">
+    <aside class="side card">
+        <div class="logo"><i>▶</i><span>NEON <b>CINEMA</b></span></div>
+        <div class="avatar" id="avatar">AD</div><h2 id="adminName">Quản trị viên</h2><p class="muted" id="adminEmail">Đang tải dữ liệu…</p><span class="chip" id="adminChip">ADMIN</span>
+        <a class="kv" href="admin.html"><span>Tổng quan</span><span>→</span></a><a class="kv" href="welcome.html"><span>Trang khách hàng</span><span>↗</span></a>
+        <button class="btn secondary logout" id="logout">Đăng xuất</button>
+    </aside>
+    <main>
+        <nav class="tiles" aria-label="Điều hướng quản trị">
+            <a class="tile card" href="movies.html"><span class="icon">🎬</span><b>Quản lý phim</b><small id="movieCount">Đang tải…</small></a>
+            <a class="tile card active" href="showtimes.html"><span class="icon">🗓</span><b>Suất chiếu</b><small id="showCount">Đang tải…</small></a>
+            <a class="tile card" href="rooms.html"><span class="icon">💺</span><b>Phòng & Ghế</b><small id="roomCount">Đang tải…</small></a>
+            <a class="tile card" href="customers.html"><span class="icon">📊</span><b>Khách hàng & Thống kê</b><small>Quản lý khách</small></a>
+        </nav>
+        <section class="content card">
+            <header class="heading"><div><p class="eyebrow">LỊCH CHIẾU / PHÒNG CHIẾU</p><h1>Quản lý suất chiếu</h1><p class="subtitle">Tạo lịch chiếu, lọc theo phim và ngày</p></div><button class="btn" id="addShowtime">＋ Thêm suất chiếu</button></header>
+            <div class="toolbar">
+                <label class="field">Tìm suất chiếu<input class="search" id="search" type="search" placeholder="Mã suất, phim hoặc phòng…"></label>
+                <label class="field">Phim<select id="filterMovie"><option value="">Tất cả phim</option></select></label>
+                <label class="field">Ngày chiếu<input id="filterDate" type="date"></label>
+                <button class="btn secondary" id="reset">Xóa bộ lọc</button><button class="btn secondary" id="refresh">↻ Tải lại</button>
+            </div>
+            <div class="error" id="error" role="alert"></div><p class="stats" id="stats">Đang tải dữ liệu suất chiếu…</p>
+            <div class="table-wrap"><table class="table"><thead><tr><th>MÃ SUẤT</th><th>TÊN PHIM</th><th>PHÒNG</th><th>BẮT ĐẦU</th><th>KẾT THÚC</th><th>GIÁ VÉ</th><th>TRẠNG THÁI</th><th></th></tr></thead><tbody id="rows"><tr><td colspan="8" class="empty">Đang tải dữ liệu…</td></tr></tbody></table></div>
+            <div class="foot"><span id="resultCount"></span><span>Thời gian hiển thị theo giờ địa phương</span></div>
+        </section>
+    </main>
 </div>
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><form class="modal" id="form"><h2 id="modalTitle">Thêm suất chiếu</h2><p class="hint">Chọn phim, phòng, giờ bắt đầu và giá vé cơ bản.</p>
+    <div class="form-grid"><label class="field">Mã suất chiếu<input name="id" required maxlength="40" placeholder="VD: ST06"></label><label class="field">Phim<select name="movieId" required></select></label><label class="field">Phòng chiếu<select name="roomId" required></select></label><label class="field">Giá vé (VNĐ)<input name="price" type="number" min="1" step="1000" required value="80000"></label><label class="field wide">Giờ bắt đầu<input name="startTime" type="datetime-local" required></label></div>
+    <div class="error" id="formError" role="alert"></div><div class="actions"><button class="btn secondary" type="button" id="cancel">Hủy</button><button class="btn" type="submit" id="save">Lưu suất chiếu</button></div></form></div>
 
-<div class="container">
-    <!-- FORM THÊM SUẤT CHIẾU -->
-    <div class="form-section">
-        <h2>Thêm Suất Chiếu</h2>
-        <form id="showtimeForm">
-            <div class="form-group">
-                <label for="showtimeId">Mã suất chiếu</label>
-                <input type="text" id="showtimeId" placeholder="VD: ST04" required>
-            </div>
-            <div class="form-group">
-                <label for="movieId">Phim</label>
-                <select id="movieId" required></select>
-            </div>
-            <div class="form-group">
-                <label for="roomId">Phòng chiếu</label>
-                <input type="text" id="roomId" placeholder="VD: R1" required>
-            </div>
-            <div class="form-group">
-                <label for="startTime">Giờ bắt đầu</label>
-                <input type="datetime-local" id="startTime" required>
-            </div>
-            <div class="form-group">
-                <label for="price">Giá vé cơ bản (VNĐ)</label>
-                <input type="number" id="price" placeholder="80000" min="1" required>
-            </div>
-            <button type="submit">Lưu Suất Chiếu</button>
-        </form>
-    </div>
-
-    <!-- DANH SÁCH SUẤT CHIẾU -->
-    <div class="list-section">
-        <h2>Danh Sách Suất Chiếu</h2>
-
-        <div class="filter-row">
-            <div class="form-group">
-                <label for="filterMovie">Lọc theo phim</label>
-                <select id="filterMovie"></select>
-            </div>
-            <div class="form-group">
-                <label for="filterDate">Lọc theo ngày</label>
-                <input type="date" id="filterDate">
-            </div>
-            <button type="button" class="btn-reset" id="btnReset">Bỏ lọc</button>
-        </div>
-
-        <table>
-            <thead>
-            <tr>
-                <th>Mã</th>
-                <th>Phim</th>
-                <th>Phòng</th>
-                <th>Bắt đầu</th>
-                <th>Kết thúc</th>
-                <th>Giá vé</th>
-                <th>Thao tác</th>
-            </tr>
-            </thead>
-            <tbody id="showtimeTableBody">
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<script src="../js/showtimes.js"></script>
+<script src="showtimes.js" defer></script>
 </body>
 </html>
