@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="showtimes.css">
+    <link rel="stylesheet" href="../css/showtimes.css">
 </head>
 <body>
 <div class="shell">
@@ -43,6 +43,6 @@
     <div class="form-grid"><label class="field">Mã suất chiếu<input name="id" required maxlength="40" placeholder="VD: ST06"></label><label class="field">Phim<select name="movieId" required></select></label><label class="field">Phòng chiếu<select name="roomId" required></select></label><label class="field">Giá vé (VNĐ)<input name="price" type="number" min="1" step="1000" required value="80000"></label><label class="field wide">Giờ bắt đầu<input name="startTime" type="datetime-local" required></label></div>
     <div class="error" id="formError" role="alert"></div><div class="actions"><button class="btn secondary" type="button" id="cancel">Hủy</button><button class="btn" type="submit" id="save">Lưu suất chiếu</button></div></form></div>
 
-<script src="showtimes.js" defer></script>
+<script src="../js/showtimes.js" defer></script>
 </body>
 </html>
