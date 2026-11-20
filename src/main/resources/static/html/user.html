@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neon Cinema · Tài khoản thành viên</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="/css/account-neon.css" />
+  <script src="/js/session.js" defer></script>
+  <script src="/js/commerce-ui.js" defer></script>
+  <script src="/js/account.js" defer></script>
+</head>
+<body>
+  <div class="frame">
+    <header class="topbar">
+      <a class="logo" href="/welcome.html">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 4v16l13-8z" /></svg>
+        </span>
+        <span>NEON <b>CINEMA</b></span>
+      </a>
+      <nav class="top-nav" aria-label="Điều hướng chính">
+        <a href="/welcome.html">Trang chủ</a>
+        <a href="/welcome.html#movies">Phim</a>
+        <a href="/offers.html">Ưu đãi</a>
+        <a href="#overview" aria-current="page">Tài khoản</a>
+      </nav>
+      <span id="memberAvatar" class="avatar" aria-hidden="true" hidden></span>
+    </header>
+
+    <div class="feedback">
+      <p id="accountLoading" role="status">Đang tải tài khoản…</p>
+      <p id="pageError" class="error-box" role="alert" hidden></p>
+      <p id="notice" class="notice-box" role="status" hidden></p>
+    </div>
+
+    <div id="accountContent" class="layout" hidden>
+      <aside class="sidebar">
+        <nav class="side" aria-label="Các mục tài khoản">
+          <a href="#overview" aria-current="location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="2" /><rect x="14" y="3" width="7" height="5" rx="2" /><rect x="14" y="12" width="7" height="9" rx="2" /><rect x="3" y="16" width="7" height="5" rx="2" /></svg>
+            Tổng quan
+          </a>
+          <a href="#profile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0" /></svg>
+            Thông tin cá nhân
+          </a>
+          <a href="#orders">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4zM8 9h8M8 13h8M8 17h5" /></svg>
+            Lịch sử đặt vé
+          </a>
+          <a href="#security">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m12 3 8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4" /></svg>
+            Bảo mật
+          </a>
+          <a href="#vouchers">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18v4a2 2 0 0 0 0 4v4H3v-4a2 2 0 0 0 0-4z" /><path d="M10 6v12" stroke-dasharray="2 2" /></svg>
+            Ví voucher
+          </a>
+          <a href="#membership">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m12 2 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" /></svg>
+            Hạng hội viên
+          </a>
+          <a href="#points">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v10M7 12h10" /></svg>
+            Điểm thưởng
+          </a>
+          <a href="#notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M10 21h4" /></svg>
+            Thông báo
+          </a>
+          <button id="accountLogout" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v18h-6m-5-14 5 5-5 5m5-5H3" /></svg>
+            Đăng xuất
+          </button>
+        </nav>
+      </aside>
+
+      <main>
+        <section class="card hero" id="overview" aria-labelledby="overviewTitle">
+          <div class="member-card">
+            <div class="split-row">
+              <span id="overviewTier" class="tier-pill"></span>
+              <span class="member-brand">NEON CINEMA</span>
+            </div>
+            <div>
+              <p id="cardName" class="member-name"></p>
+              <p id="cardId" class="mono muted"></p>
+            </div>
+            <div class="member-card-points">
+              <span class="label">Điểm khả dụng</span>
+              <strong id="cardPoints">—</strong>
+            </div>
+          </div>
+          <div class="tier-info">
+            <div>
+              <h1 id="overviewTitle">Chào bạn, <span id="memberName"></span></h1>
+              <p id="memberEmail" class="muted"></p>
+            </div>
+            <div class="stats">
+              <div class="stat"><span class="label">Đơn đã thanh toán</span><strong id="paidOrders">—</strong></div>
+              <div class="stat"><span class="label">Điểm khả dụng</span><strong id="availablePoints">—</strong></div>
+              <div class="stat"><span class="label">Chi tiêu 365 ngày</span><strong id="memberSpend">—</strong></div>
+              <div class="stat"><span class="label">Voucher có thể dùng</span><strong id="voucherCount">—</strong></div>
+            </div>
+            <div class="progress">
+              <strong>Tiến trình nâng hạng</strong>
+              <div id="memberProgress" class="bar" role="progressbar" aria-label="Tiến trình nâng hạng" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <span id="memberProgressFill"></span>
+              </div>
+              <p id="nextTierText" class="muted"></p>
+            </div>
+            <div id="expiringVouchers" class="perks" hidden></div>
+          </div>
+        </section>
+
+        <section class="card" id="membership" aria-labelledby="membershipTitle">
+          <div class="card-head">
+            <div><h2 id="membershipTitle">Hạng hội viên</h2><p id="membershipExplain" class="muted"></p></div>
+          </div>
+          <div id="tierCards" class="tier-grid"></div>
+          <p id="legacyBenefit" class="fine-print"></p>
+        </section>
+
+        <div class="two" id="profile">
+          <section class="card" id="personal" aria-labelledby="profileTitle">
+            <div class="card-head">
+              <div><h2 id="profileTitle">Thông tin cá nhân</h2><p class="muted">Cập nhật thông tin dùng khi đặt vé.</p></div>
+            </div>
+            <form id="accountProfileForm" class="stack">
+              <div class="form-grid">
+                <label class="field full">Họ và tên
+                  <input name="fullName" required minlength="2" maxlength="100" autocomplete="name" />
+                </label>
+                <label class="field">Email
+                  <input name="email" type="email" required autocomplete="email" />
+                </label>
+                <label class="field">Số điện thoại
+                  <input name="phone" type="tel" required pattern="0[1-9][0-9]{8}" autocomplete="tel" />
+                </label>
+                <label class="field full">Mật khẩu hiện tại khi đổi email
+                  <input name="currentPassword" type="password" autocomplete="current-password" />
+                </label>
+              </div>
+              <button class="button primary" type="submit">Lưu thông tin</button>
+            </form>
+
+            <form id="preferencesForm" class="stack form-section">
+              <h3>Tùy chọn</h3>
+              <div class="form-grid">
+                <label class="field">Ngày sinh <input name="birthDate" type="date" aria-describedby="birthDateHelp" /></label>
+                <label class="field">Thể loại yêu thích <input name="favoriteGenre" maxlength="100" /></label>
+              </div>
+              <p class="fine-print" id="birthDateHelp">Ngày sinh chỉ xác nhận một lần.</p>
+              <label class="check-field"><input name="notifyShowtime" type="checkbox" role="switch" /> Lưu tùy chọn nhắc lịch chiếu</label>
+              <label class="check-field"><input name="notifyOffers" type="checkbox" role="switch" /> Lưu tùy chọn nhận ưu đãi</label>
+              <button class="button" type="submit">Lưu tùy chọn</button>
+            </form>
+          </section>
+
+          <section class="card" id="security" aria-labelledby="securityTitle">
+            <div class="card-head">
+              <div><h2 id="securityTitle">Hồ sơ và bảo mật</h2><p class="muted">Đổi mật khẩu đăng nhập tài khoản.</p></div>
+            </div>
+            <form id="passwordForm" class="stack">
+              <label class="field">Mật khẩu hiện tại
+                <input name="currentPassword" type="password" autocomplete="current-password" required />
+              </label>
+              <label class="field">Mật khẩu mới
+                <input name="newPassword" type="password" minlength="8" maxlength="72" autocomplete="new-password" required />
+              </label>
+              <label class="field">Nhập lại mật khẩu mới
+                <input name="confirmation" type="password" autocomplete="new-password" required />
+              </label>
+              <p class="fine-print">Từ 8 ký tự, tối đa 72 byte. Bạn cần đăng nhập lại sau khi đổi mật khẩu.</p>
+              <button class="button primary" type="submit">Đổi mật khẩu</button>
+            </form>
+          </section>
+        </div>
+
+        <section class="card" id="orders" aria-labelledby="transactions">
+          <div class="card-head">
+            <div><h2 id="transactions">Lịch sử đặt vé</h2><p class="muted">Xem các suất sắp tới và giao dịch của bạn.</p></div>
+          </div>
+          <div id="upcomingOrders" class="card-list upcoming-grid"></div>
+          <div class="filters">
+            <label class="field">Tìm đơn <input id="orderSearch" type="search" placeholder="Mã đơn hoặc tên phim" /></label>
+            <label class="field">Trạng thái
+              <select id="orderFilter">
+                <option value="">Tất cả</option>
+                <option value="PENDING_PAYMENT">Chờ thanh toán</option>
+                <option value="PAID">Đã thanh toán</option>
+                <option value="REFUND_PENDING">Đang xử lý hoàn</option>
+                <option value="REFUNDED">Đã hoàn</option>
+                <option value="CANCELLED">Đã hủy</option>
+                <option value="EXPIRED">Hết hạn</option>
+              </select>
+            </label>
+          </div>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Bảng lịch sử đặt vé">
+            <table>
+              <thead><tr><th scope="col">Phim và mã đơn</th><th scope="col">Suất chiếu và ghế</th><th scope="col">Trạng thái</th><th scope="col" class="amount">Tổng tiền</th><th scope="col">Chi tiết</th></tr></thead>
+              <tbody id="accountOrders"></tbody>
+            </table>
+          </div>
+          <div id="orderPagination" class="pagination"></div>
+          <details class="form-section">
+            <summary>Vé từ hệ thống cũ</summary>
+            <div id="legacyTickets" class="card-list"><p class="fine-print">Đang tải vé cũ…</p></div>
+          </details>
+        </section>
+
+        <section class="card" id="vouchers" aria-labelledby="vouchersTitle">
+          <div class="card-head">
+            <h2 id="vouchersTitle">Ví voucher</h2>
+            <a href="/offers.html" class="text-button">Khám phá ưu đãi →</a>
+          </div>
+          <form id="claimVoucherForm" class="filters">
+            <label class="field">Mã ưu đãi <input name="code" maxlength="50" required /></label>
+            <button class="button primary" type="submit">Nhận vào ví</button>
+          </form>
+          <label class="field voucher-filter">Trạng thái
+            <select id="voucherFilter">
+              <option value="">Tất cả</option>
+              <option value="AVAILABLE">Có thể dùng</option>
+              <option value="RESERVED">Đang giữ</option>
+              <option value="USED">Đã dùng</option>
+              <option value="EXPIRED">Hết hạn</option>
+            </select>
+          </label>
+          <div id="voucherWallet" class="voucher-grid"></div>
+        </section>
+
+        <section class="card stack" id="points" aria-labelledby="pointsTitle">
+          <h2 id="pointsTitle">Điểm thưởng</h2>
+          <div class="stats">
+            <div class="stat"><span class="label">Khả dụng</span><strong id="pointsAvailable">—</strong></div>
+            <div class="stat"><span class="label">Đang giữ trong đơn</span><strong id="pointsReserved">—</strong></div>
+            <div class="stat"><span class="label">Hết hạn trong 30 ngày</span><strong id="pointsExpiring">—</strong></div>
+          </div>
+          <p class="fine-print">1 điểm = 1.000đ · Dùng tối thiểu 10 điểm · Điểm có hạn 12 tháng.</p>
+          <p id="pointDebt" class="notice-box" hidden></p>
+          <h3>Quà đổi điểm</h3>
+          <div id="pointRewards" class="card-list"></div>
+          <h3>Sổ điểm</h3>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Bảng sổ điểm">
+            <table>
+              <thead><tr><th scope="col">Thời gian</th><th scope="col">Nội dung</th><th scope="col">Điểm</th><th scope="col">Hạn sử dụng</th></tr></thead>
+              <tbody id="pointLedger"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card" id="notifications" aria-labelledby="notificationsTitle">
+          <div class="card-head"><h2 id="notificationsTitle">Thông báo</h2></div>
+          <div id="accountNotifications" class="card-list"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

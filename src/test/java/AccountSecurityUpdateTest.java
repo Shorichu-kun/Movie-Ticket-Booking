@@ -81,6 +81,15 @@ class AccountSecurityUpdateTest {
   }
 
   @Test
+  void existingAccountUrlsForwardToTheNeonDashboard() throws Exception {
+    for (String path : new String[] {"/account.html", "/html/account.html", "/static/html/account.html"}) {
+      mvc.perform(get(path))
+          .andExpect(status().isOk())
+          .andExpect(forwardedUrl("/html/user.html"));
+    }
+  }
+
+  @Test
   void changesPasswordAndInvalidatesOtherSessions() throws Exception {
     MockHttpSession first = register(), other = login("Original123!");
     send(
