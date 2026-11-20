@@ -1,191 +1,170 @@
 'use strict';
 (() => {
     const $ = id => document.getElementById(id);
-    const state = { movies: [], rooms: [], shows: [] };
-    const demoMode = location.protocol === 'file:';
-    const demoKey = 'neon-cinema-showtimes-demo-v1';
-    let csrfPromise;
+    const SLOTS = [10, 13, 16, 19, 22]; // giờ bắt đầu của từng cột, cột cuối kéo đến 24:00
+    const DAYS = 7, DEFAULT_PRICE = 80000;
+    const WD = ['CN', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
+    const MST = { NOW_SHOWING: 'Đang chiếu', COMING_SOON: 'Sắp chiếu', ENDED: 'Ngừng chiếu' };
+    const pad = n => String(n).padStart(2, '0');
+    const key = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    const parse = k => { const [y, m, d] = k.split('-').map(Number); return new Date(y, m - 1, d); };
+    const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+    const iso = d => `${key(d)}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    const hhmm = s => (s || '').slice(11, 16) || '—';
+    const mins = s => Number(s.slice(11, 13)) * 60 + Number(s.slice(14, 16));
+    const label = d => `${WD[d.getDay()]}, ${pad(d.getDate())}/${pad(d.getMonth() + 1)}`;
+    const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const money = v => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', maximumFractionDigits: 0 }).format(Number(v) || 0);
+    const same = (a, b) => String(a).toLowerCase() === String(b).toLowerCase();
+    const state = { movies: [], rooms: [], shows: [], week: parse(key(new Date())), day: key(new Date()), room: null, pick: null, detail: null };
 
-    const csrf = () => csrfPromise ||= fetch('/api/auth/csrf', { credentials: 'same-origin' })
-        .then(async response => { if (!response.ok) throw new Error('Không thể khởi tạo phiên.'); return response.json(); })
-        .catch(error => { csrfPromise = null; throw error; });
-
-    async function api(path, options = {}) {
-        const method = (options.method || 'GET').toUpperCase();
-        const headers = new Headers(options.headers || {});
-        if (!['GET', 'HEAD', 'OPTIONS'].includes(method)) {
-            const token = await csrf();
-            headers.set(token.headerName, token.token);
-        }
-        const response = await fetch(path, { ...options, headers, credentials: 'same-origin' });
-        const raw = await response.text();
-        let data;
+    let csrfP;
+    const csrf = () => csrfP ||= fetch('/api/auth/csrf', { credentials: 'same-origin' })
+        .then(r => { if (!r.ok) throw new Error('Không thể khởi tạo phiên.'); return r.json(); })
+        .catch(e => { csrfP = null; throw e; });
+    async function api(path, opt = {}) {
+        const method = (opt.method || 'GET').toUpperCase(), headers = new Headers(opt.headers || {});
+        if (!['GET', 'HEAD', 'OPTIONS'].includes(method)) { const t = await csrf(); headers.set(t.headerName, t.token); }
+        const res = await fetch(path, { ...opt, headers, credentials: 'same-origin' });
+        const raw = await res.text(); let data;
         try { data = raw ? JSON.parse(raw) : null; } catch { data = raw; }
-        if (!response.ok) throw new Error(typeof data === 'string' ? data : (data?.message || 'Yêu cầu chưa thành công.'));
+        if (!res.ok) throw new Error(typeof data === 'string' ? data : (data?.message || 'Yêu cầu chưa thành công.'));
         return data;
     }
+    function toast(m, err = false) {
+        const b = document.createElement('div'); b.className = 'toast' + (err ? ' err' : ''); b.textContent = m;
+        document.body.append(b); setTimeout(() => b.remove(), 3600);
+    }
 
-    const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
-    const money = value => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', maximumFractionDigits: 0 }).format(Number(value) || 0);
-    const localDateTime = value => {
-        if (!value) return '—';
-        const date = new Date(value);
-        return Number.isNaN(date.valueOf()) ? escape(value) : new Intl.DateTimeFormat('vi-VN', { dateStyle: 'short', timeStyle: 'short' }).format(date);
-    };
-    const today = () => {
-        const d = new Date();
-        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-    };
-    function demoSeed() {
-        const day = today();
-        const movies = [
-            { id: 'MV001', title: 'Event Horizon: Neon', duration: 148, genre: 'Sci-fi' },
-            { id: 'MV002', title: 'Night Protocol', duration: 126, genre: 'Hành động' },
-            { id: 'MV003', title: 'Pixel Panda', duration: 105, genre: 'Hoạt hình' },
-            { id: 'MV004', title: 'Crimson Orbit', duration: 132, genre: 'Phiêu lưu' },
-            { id: 'MV005', title: 'Silent Opera', duration: 119, genre: 'Tâm lý' }
-        ];
-        const rooms = [{ id: 'R1', name: 'Neon 1' }, { id: 'R2', name: 'Neon 2' }, { id: 'R3', name: 'Neon 3' }];
-        const shows = [
-            { id: 'ST001', movieId: 'MV001', roomId: 'R1', startTime: `${day}T18:00`, endTime: `${day}T20:28`, price: 95000 },
-            { id: 'ST002', movieId: 'MV002', roomId: 'R2', startTime: `${day}T18:30`, endTime: `${day}T20:36`, price: 85000 },
-            { id: 'ST003', movieId: 'MV003', roomId: 'R3', startTime: `${day}T19:00`, endTime: `${day}T20:45`, price: 75000 },
-            { id: 'ST004', movieId: 'MV004', roomId: 'R1', startTime: `${day}T21:00`, endTime: `${day}T23:12`, price: 95000 },
-            { id: 'ST005', movieId: 'MV005', roomId: 'R2', startTime: `${day}T21:15`, endTime: `${day}T23:14`, price: 80000 }
-        ];
-        return { movies, rooms, shows };
-    }
-    function toast(message, error = false) {
-        const box = document.createElement('div');
-        box.className = `toast${error ? ' err' : ''}`;
-        box.textContent = message;
-        document.body.append(box);
-        setTimeout(() => box.remove(), 3600);
-    }
-    function showError(message) { $('error').textContent = message; $('error').classList.add('show'); }
-    function persistDemo() { localStorage.setItem(demoKey, JSON.stringify({ movies: state.movies, rooms: state.rooms, shows: state.shows })); }
-    function fillSelects() {
-        const movieOptions = state.movies.map(movie => `<option value="${escape(movie.id)}">${escape(movie.title || movie.id)}</option>`).join('');
-        $('filterMovie').innerHTML = '<option value="">Tất cả phim</option>' + movieOptions;
-        $('form').elements.movieId.innerHTML = movieOptions || '<option value="">Chưa có phim</option>';
-        $('form').elements.roomId.innerHTML = state.rooms.map(room => `<option value="${escape(room.id)}">${escape(room.name || room.id)}</option>`).join('') || '<option value="">Chưa có phòng</option>';
-        $('movieCount').textContent = `${state.movies.length} phim`;
-        $('roomCount').textContent = `${state.rooms.length} phòng`;
-    }
+    const movie = id => state.movies.find(m => same(m.id, id));
+    const room = id => state.rooms.find(r => same(r.id, id));
+    const slotOf = m => { for (let i = SLOTS.length - 1; i >= 0; i--) if (m >= SLOTS[i] * 60) return i; return -1; };
+    const status = s => { const n = new Date(), a = new Date(s.startTime), b = new Date(s.endTime); return b < n ? ['Đã chiếu', 'ended'] : a <= n ? ['Đang chiếu', 'live'] : ['Active', 'active']; };
+    const cardHtml = s => { const m = movie(s.movieId), [t, c] = status(s); return `<button type="button" class="card-show ${c}" data-show="${esc(s.id)}"><b>${esc(m?.title || s.movieId)}</b><small>${hhmm(s.startTime)} – ${hhmm(s.endTime)}</small><span class="tag ${c}">${t}</span></button>`; };
+
     function render() {
-        const moviesById = new Map(state.movies.map(movie => [String(movie.id).toLowerCase(), movie]));
-        const roomsById = new Map(state.rooms.map(room => [String(room.id).toLowerCase(), room]));
-        const query = $('search').value.trim().toLocaleLowerCase('vi');
-        const movieId = $('filterMovie').value;
-        const date = $('filterDate').value;
-        const list = state.shows.filter(show => {
-            const movie = moviesById.get(String(show.movieId).toLowerCase());
-            const room = roomsById.get(String(show.roomId).toLowerCase());
-            const matchesText = [show.id, show.movieId, show.roomId, movie?.title, room?.name].some(value => String(value || '').toLocaleLowerCase('vi').includes(query));
-            return (!movieId || show.movieId === movieId) && (!date || String(show.startTime || '').startsWith(date)) && (!query || matchesText);
-        }).sort((a, b) => String(a.startTime || '').localeCompare(String(b.startTime || '')));
-        $('showCount').textContent = `${state.shows.length} suất`;
-        $('stats').textContent = `Có ${state.shows.length} suất chiếu · ${list.length} kết quả phù hợp`;
-        $('resultCount').textContent = `Hiển thị ${list.length} / ${state.shows.length} suất`;
-        $('rows').innerHTML = list.map(show => {
-            const movie = moviesById.get(String(show.movieId).toLowerCase());
-            const room = roomsById.get(String(show.roomId).toLowerCase());
-            const started = show.startTime && new Date(show.startTime) < new Date();
-            const tag = started ? ['Đã bắt đầu', 'ended'] : ['Sắp chiếu', 'upcoming'];
-            return `<tr><td><span class="title">${escape(show.id)}</span></td><td><span class="title">${escape(movie?.title || show.movieId || 'Không rõ phim')}</span><div class="subline">${escape(movie?.genre || 'Suất chiếu')}</div></td><td>${escape(room?.name || show.roomId || '—')}</td><td>${localDateTime(show.startTime)}</td><td>${localDateTime(show.endTime)}</td><td>${money(show.price)}</td><td><span class="tag ${tag[1]}">${tag[0]}</span></td><td><button class="btn danger small" data-delete="${escape(show.id)}">Xóa</button></td></tr>`;
-        }).join('') || '<tr><td colspan="8" class="empty">Không tìm thấy suất chiếu nào.</td></tr>';
-        $('rows').querySelectorAll('[data-delete]').forEach(button => button.addEventListener('click', () => removeShow(button.dataset.delete)));
+        $('dayTabs').innerHTML = Array.from({ length: DAYS }, (_, i) => { const d = addDays(state.week, i), k = key(d); return `<button type="button" class="tab${k === state.day ? ' active' : ''}" data-day="${k}">${label(d)}</button>`; }).join('');
+        const day = state.shows.filter(s => String(s.startTime || '').slice(0, 10) === state.day).sort((a, b) => a.startTime.localeCompare(b.startTime));
+        const outside = day.filter(s => slotOf(mins(s.startTime)) < 0).length;
+        $('stats').textContent = `${label(parse(state.day))} · ${day.length} suất chiếu · ${state.rooms.length} phòng` + (outside ? ` · ${outside} suất ngoài khung giờ hiển thị` : '');
+        const g = $('grid'); g.style.setProperty('--cols', SLOTS.length);
+        if (!state.rooms.length) { g.innerHTML = '<p class="note">Chưa có phòng chiếu. Hãy tạo phòng ở mục Phòng & Ghế.</p>'; return; }
+        g.innerHTML = '<div></div>' + SLOTS.map(h => `<div class="hour">${pad(h)}:00</div>`).join('') +
+            state.rooms.map(r => `<div class="room">${esc(r.name || r.id)}</div>` + SLOTS.map((_, i) => {
+                const list = day.filter(s => same(s.roomId, r.id) && slotOf(mins(s.startTime)) === i);
+                const add = `data-add data-room="${esc(r.id)}" data-slot="${i}"`;
+                return list.length
+                    ? `<div class="cell">${list.map(cardHtml).join('')}<button type="button" class="more" ${add}>＋ Thêm</button></div>`
+                    : `<button type="button" class="cell free" ${add}>＋ Gán phim</button>`;
+            }).join('')).join('');
     }
+
+    const openM = id => $(id).classList.add('open'), closeM = id => $(id).classList.remove('open');
+
+    function openAssign(roomId, i) {
+        if (!state.movies.length) return toast('Chưa có phim nào. Hãy thêm phim ở mục Quản lý phim.', true);
+        state.room = roomId; state.pick = null;
+        const end = (SLOTS[i + 1] ?? 24) * 60 - 1, t = $('assignTime');
+        $('assignContext').textContent = `Phòng ${room(roomId)?.name || roomId} · ${label(parse(state.day))}`;
+        t.min = `${pad(SLOTS[i])}:00`; t.max = `${pad(Math.floor(end / 60))}:${pad(end % 60)}`; t.value = t.min;
+        $('movieSearch').value = ''; $('assignPrice').value = DEFAULT_PRICE; $('assignError').classList.remove('show');
+        movieList(); preview(); openM('assignOverlay');
+    }
+    function movieList() {
+        const q = $('movieSearch').value.trim().toLocaleLowerCase('vi');
+        $('movieList').innerHTML = state.movies.filter(m => !q || `${m.title} ${m.genre || ''}`.toLocaleLowerCase('vi').includes(q)).map(m => {
+            const st = String(m.status).toUpperCase(), off = st === 'ENDED';
+            return `<label class="movie-opt${off ? ' off' : ''}"><input type="radio" name="movie" value="${esc(m.id)}"${off ? ' disabled' : ''}${same(state.pick ?? '', m.id) ? ' checked' : ''}><span><b>${esc(m.title || m.id)}</b><small>${esc(m.genre || '')} · ${Number(m.duration) || '?'} phút</small></span><span class="tag ${off ? 'ended' : 'active'}">${MST[st] || esc(m.status || '')}</span></label>`;
+        }).join('') || '<p class="note">Không tìm thấy phim.</p>';
+    }
+    function slotInfo() {
+        const m = movie(state.pick), t = $('assignTime').value;
+        if (!m || !t) return null;
+        const start = new Date(`${state.day}T${t}`);
+        return { m, start, end: new Date(start.getTime() + (Number(m.duration) || 0) * 60000) };
+    }
+    const clash = x => state.shows.find(s => same(s.roomId, state.room) && x.start < new Date(s.endTime) && x.end > new Date(s.startTime));
+    function preview() {
+        const x = slotInfo(), p = $('preview');
+        if (!x) { p.className = 'preview'; p.textContent = 'Chọn phim và giờ bắt đầu để xem giờ kết thúc.'; return; }
+        const c = clash(x);
+        p.className = 'preview ' + (c ? 'bad' : 'ok');
+        p.textContent = c ? `Trùng lịch với suất ${c.id} (${hhmm(c.startTime)} – ${hhmm(c.endTime)}).`
+            : `Kết thúc dự kiến lúc ${pad(x.end.getHours())}:${pad(x.end.getMinutes())}${key(x.end) !== state.day ? ' (hôm sau)' : ''}.`;
+    }
+
+    $('movieList').addEventListener('change', e => { state.pick = e.target.value; preview(); });
+    $('movieSearch').addEventListener('input', movieList);
+    $('assignTime').addEventListener('input', preview);
+    $('assignForm').addEventListener('submit', async e => {
+        e.preventDefault();
+        const x = slotInfo(), err = $('assignError'), btn = $('assignSave');
+        const fail = m => { err.textContent = m; err.classList.add('show'); };
+        err.classList.remove('show');
+        if (!x) return fail('Vui lòng chọn một phim.');
+        if (clash(x)) return fail($('preview').textContent);
+        const nums = state.shows.map(s => /^ST(\d+)$/i.exec(s.id || '')).filter(Boolean).map(m => +m[1]);
+        const show = { id: 'ST' + String(Math.max(0, ...nums) + 1).padStart(3, '0'), movieId: x.m.id, roomId: state.room, startTime: iso(x.start), price: Number($('assignPrice').value) };
+        btn.disabled = true; btn.textContent = 'Đang lưu…';
+        try {
+            const msg = await api('/api/showtimes', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(show) });
+            toast(typeof msg === 'string' ? msg : 'Đã gán phim.'); closeM('assignOverlay'); await load();
+        } catch (er) { fail(er.message); }
+        finally { btn.disabled = false; btn.textContent = 'Gán phim'; }
+    });
+
+    function openDetail(id) {
+        const s = state.shows.find(x => x.id === id); if (!s) return;
+        state.detail = id;
+        const when = v => v ? new Intl.DateTimeFormat('vi-VN', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(v)) : '—';
+        $('detailBody').innerHTML = [['Mã suất', s.id], ['Phim', movie(s.movieId)?.title || s.movieId], ['Phòng', room(s.roomId)?.name || s.roomId], ['Bắt đầu', when(s.startTime)], ['Kết thúc', when(s.endTime)], ['Giá vé', money(s.price)], ['Trạng thái', status(s)[0]]]
+            .map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('');
+        openM('detailOverlay');
+    }
+    $('detailDelete').addEventListener('click', async () => {
+        if (!state.detail || !confirm(`Bạn muốn hủy suất chiếu ${state.detail}?`)) return;
+        try { await api('/api/showtimes/' + encodeURIComponent(state.detail), { method: 'DELETE' }); toast('Đã hủy suất chiếu.'); closeM('detailOverlay'); await load(); }
+        catch (er) { toast(er.message, true); }
+    });
+
+    document.addEventListener('click', e => {
+        const d = e.target.closest('[data-day]'), a = e.target.closest('[data-add]'), s = e.target.closest('[data-show]');
+        if (d) { state.day = d.dataset.day; render(); }
+        else if (a) openAssign(a.dataset.room, Number(a.dataset.slot));
+        else if (s) openDetail(s.dataset.show);
+    });
+    [['assignCancel', 'assignOverlay'], ['detailClose', 'detailOverlay']].forEach(([b, o]) => $(b).addEventListener('click', () => closeM(o)));
+    document.querySelectorAll('.overlay').forEach(o => o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); }));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.overlay').forEach(o => o.classList.remove('open')); });
+    const goto = d => { state.week = d; state.day = key(d); render(); };
+    $('prevWeek').onclick = () => goto(addDays(state.week, -DAYS));
+    $('nextWeek').onclick = () => goto(addDays(state.week, DAYS));
+    $('today').onclick = () => goto(parse(key(new Date())));
+
     async function load() {
         $('error').classList.remove('show');
-        $('rows').innerHTML = '<tr><td colspan="8" class="empty">Đang tải dữ liệu…</td></tr>';
         try {
-            if (demoMode) {
-                const saved = localStorage.getItem(demoKey);
-                const demo = saved ? JSON.parse(saved) : demoSeed();
-                state.movies = demo.movies || []; state.rooms = demo.rooms || []; state.shows = demo.shows || [];
-                if (!saved) persistDemo();
-            } else {
-                const [movies, rooms, shows] = await Promise.all([api('/api/movies'), api('/api/rooms'), api('/api/showtimes')]);
-                state.movies = Array.isArray(movies) ? movies : [];
-                state.rooms = Array.isArray(rooms) ? rooms : [];
-                state.shows = Array.isArray(shows) ? shows : [];
-            }
-            fillSelects(); render();
-        } catch (error) {
-            showError(error.message + ' Hãy kiểm tra server và đăng nhập quản trị.');
+            const [m, r, s] = await Promise.all([api('/api/movies'), api('/api/rooms'), api('/api/showtimes')]);
+            state.movies = Array.isArray(m) ? m : []; state.rooms = Array.isArray(r) ? r : []; state.shows = Array.isArray(s) ? s : [];
+            $('movieCount').textContent = `${state.movies.length} phim`; $('roomCount').textContent = `${state.rooms.length} phòng`; $('showCount').textContent = `${state.shows.length} suất`;
+            render();
+        } catch (er) {
+            $('error').textContent = er.message + ' Hãy kiểm tra server và đăng nhập quản trị.'; $('error').classList.add('show');
             $('stats').textContent = 'Không tải được dữ liệu.';
-            $('rows').innerHTML = '<tr><td colspan="8" class="empty">Không thể kết nối dữ liệu.</td></tr>';
         }
     }
-    function openModal() {
-        if (!state.movies.length || !state.rooms.length) { toast('Cần có ít nhất một phim và một phòng chiếu trước.', true); return; }
-        $('formError').classList.remove('show'); $('overlay').classList.add('open'); $('form').elements.id.focus();
-    }
-    function closeModal() { $('overlay').classList.remove('open'); }
-    async function removeShow(id) {
-        if (!confirm(`Bạn muốn xóa suất chiếu ${id}?`)) return;
-        try {
-            if (demoMode) { state.shows = state.shows.filter(show => show.id !== id); persistDemo(); }
-            else await api('/api/showtimes/' + encodeURIComponent(id), { method: 'DELETE' });
-            toast('Đã xóa suất chiếu.'); await load();
-        } catch (error) { toast(error.message, true); }
-    }
 
-    $('form').addEventListener('submit', async event => {
-        event.preventDefault();
-        const form = event.currentTarget, button = $('save');
-        button.disabled = true; button.textContent = 'Đang lưu…'; $('formError').classList.remove('show');
-        const show = { id: form.elements.id.value.trim(), movieId: form.elements.movieId.value, roomId: form.elements.roomId.value, startTime: form.elements.startTime.value, price: Number(form.elements.price.value) };
-        try {
-            if (demoMode) {
-                if (state.shows.some(existing => existing.id.toLowerCase() === show.id.toLowerCase())) throw new Error('Mã suất chiếu đã tồn tại.');
-                const movie = state.movies.find(item => item.id === show.movieId);
-                if (!movie) throw new Error('Vui lòng chọn phim.');
-                const end = new Date(show.startTime); end.setMinutes(end.getMinutes() + Number(movie.duration || 120));
-                const pad = n => String(n).padStart(2, '0');
-                show.endTime = `${end.getFullYear()}-${pad(end.getMonth()+1)}-${pad(end.getDate())}T${pad(end.getHours())}:${pad(end.getMinutes())}`;
-                state.shows.push(show); persistDemo();
-            } else {
-                const message = await api('/api/showtimes', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(show) });
-                toast(typeof message === 'string' ? message : 'Đã tạo suất chiếu.');
-            }
-            closeModal(); form.reset(); form.elements.price.value = '80000';
-            if (demoMode) toast('Đã thêm suất chiếu vào bản demo trên thiết bị này.');
-            await load();
-        } catch (error) { $('formError').textContent = error.message; $('formError').classList.add('show'); }
-        finally { button.disabled = false; button.textContent = 'Lưu suất chiếu'; }
-    });
-
-    $('addShowtime').addEventListener('click', openModal);
-    $('cancel').addEventListener('click', closeModal);
-    $('overlay').addEventListener('click', event => { if (event.target === $('overlay')) closeModal(); });
-    document.addEventListener('keydown', event => { if (event.key === 'Escape') closeModal(); });
-    $('refresh').addEventListener('click', load);
-    $('reset').addEventListener('click', () => { $('search').value = ''; $('filterMovie').value = ''; $('filterDate').value = ''; render(); });
-    ['search', 'filterMovie', 'filterDate'].forEach(id => $(id).addEventListener(id === 'search' ? 'input' : 'change', render));
     $('logout').addEventListener('click', async () => {
-        if (demoMode) { toast('Đang ở chế độ xem thử, không có phiên đăng nhập để đăng xuất.'); return; }
-        try { await api('/api/auth/logout', { method: 'POST' }); location.assign('/welcome.html'); }
-        catch (error) { toast(error.message, true); }
+        try { await api('/api/auth/logout', { method: 'POST' }); location.assign('/welcome.html'); } catch (er) { toast(er.message, true); }
     });
-
-    if (demoMode) {
-        $('adminName').textContent = 'Bản xem thử';
-        $('adminEmail').textContent = 'Dữ liệu mẫu · lưu trên thiết bị này';
-        $('avatar').textContent = 'DE';
-        $('adminChip').textContent = 'DEMO';
-        $('logout').hidden = true;
-        load();
-    } else {
-        (async () => {
-            try {
-                const user = await api('/api/auth/me');
-                if (user?.role !== 'ADMIN') { document.body.innerHTML = '<main style="min-height:100vh;display:grid;place-items:center;text-align:center;padding:24px"><section><h1>Cần đăng nhập quyền quản trị</h1><p>Đăng nhập trong ứng dụng để quản lý suất chiếu.</p><a href="/static/html/welcome.html?login=1">Đến trang đăng nhập</a></section></main>'; return; }
-                const name = user.fullName || user.name || user.displayName || user.email || 'Quản trị viên';
-                $('adminName').textContent = name; $('adminEmail').textContent = user.email || user.id || 'Quản trị viên'; $('avatar').textContent = name.trim().slice(0, 2).toUpperCase();
-                await load();
-            } catch { document.body.innerHTML = '<main style="min-height:100vh;display:grid;place-items:center;text-align:center;padding:24px"><section><h1>Cần đăng nhập quyền quản trị</h1><p>Đăng nhập trong ứng dụng để quản lý suất chiếu.</p><a href="/static/html/welcome.html?login=1">Đến trang đăng nhập</a></section></main>'; }
-        })();
-    }
+    const deny = () => { document.body.innerHTML = '<main style="min-height:100vh;display:grid;place-items:center;text-align:center;padding:24px"><section><h1>Cần đăng nhập quyền quản trị</h1><p>Đăng nhập trong ứng dụng để quản lý suất chiếu.</p><a href="/static/html/welcome.html?login=1">Đến trang đăng nhập</a></section></main>'; };
+    (async () => {
+        try {
+            const u = await api('/api/auth/me');
+            if (u?.role !== 'ADMIN') return deny();
+            const n = u.fullName || u.name || u.displayName || u.email || 'Quản trị viên';
+            $('adminName').textContent = n; $('adminEmail').textContent = u.email || u.id || 'Quản trị viên'; $('avatar').textContent = n.trim().slice(0, 2).toUpperCase();
+            await load();
+        } catch { deny(); }
+    })();
 })();
