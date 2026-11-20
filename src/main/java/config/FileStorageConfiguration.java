@@ -4,6 +4,7 @@ import java.nio.file.Path;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import utils.JsonFileUtil;
 
@@ -12,6 +13,13 @@ public class FileStorageConfiguration implements WebMvcConfigurer {
 
     public FileStorageConfiguration(@Value("${cinema.data-dir:data}") String directory) {
         JsonFileUtil.setDataDirectory(directory);
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        for (String path : new String[] {"/account.html", "/html/account.html", "/static/html/account.html"}) {
+            registry.addViewController(path).setViewName("forward:/html/user.html");
+        }
     }
 
     @Override
