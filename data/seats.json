@@ -37,7 +37,7 @@
     "rowLabel": "A",
     "seatNumber": 5,
     "type": "NORMAL",
-    "status": "ACTIVE"
+    "status": "MAINTENANCE"
   },
   {
     "id": "SEED-R01-A06",
@@ -45,7 +45,7 @@
     "rowLabel": "A",
     "seatNumber": 6,
     "type": "NORMAL",
-    "status": "ACTIVE"
+    "status": "MAINTENANCE"
   },
   {
     "id": "SEED-R01-A07",
@@ -77,7 +77,7 @@
     "rowLabel": "A",
     "seatNumber": 10,
     "type": "NORMAL",
-    "status": "MAINTENANCE"
+    "status": "ACTIVE"
   },
   {
     "id": "SEED-R01-B01",
@@ -157,7 +157,7 @@
     "rowLabel": "B",
     "seatNumber": 10,
     "type": "NORMAL",
-    "status": "DISABLED"
+    "status": "ACTIVE"
   },
   {
     "id": "SEED-R01-C01",
@@ -165,7 +165,7 @@
     "rowLabel": "C",
     "seatNumber": 1,
     "type": "NORMAL",
-    "status": "ACTIVE"
+    "status": "MAINTENANCE"
   },
   {
     "id": "SEED-R01-C02",
@@ -173,7 +173,7 @@
     "rowLabel": "C",
     "seatNumber": 2,
     "type": "NORMAL",
-    "status": "ACTIVE"
+    "status": "MAINTENANCE"
   },
   {
     "id": "SEED-R01-C03",
@@ -324,7 +324,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "E",
     "seatNumber": 1,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -332,7 +332,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "E",
     "seatNumber": 2,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -340,7 +340,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "E",
     "seatNumber": 3,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -348,7 +348,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "E",
     "seatNumber": 4,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -356,7 +356,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "E",
     "seatNumber": 5,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -364,7 +364,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "E",
     "seatNumber": 6,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -372,7 +372,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "E",
     "seatNumber": 7,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -380,7 +380,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "E",
     "seatNumber": 8,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -388,15 +388,15 @@
     "roomId": "SEED-R01",
     "rowLabel": "E",
     "seatNumber": 9,
-    "type": "VIP",
-    "status": "ACTIVE"
+    "type": "NORMAL",
+    "status": "MAINTENANCE"
   },
   {
     "id": "SEED-R01-E10",
     "roomId": "SEED-R01",
     "rowLabel": "E",
     "seatNumber": 10,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -404,7 +404,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "F",
     "seatNumber": 1,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -412,7 +412,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "F",
     "seatNumber": 2,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -420,7 +420,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "F",
     "seatNumber": 3,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -428,7 +428,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "F",
     "seatNumber": 4,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -436,7 +436,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "F",
     "seatNumber": 5,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -444,7 +444,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "F",
     "seatNumber": 6,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -452,7 +452,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "F",
     "seatNumber": 7,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -460,7 +460,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "F",
     "seatNumber": 8,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -468,7 +468,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "F",
     "seatNumber": 9,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -476,7 +476,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "F",
     "seatNumber": 10,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -484,7 +484,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "G",
     "seatNumber": 1,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -492,7 +492,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "G",
     "seatNumber": 2,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -500,7 +500,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "G",
     "seatNumber": 3,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -508,7 +508,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "G",
     "seatNumber": 4,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -516,7 +516,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "G",
     "seatNumber": 5,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -524,7 +524,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "G",
     "seatNumber": 6,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -532,7 +532,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "G",
     "seatNumber": 7,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -540,7 +540,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "G",
     "seatNumber": 8,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -548,7 +548,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "G",
     "seatNumber": 9,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -556,7 +556,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "G",
     "seatNumber": 10,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -564,7 +564,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "H",
     "seatNumber": 1,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -572,7 +572,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "H",
     "seatNumber": 2,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -580,7 +580,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "H",
     "seatNumber": 3,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -588,7 +588,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "H",
     "seatNumber": 4,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -596,7 +596,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "H",
     "seatNumber": 5,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -604,7 +604,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "H",
     "seatNumber": 6,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -612,7 +612,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "H",
     "seatNumber": 7,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -620,7 +620,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "H",
     "seatNumber": 8,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -628,7 +628,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "H",
     "seatNumber": 9,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -636,7 +636,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "H",
     "seatNumber": 10,
-    "type": "VIP",
+    "type": "NORMAL",
     "status": "ACTIVE"
   },
   {
@@ -644,7 +644,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "I",
     "seatNumber": 1,
-    "type": "NORMAL",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -652,7 +652,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "I",
     "seatNumber": 2,
-    "type": "NORMAL",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -660,7 +660,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "I",
     "seatNumber": 3,
-    "type": "NORMAL",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -668,7 +668,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "I",
     "seatNumber": 4,
-    "type": "NORMAL",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -676,7 +676,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "I",
     "seatNumber": 5,
-    "type": "NORMAL",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -684,7 +684,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "I",
     "seatNumber": 6,
-    "type": "NORMAL",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -692,7 +692,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "I",
     "seatNumber": 7,
-    "type": "NORMAL",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -700,7 +700,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "I",
     "seatNumber": 8,
-    "type": "NORMAL",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -708,7 +708,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "I",
     "seatNumber": 9,
-    "type": "NORMAL",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -716,7 +716,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "I",
     "seatNumber": 10,
-    "type": "NORMAL",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -724,7 +724,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "J",
     "seatNumber": 1,
-    "type": "COUPLE",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -732,7 +732,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "J",
     "seatNumber": 2,
-    "type": "COUPLE",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -740,7 +740,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "J",
     "seatNumber": 3,
-    "type": "COUPLE",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -748,7 +748,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "J",
     "seatNumber": 4,
-    "type": "COUPLE",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -756,7 +756,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "J",
     "seatNumber": 5,
-    "type": "COUPLE",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -764,7 +764,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "J",
     "seatNumber": 6,
-    "type": "COUPLE",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -772,7 +772,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "J",
     "seatNumber": 7,
-    "type": "COUPLE",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -780,7 +780,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "J",
     "seatNumber": 8,
-    "type": "COUPLE",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -788,7 +788,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "J",
     "seatNumber": 9,
-    "type": "COUPLE",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {
@@ -796,7 +796,7 @@
     "roomId": "SEED-R01",
     "rowLabel": "J",
     "seatNumber": 10,
-    "type": "COUPLE",
+    "type": "VIP",
     "status": "ACTIVE"
   },
   {

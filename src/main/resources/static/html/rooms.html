@@ -1,84 +1,157 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <script src="../js/session.js"></script><script src="../js/admin-guard.js" defer></script>
+    <script src="../js/session.js"></script>
+    <script src="../js/admin-guard.js" defer></script>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-    <title>Module 4 - Quản lý phòng và ghế</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Cinema — Quản lý Phòng & Ghế</title>
     <link rel="stylesheet" href="../css/rooms.css">
     <script src="../js/rooms.js" defer></script>
 </head>
 <body>
-    <main class="container">
-        <header>
-            <h1>Quản lý phòng chiếu & ghế</h1>
-            <p>Module 4 - Movie Ticket Booking</p>
-        </header>
+<div class="app">
+    <!-- Cột thông tin Admin bên trái -->
+    <aside class="card side">
+        <div class="logo"><i>▶</i><span>NEON <b>CINEMA</b></span></div>
+        <div class="av" id="adminAvatar">AD</div>
+        <h2 id="adminName">Admin</h2>
+        <div class="sub" id="adminEmail">admin@neoncinema.vn</div>
+        <span class="chip">Super Admin</span>
 
-        <section class="panel">
-            <h2>Thông tin phòng chiếu</h2>
+        <div class="st">
+            <div><b id="statRooms">0</b><small>Phòng</small></div>
+            <div><b id="statSeats">0</b><small>Ghế</small></div>
+            <div><b id="statVip">0</b><small>VIP</small></div>
+        </div>
 
-            <form id="roomForm">
-                <label for="roomId">Mã phòng</label>
-                <input id="roomId" type="text"
-                       placeholder="VD: R001" required>
+        <div class="kv"><span>Rạp</span><span>Neon Landmark 81</span></div>
+        <div class="kv"><span>Lưu trữ</span><span style="color:var(--gr)">data/*.json</span></div>
+        <div class="kv"><span>Trạng thái</span><span id="syncStatus" style="color:var(--cy)">Đã đồng bộ</span></div>
 
-                <label for="roomName">Tên phòng</label>
-                <input id="roomName" type="text"
-                       placeholder="Phòng chiếu 1" required>
+        <a href="/html/movies.html" class="btn g" style="display:block;text-align:center;text-decoration:none;margin-top:14px">← Quay lại Quản lý phim</a>
+    </aside>
 
-                <label for="rowCount">Số hàng ghế</label>
-                <input id="rowCount" type="number"
-                       min="1" max="26" value="3" required>
+    <!-- Khu vực nội dung chính -->
+    <main>
+        <!-- Thanh điều hướng 4 module đồng nhất -->
+        <div class="tiles">
+            <a class="tile" href="/html/movies.html">
+                <span class="ic">🎬</span><b>Quản lý phim</b><small>Kho phim & Poster</small>
+            </a>
+            <a class="tile" href="/html/showtimes.html">
+                <span class="ic">🗓</span><b>Suất chiếu</b><small>Lịch chiếu theo phòng</small>
+            </a>
+            <div class="tile on">
+                <span class="ic">💺</span><b>Phòng & Ghế</b><small id="tileRoomCount">0 phòng</small>
+            </div>
+            <a class="tile" href="/html/customers.html">
+                <span class="ic">📊</span><b>Khách hàng & Thống kê</b><small>Hội viên & Doanh thu</small>
+            </a>
+        </div>
 
-                <label for="seatsPerRow">Số ghế mỗi hàng</label>
-                <input id="seatsPerRow" type="number"
-                       min="1" max="50" value="4" required>
+        <!-- Khung thiết kế sơ đồ Phòng & Ghế -->
+        <section class="card">
+            <div class="head">
+                <div>
+                    <h1>Phòng & Ghế</h1>
+                    <div class="sub">Chọn loại ghế rồi bấm ghế · bấm chữ hàng (A, B, C...) để đổi cả hàng</div>
+                </div>
+                <div style="display:flex;gap:8px;flex-wrap:wrap">
+                    <button type="button" class="btn d" id="deleteRoomBtn">Xóa phòng</button>
+                    <button type="button" class="btn" id="openAddModalBtn">+ Thêm phòng</button>
+                </div>
+            </div>
 
-                <button type="submit" id="saveRoomBtn">
-                    Lưu phòng chiếu
-                </button>
+            <!-- Thanh công cụ cấu hình phòng & Cọ vẽ loại ghế -->
+            <div class="pal">
+                <div style="min-width:150px">
+                    <label for="roomSelect">Phòng</label>
+                    <select id="roomSelect"></select>
+                </div>
+                <div>
+                    <label for="cfgRows">Số hàng</label>
+                    <input type="number" id="cfgRows" min="1" max="26" value="10">
+                </div>
+                <div>
+                    <label for="cfgLeft">Cột trái</label>
+                    <input type="number" id="cfgLeft" min="0" max="10" value="3">
+                </div>
+                <div>
+                    <label for="cfgCenter">Cột giữa</label>
+                    <input type="number" id="cfgCenter" min="1" max="20" value="8">
+                </div>
+                <div>
+                    <label for="cfgRight">Cột phải</label>
+                    <input type="number" id="cfgRight" min="0" max="10" value="3">
+                </div>
 
-                <button type="button" id="cancelEditBtn"
-                        hidden>
-                    Hủy chỉnh sửa
-                </button>
-            </form>
-        </section>
+                <button type="button" class="btn g" id="applyGridBtn" title="Cập nhật kích thước lưới ghế">Áp dụng lưới</button>
 
-        <section class="panel">
-            <h2>Danh sách phòng chiếu</h2>
-            <div id="roomList">
-                Chưa tải dữ liệu phòng.
+                <div class="tool-group">
+                    <button type="button" class="tool on" data-tool="STANDARD">Standard</button>
+                    <button type="button" class="tool" data-tool="VIP">VIP Recliner</button>
+                    <button type="button" class="tool" data-tool="MAINTENANCE">Hỏng / Tắt</button>
+                </div>
+            </div>
+
+            <!-- Sân khấu & Ma trận ghế -->
+            <div class="seatwrap">
+                <div class="screen"></div>
+                <div class="sl">SCREEN</div>
+                <div class="rows" id="seatRows"></div>
+                <div class="lg">
+                    <span><i></i>Standard</span>
+                    <span><i class="v"></i>VIP Recliner</span>
+                    <span><i class="x"></i>Hỏng / Tắt</span>
+                </div>
+            </div>
+
+            <!-- Dòng thống kê & Thông báo -->
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:14px">
+                <p class="sub" id="seatSummary" style="margin:0">Tổng 0 ghế · Standard 0 · VIP 0 · Hỏng 0</p>
+                <span id="toastMsg" class="toast"></span>
             </div>
         </section>
-
-        <section class="panel">
-            <h2>Sơ đồ ghế</h2>
-
-            <p id="selectedRoom">
-                Chưa chọn phòng chiếu
-            </p>
-
-            <button id="generateSeatsBtn"
-                    type="button" disabled>
-                Tạo ma trận ghế
-            </button>
-
-            <div class="screen">MÀN HÌNH CHIẾU</div>
-
-            <div id="seatMatrix"></div>
-
-            <div class="legend">
-                <span>Thường</span>
-                <span>VIP</span>
-                <span>Đôi</span>
-                <span>Bảo trì / Ngừng sử dụng</span>
-            </div>
-        </section>
-
-        <p id="message" role="status"></p>
     </main>
+</div>
+
+<!-- Modal Thêm phòng chiếu mới -->
+<div class="ov" id="addRoomModal">
+    <div class="md">
+        <h3>Thêm phòng chiếu mới</h3>
+        <form id="addRoomForm">
+            <label for="newRoomId">Mã phòng (ID)</label>
+            <input id="newRoomId" type="text" placeholder="VD: R004" required>
+
+            <label for="newRoomName">Tên phòng</label>
+            <input id="newRoomName" type="text" placeholder="VD: Hall 4 hoặc IMAX" required>
+
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+                <div>
+                    <label for="newRows">Số hàng</label>
+                    <input id="newRows" type="number" min="1" max="26" value="10" required>
+                </div>
+                <div>
+                    <label for="newLeft">Cột trái</label>
+                    <input id="newLeft" type="number" min="0" max="10" value="3" required>
+                </div>
+                <div>
+                    <label for="newCenter">Cột giữa</label>
+                    <input id="newCenter" type="number" min="1" max="20" value="8" required>
+                </div>
+                <div>
+                    <label for="newRight">Cột phải</label>
+                    <input id="newRight" type="number" min="0" max="10" value="3" required>
+                </div>
+            </div>
+
+            <div class="ft">
+                <button type="button" class="btn g" id="closeModalBtn">Hủy</button>
+                <button type="submit" class="btn">Tạo phòng & Sinh ghế</button>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>

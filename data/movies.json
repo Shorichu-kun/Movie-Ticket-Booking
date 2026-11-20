@@ -208,5 +208,23 @@
     "duration": 100,
     "genre": "Hành động",
     "status": "COMING_SOON"
+  },
+  {
+    "id": "VG106",
+    "title": "VaNG",
+    "duration": 120,
+    "genre": "tình cảm",
+    "status": "NOW_SHOWING",
+    "ageRating": "T13",
+    "poster": "/posters/b8aebe6e-9a85-48b0-91e0-fae4447520b9.jpg"
+  },
+  {
+    "id": "PD203",
+    "title": "Trong trường hợp",
+    "duration": 120,
+    "genre": "hành động",
+    "status": "COMING_SOON",
+    "ageRating": "T18",
+    "poster": "/posters/550c495f-1986-4c96-944d-63b0e51b8146.jpg"
   }
 ]
