@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/showtimes.css">
+    <link rel="stylesheet" href="../css/showtimes.css">
 </head>
 <body>
 <div class="shell">
@@ -26,22 +27,41 @@
             <a class="tile card" href="customers.html"><span class="icon">📊</span><b>Khách hàng & Thống kê</b><small>Quản lý khách</small></a>
         </nav>
         <section class="content card">
-            <header class="heading"><div><p class="eyebrow">LỊCH CHIẾU / PHÒNG CHIẾU</p><h1>Quản lý suất chiếu</h1><p class="subtitle">Tạo lịch chiếu, lọc theo phim và ngày</p></div><button class="btn" id="addShowtime">＋ Thêm suất chiếu</button></header>
-            <div class="toolbar">
-                <label class="field">Tìm suất chiếu<input class="search" id="search" type="search" placeholder="Mã suất, phim hoặc phòng…"></label>
-                <label class="field">Phim<select id="filterMovie"><option value="">Tất cả phim</option></select></label>
-                <label class="field">Ngày chiếu<input id="filterDate" type="date"></label>
-                <button class="btn secondary" id="reset">Xóa bộ lọc</button><button class="btn secondary" id="refresh">↻ Tải lại</button>
+            <header class="heading"><div><p class="eyebrow">LỊCH CHIẾU / PHÒNG CHIẾU</p><h1>Suất chiếu</h1><p class="subtitle">Bấm vào ô để gán phim, xem hoặc hủy suất chiếu</p></div></header>
+            <div class="daybar">
+                <button class="btn secondary small" id="prevWeek" aria-label="Tuần trước">‹</button>
+                <div class="tabs" id="dayTabs"></div>
+                <button class="btn secondary small" id="nextWeek" aria-label="Tuần sau">›</button>
+                <button class="btn secondary small" id="today">Hôm nay</button>
             </div>
-            <div class="error" id="error" role="alert"></div><p class="stats" id="stats">Đang tải dữ liệu suất chiếu…</p>
-            <div class="table-wrap"><table class="table"><thead><tr><th>MÃ SUẤT</th><th>TÊN PHIM</th><th>PHÒNG</th><th>BẮT ĐẦU</th><th>KẾT THÚC</th><th>GIÁ VÉ</th><th>TRẠNG THÁI</th><th></th></tr></thead><tbody id="rows"><tr><td colspan="8" class="empty">Đang tải dữ liệu…</td></tr></tbody></table></div>
-            <div class="foot"><span id="resultCount"></span><span>Thời gian hiển thị theo giờ địa phương</span></div>
+            <div class="error" id="error" role="alert"></div>
+            <p class="stats" id="stats">Đang tải dữ liệu…</p>
+            <div class="schedule"><div class="sgrid" id="grid"></div></div>
         </section>
     </main>
 </div>
-<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><form class="modal" id="form"><h2 id="modalTitle">Thêm suất chiếu</h2><p class="hint">Chọn phim, phòng, giờ bắt đầu và giá vé cơ bản.</p>
-    <div class="form-grid"><label class="field">Mã suất chiếu<input name="id" required maxlength="40" placeholder="VD: ST06"></label><label class="field">Phim<select name="movieId" required></select></label><label class="field">Phòng chiếu<select name="roomId" required></select></label><label class="field">Giá vé (VNĐ)<input name="price" type="number" min="1" step="1000" required value="80000"></label><label class="field wide">Giờ bắt đầu<input name="startTime" type="datetime-local" required></label></div>
-    <div class="error" id="formError" role="alert"></div><div class="actions"><button class="btn secondary" type="button" id="cancel">Hủy</button><button class="btn" type="submit" id="save">Lưu suất chiếu</button></div></form></div>
+
+<div class="overlay" id="assignOverlay" role="dialog" aria-modal="true">
+    <form class="modal" id="assignForm">
+        <h2>Gán phim vào suất chiếu</h2><p class="hint" id="assignContext"></p>
+        <label class="field">Tìm phim<input id="movieSearch" type="search" placeholder="Tên hoặc thể loại…"></label>
+        <div class="movie-list" id="movieList"></div>
+        <div class="form-grid">
+            <label class="field">Giờ bắt đầu<input id="assignTime" type="time" required></label>
+            <label class="field">Giá vé (VNĐ)<input id="assignPrice" type="number" min="1" step="any" required></label>
+        </div>
+        <p class="preview" id="preview"></p><div class="error" id="assignError" role="alert"></div>
+        <div class="actions"><button class="btn secondary" type="button" id="assignCancel">Hủy</button><button class="btn" type="submit" id="assignSave">Gán phim</button></div>
+    </form>
+</div>
+
+<div class="overlay" id="detailOverlay" role="dialog" aria-modal="true">
+    <div class="modal">
+        <h2>Chi tiết suất chiếu</h2>
+        <dl class="detail" id="detailBody"></dl>
+        <div class="actions"><button class="btn secondary" type="button" id="detailClose">Đóng</button><button class="btn danger" type="button" id="detailDelete">Hủy suất</button></div>
+    </div>
+</div>
 
 <script src="../js/showtimes.js" defer></script>
 </body>
