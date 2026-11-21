@@ -18,7 +18,7 @@ let quoteVersion = 0;
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[id]').forEach(element => { elements[element.id] = element; });
     elements.addCustomer.addEventListener('click', () => openCustomerForm());
-    elements.refreshCustomers.addEventListener('click', loadCustomers);
+    elements.refreshCustomers.addEventListener('click', loadAllData);
     elements.searchCustomer.addEventListener('input', renderCustomers);
     elements.filterType.addEventListener('change', renderCustomers);
     elements.customerType.addEventListener('change', updateCustomerType);
@@ -37,18 +37,31 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.basePrice.addEventListener('input', invalidateQuote);
     elements.seatSurcharge.addEventListener('input', invalidateQuote);
     customerFields.forEach(field => elements[field].addEventListener('input', () => clearFieldError(field)));
-    document.addEventListener('admin:ready', loadCustomers, { once: true });
+    document.addEventListener('admin:ready', loadAllData, { once: true });
 });
+
+async function getCsrfHeader() {
+    try {
+        const res = await fetch('/api/auth/csrf');
+        if (res.ok) {
+            const csrf = await res.json();
+            if (csrf.headerName && csrf.token) return { [csrf.headerName]: csrf.token };
+        }
+    } catch (_) {}
+    return {};
+}
 
 async function requestApi(path = '', options = {}) {
     if (!['http:', 'https:'].includes(location.protocol)) {
-        throw new Error('Hãy chạy backend rồi mở http://localhost:8080/customers.html để sử dụng màn hình này.');
+        throw new Error('Hãy chạy backend rồi mở http://localhost:8080/html/customers.html để sử dụng màn hình này.');
     }
+    const method = (options.method || 'GET').toUpperCase();
+    const csrfHeader = ['POST', 'PUT', 'DELETE'].includes(method) ? await getCsrfHeader() : {};
     let response;
     try {
         response = await fetch(`${customerApi}${path}`, {
             ...options,
-            headers: { 'Content-Type': 'application/json', ...options.headers }
+            headers: { 'Content-Type': 'application/json', ...csrfHeader, ...options.headers }
         });
     } catch {
         throw new Error('Không thể kết nối máy chủ. Vui lòng kiểm tra backend và thử lại.');
@@ -65,6 +78,10 @@ async function requestApi(path = '', options = {}) {
         throw error;
     }
     return data;
+}
+
+async function loadAllData() {
+    await Promise.all([loadCustomers(), loadReportCharts()]);
 }
 
 async function loadCustomers() {
@@ -95,9 +112,62 @@ async function loadCustomers() {
     }
 }
 
+async function loadReportCharts() {
+    const monthlyMock = [
+        ['Th6', 38], ['Th7', 52], ['Th8', 47], ['Th9', 61], ['Th10', 74], ['Th11', 58]
+    ];
+    let movieBars = [];
+
+    try {
+        const [revRes, moviesRes] = await Promise.all([
+            fetch('/api/reports/revenue-by-movie').catch(() => null),
+            fetch('/api/movies').catch(() => null)
+        ]);
+        if (revRes && revRes.ok) {
+            const revData = await revRes.json();
+            if (Array.isArray(revData) && revData.length > 0) {
+                movieBars = revData.map(item => [
+                    item.movieTitle || item.title || item.movieId || 'Phim',
+                    Number(item.ticketsSold || item.ticketCount || item.totalRevenue || 0)
+                ]);
+            }
+        }
+        if (movieBars.length === 0 && moviesRes && moviesRes.ok) {
+            const movies = await moviesRes.json();
+            if (Array.isArray(movies) && movies.length > 0) {
+                movieBars = movies.slice(0, 5).map((m, idx) => [m.title || m.name || `Phim ${idx + 1}`, (5 - idx) * 240]);
+            }
+        }
+    } catch (_) {}
+
+    if (movieBars.length === 0) {
+        movieBars = [['Event Horizon: Neon', 1840], ['Night Protocol', 1320], ['Pixel Pals', 960], ['Silent Orbit', 210]];
+    }
+
+    const maxMonth = Math.max(...monthlyMock.map(r => r[1]), 1);
+    const total6M = monthlyMock.reduce((sum, r) => sum + r[1], 0);
+    elements.revSummary.textContent = `Tổng ${total6M} triệu đ`;
+    elements.revenueBars.innerHTML = monthlyMock.map(([m, v]) =>
+        `<div><i style="height:${Math.round((v / maxMonth) * 125)}px"></i>${m}<br><b style="color:var(--n-t)">${v}</b></div>`
+    ).join('');
+
+    const maxMovie = Math.max(...movieBars.map(s => s[1]), 1);
+    const totalTickets = movieBars.reduce((sum, s) => sum + s[1], 0);
+    elements.movieSalesSummary.textContent = `${totalTickets.toLocaleString('vi-VN')} lượt`;
+    elements.movieSalesBars.innerHTML = movieBars.slice(0, 5).map(([name, val]) => `
+        <div>
+            <div class="hb-top"><span>${name}</span><span class="muted">${val.toLocaleString('vi-VN')}</span></div>
+            <div class="hb-track"><i style="width:${Math.max(6, Math.round((val / maxMovie) * 100))}%"></i></div>
+        </div>
+    `).join('');
+}
+
 function updateStatistics() {
     elements.totalCount.textContent = customers.length;
-    App.tiles('customers.html', { 'customers.html': `${customers.length} khách hàng` });
+    elements.totalRevenueHint.textContent = `${customers.length} hồ sơ đang hoạt động`;
+    if (typeof App !== 'undefined' && App.tiles) {
+        App.tiles('customers.html', { 'customers.html': `${customers.length} khách hàng` });
+    }
     for (const type of Object.keys(customerTypes)) {
         const prefix = type.toLowerCase();
         elements[`${prefix}Count`].textContent = customers.filter(customer => customer.customerType === type).length;

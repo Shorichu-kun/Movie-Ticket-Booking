@@ -8,8 +8,9 @@ body.neon{margin:0;min-height:100vh;color:var(--n-t);font:13px/1.45 "Inter",syst
 .n-logo{display:flex;align-items:center;gap:8px;font-weight:800;margin-bottom:16px}.n-logo i{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--n-cy),var(--n-pk));display:grid;place-items:center;font-style:normal}.n-logo b{color:var(--n-pk)}
 .n-av{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--n-pk),#7c3aed);display:grid;place-items:center;font-weight:800;font-size:20px;box-shadow:0 0 22px #ff2e8866;margin:6px 0 10px}
 .n-side h2{margin:0;font-size:17px}.n-sub{color:var(--n-m);font-size:12px;margin:2px 0}
-.n-chip{display:inline-block;margin:6px 0 14px;padding:2px 10px;border-radius:99px;border:1px solid #1d6b4d;color:var(--n-gr);font-size:11px;background:#2dffa010}
-.n-kv{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--n-b);color:var(--n-t);text-decoration:none;font-size:12px}.n-kv:hover{color:var(--n-pk)}.n-kv span:last-child{color:var(--n-m)}
+.n-chip{display:inline-block;margin:6px 0 12px;padding:2px 10px;border-radius:99px;border:1px solid #1d6b4d;color:var(--n-gr);font-size:11px;background:#2dffa010}
+.n-st{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0 0 12px}.n-st div{background:var(--n-p2);border:1px solid var(--n-b);border-radius:10px;padding:8px 4px;text-align:center}.n-st b{display:block;font-size:16px;color:var(--n-t)}.n-st small{color:var(--n-m);font-size:10px}
+.n-kv{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid var(--n-b);color:var(--n-t);text-decoration:none;font-size:12px}a.n-kv:hover{color:var(--n-pk)}.n-kv span:first-child{color:var(--n-m)}
 .n-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
 .n-tile{background:var(--n-p);border:1px solid var(--n-b);border-radius:16px;padding:16px;color:var(--n-t);text-decoration:none;transition:.15s}
 .n-tile span{font-size:22px}.n-tile b{display:block;margin-top:8px;font-size:14px}.n-tile small{color:var(--n-m)}
@@ -36,6 +37,5 @@ body.neon{margin:0;min-height:100vh;color:var(--n-t);font:13px/1.45 "Inter",syst
 .n-dz.hv{border-color:var(--n-pk);background:#ff2e8810}.n-dz img{max-height:170px;border-radius:8px}
 .n-toasts{position:fixed;right:16px;bottom:16px;display:grid;gap:8px;z-index:60}
 .n-toast{background:var(--n-p2);border:1px solid #1d6b4d;color:var(--n-gr);padding:10px 14px;border-radius:10px;box-shadow:0 6px 24px #0008}.n-toast.err{border-color:#5a2030;color:var(--n-rd)}
-/* vùng giữ nguyên giao diện sáng của commerce.css */
 .n-legacy{background:#f5f3ee;color:#1f2420;border-radius:16px;padding:20px}
 @media(max-width:900px){.n-shell{grid-template-columns:1fr}.n-side{position:static}.n-tiles{grid-template-columns:1fr 1fr}.n-two{grid-template-columns:1fr}}

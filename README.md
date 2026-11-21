@@ -64,7 +64,7 @@ export PATH="$JAVA_HOME/bin:/private/tmp/movie-tools/apache-maven-3.9.9/bin:$PAT
 
 ## Dữ liệu demo và cấu hình
 
-Repository ban đầu chưa có `movies.json` (chỉ có `movies.js`, backend không đọc file đó), và các file phòng, ghế, suất chiếu đang rỗng. Có thể thêm dữ liệu từ giao diện admin hoặc tạo **bộ demo riêng**, không thay thế dữ liệu cũ:
+Dữ liệu mặc định có 30 phim và 48 suất chiếu mẫu theo ngày cố định. Để có lịch chiếu tính từ ngày chạy, tạo bộ demo riêng trong thư mục rỗng như sau.
 
 ```bash
 python3 scripts/seed-demo.py --directory /tmp/n6-demo-data
@@ -72,7 +72,7 @@ export CINEMA_DATA_DIR=/tmp/n6-demo-data
 java -jar target/Movie-Ticket-Booking-0.0.1-SNAPSHOT.jar
 ```
 
-Script yêu cầu thư mục đích rỗng; tạo 5 tên phim hư cấu, 2 phòng, 80 ghế và lịch 7 ngày bắt đầu ngày mai theo giờ Việt Nam. Muốn tiếp tục dùng dữ liệu demo sau khi khởi động lại, giữ cùng `CINEMA_DATA_DIR`. Admin dùng cùng biến bootstrap phía trên khi chạy bộ dữ liệu mới.
+Script yêu cầu thư mục đích rỗng; tạo 30 phim hư cấu (24 đang chiếu và 6 sắp chiếu), 2 phòng, 80 ghế và 56 suất chiếu trong 7 ngày bắt đầu ngày mai theo giờ Việt Nam. Muốn tiếp tục dùng dữ liệu demo sau khi khởi động lại, giữ cùng `CINEMA_DATA_DIR`. Admin dùng cùng biến bootstrap phía trên khi chạy bộ dữ liệu mới.
 
 | Biến môi trường | Mặc định / ý nghĩa |
 |---|---|
@@ -88,16 +88,7 @@ Các file chung: `movies.json`, `showtimes.json`, `cinemaRooms.json`, `seats.jso
 
 ## Tài khoản demo trên local
 
-Các tài khoản dưới đây có sẵn khi sử dụng bộ dữ liệu seed trong thư mục `data`.
-
-Mật khẩu chung cho tài khoản demo: **`N6Demo!2026`**
-
-| Loại | Email |
-|---|---|
-| Admin | `demo.admin@example.test` |
-| Khách thường | `demo001@example.test` |
-| Sinh viên | `demo002@example.test` |
-| VIP | `demo003@example.test` |
+Đăng ký tài khoản khách trong ứng dụng. Đặt `ADMIN_EMAIL` và `ADMIN_PASSWORD` nếu cần tạo tài khoản quản trị cho thư mục dữ liệu mới.
 
 ## Đặt vé, thanh toán demo và hội viên
 

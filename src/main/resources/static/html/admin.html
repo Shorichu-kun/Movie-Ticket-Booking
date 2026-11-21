@@ -2,90 +2,12 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quản trị · N6 Cinema</title>
-  <link rel="stylesheet" href="../css/commerce.css" />
-  <link rel="stylesheet" href="../css/admin-neon.css" />
-  <!-- Thứ tự quan trọng: app.js dựng thanh bên (có #adminLogout, #adminIdentity) TRƯỚC khi admin.js chạy -->
-  <script src="../js/session.js" defer></script>
-  <script src="../js/app.js" defer></script>
-  <script src="../js/commerce-ui.js" defer></script>
-  <script src="../js/admin-commerce.js" defer></script>
-  <script src="../js/admin.js" defer></script>
+  <title>Đang chuyển hướng · N6 Cinema</title>
+  <script>
+    window.location.replace('/html/movies.html');
+  </script>
 </head>
-<body class="neon" data-admin-shell="hub">
-<div class="n-shell">
-  <aside class="n-side n-card" id="side"></aside>
-  <main>
-    <div class="n-tiles" id="tiles"></div>
-    <div class="n-legacy">
-      <section class="section-space">
-        <div class="admin-heading">
-          <div>
-            <p class="eyebrow">ĐƠN HÀNG / THANH TOÁN DEMO</p>
-            <h2>Quản lý giao dịch mới.</h2>
-          </div>
-          <button id="refreshCommerceOrders" class="button dark small">
-            Tải lại đơn ↻
-          </button>
-        </div>
-        <p id="commerceAdminStats" class="admin-notice">Đang tải đơn…</p>
-        <div id="commerceAdminError" class="error-box" role="alert" hidden></div>
-        <div class="filters">
-          <label class="field"
-          >Tìm đơn<input
-                  id="commerceOrderSearch"
-                  type="search"
-                  placeholder="Mã đơn, phim hoặc email…" /></label
-          ><label class="field"
-        >Trạng thái<select id="commerceOrderFilter">
-          <option value="">Tất cả</option>
-          <option value="PENDING_PAYMENT">Chờ thanh toán</option>
-          <option value="PAID">Đã thanh toán</option>
-          <option value="REFUND_PENDING">Chờ duyệt hoàn</option>
-          <option value="REFUNDED">Đã hoàn</option>
-          <option value="EXPIRED">Hết hạn</option>
-        </select></label
-        >
-        </div>
-        <div id="commerceAdminOrders" class="card-list"></div>
-        <form id="checkInForm" class="surface section-space">
-          <h3>Kiểm soát vé & nhận bắp nước</h3>
-          <label class="field"
-          >Token từ QR vé demo<input
-                  name="token"
-                  required
-                  placeholder="N6-DEMO:… hoặc token vé" /></label
-          ><label class="check-field"
-        ><input name="collectCombo" type="checkbox" />Đồng thời xác nhận
-          nhận combo</label
-        ><button class="button dark small">Kiểm tra & sử dụng vé</button>
-          <p id="checkInResult" class="fine-print" role="status"></p>
-        </form>
-      </section>
-      <section>
-        <div class="admin-heading">
-          <div>
-            <p class="eyebrow">VÉ & THANH TOÁN TẠI QUẦY</p>
-            <h2>Danh sách đặt vé.</h2>
-          </div>
-          <button id="refreshBookings" class="button dark small">
-            Tải lại ↻
-          </button>
-        </div>
-        <p class="admin-notice" id="bookingStats">Đang tải dữ liệu…</p>
-        <label class="search-box"
-        ><span>⌕</span
-        ><input
-                type="search"
-                id="bookingSearch"
-                placeholder="Tìm mã vé, tên khách hoặc phim…"
-                aria-label="Tìm vé"
-        /></label>
-        <div id="adminBookings" class="tickets-list"></div>
-      </section>
-    </div>
-  </main>
-</div>
+<body style="background:#0a0710;color:#eee9f5;font-family:system-ui;padding:24px">
+Đang chuyển hướng sang trang Quản lý phim…
 </body>
 </html>

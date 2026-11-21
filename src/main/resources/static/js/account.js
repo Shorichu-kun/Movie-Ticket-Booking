@@ -5,7 +5,8 @@
   let user,
     data,
     catalog,
-    page = 1;
+    page = 1,
+    noticeTimer;
   const pageSize = 8;
   const tiers = [
     ["MEMBER", "Member", 0, 3],
@@ -13,21 +14,54 @@
     ["GOLD", "Gold", 3000000, 5],
     ["PLATINUM", "Platinum", 6000000, 7],
   ];
-  function tab(name) {
-    if (!document.getElementById("panel-" + name)) name = "overview";
-    document
-      .querySelectorAll("[data-tab]")
-      .forEach((b) =>
-        b.setAttribute("aria-selected", String(b.dataset.tab === name)),
-      );
-    document
-      .querySelectorAll("[role=tabpanel]")
-      .forEach((p) => (p.hidden = p.id !== "panel-" + name));
-    history.replaceState(null, "", "#" + name);
-    U.error("");
+  const sideLinks = [...document.querySelectorAll(".side a")];
+  const sectionAliases = { personal: "profile", transactions: "orders" };
+
+  function currentSection() {
+    const hash = location.hash.slice(1);
+    const section = Object.hasOwn(sectionAliases, hash) ? sectionAliases[hash] : hash;
+    const current = sideLinks.find((link) => link.hash === "#" + section) || sideLinks[0];
+    for (const link of sideLinks) {
+      link.removeAttribute("aria-current");
+    }
+    current.setAttribute("aria-current", "location");
+    return document.getElementById(section);
   }
+
+  function tableEmpty(container, columns, message) {
+    const row = U.node("tr");
+    const cell = U.node("td", message, "empty-message");
+    cell.colSpan = columns;
+    row.append(cell);
+    container.replaceChildren(row);
+  }
+
+  function orderRow(order) {
+    const row = U.node("tr");
+    const movie = U.node("td");
+    movie.append(
+      U.node("strong", order.movie?.title || "Đơn vé"),
+      U.node("span", order.code || order.id, "fine-print mono"),
+    );
+    const screening = U.node("td", U.time(order.showtime?.startTime));
+    const seats = (order.seatLabels || order.seatIds || []).join(", ");
+    const screeningDetails = [order.room?.name, seats].filter(Boolean).join(" · ");
+    if (screeningDetails) screening.append(U.node("span", screeningDetails, "fine-print"));
+    const status = U.node("td");
+    const statusColors = { PAID: "positive", REFUNDED: "negative", CANCELLED: "negative" };
+    status.append(
+      U.node("span", U.labels[order.status] || order.status, "status-badge " + (statusColors[order.status] || "")),
+    );
+    const details = U.node("td");
+    const link = U.link("Xem", "/order.html?id=" + encodeURIComponent(order.id));
+    link.setAttribute("aria-label", "Xem đơn " + (order.code || order.id));
+    details.append(link);
+    row.append(movie, screening, status, U.node("td", Cinema.money(order.quote?.total), "amount"), details);
+    return row;
+  }
+
   function voucherCard(v) {
-    const card = U.node("article", null, "voucher-card");
+    const card = U.node("article", null, "voucher-card voucher");
     card.append(
       U.node("span", U.labels[v.status] || v.status, "status-badge"),
       U.node("h3", v.title || v.code),
@@ -52,10 +86,11 @@
       c = user.customer;
     $("memberName").textContent = c.fullName;
     $("memberEmail").textContent = c.email;
-    $("memberAvatar").textContent = c.fullName
-      .split(" ")
-      .slice(-1)[0]
-      .slice(0, 1);
+    $("memberAvatar").textContent = c.fullName.trim().split(/\s+/)
+      .slice(-2).map((part) => Array.from(part)[0]).join("").toLocaleUpperCase("vi");
+    const tier = m.tier.toLowerCase();
+    const customerType = c.customerType.toLowerCase();
+    document.body.dataset.tier = tier === "member" ? customerType : tier;
     $("overviewTier").textContent = m.tier;
     $("cardName").textContent = c.fullName;
     $("cardId").textContent = "THÀNH VIÊN / " + c.id;
@@ -69,12 +104,24 @@
     );
     $("nextTierText").textContent = m.nextTier
       ? `Còn ${Cinema.money(m.remainingToNext)} để lên ${m.nextTier}. Chi tiêu được xét trong 365 ngày gần nhất.`
-      : "Bạn đang ở hạng cao nhất. Cảm ơn bạn đã đồng hành cùng N6.";
+      : "Bạn đang ở hạng cao nhất. Cảm ơn bạn đã đồng hành cùng Neon Cinema.";
+    $("cardPoints").textContent = m.availablePoints;
     $("availablePoints").textContent = m.availablePoints;
+    $("paidOrders").textContent = data.orders.filter((order) => order.status === "PAID").length;
     $("memberSpend").textContent = Cinema.money(m.yearlySpend);
-    $("voucherCount").textContent = data.vouchers.filter(
-      (v) => v.status === "AVAILABLE",
-    ).length;
+    const availableVouchers = data.vouchers.filter((voucher) => voucher.status === "AVAILABLE");
+    $("voucherCount").textContent = availableVouchers.length;
+    const expiring = $("expiringVouchers");
+    expiring.replaceChildren(
+      ...availableVouchers.sort(byExpiry).slice(0, 2).map((voucher) =>
+        U.link(
+          `${voucher.title || voucher.code} · Hạn ${U.time(voucher.expiresAt)}`,
+          "#vouchers",
+          "perk-link",
+        ),
+      ),
+    );
+    expiring.hidden = !availableVouchers.length;
     const upcoming = data.orders
       .filter(
         (o) =>
@@ -89,16 +136,6 @@
       U.empty(
         $("upcomingOrders"),
         "Chưa có buổi phim sắp tới. Chọn một bộ phim và lên lịch nhé.",
-      );
-    const vouchers = data.vouchers
-      .filter((v) => v.status === "AVAILABLE")
-      .sort((a, b) => U.date(a.expiresAt) - U.date(b.expiresAt))
-      .slice(0, 2);
-    $("expiringVouchers").replaceChildren(...vouchers.map(voucherCard));
-    if (!vouchers.length)
-      U.empty(
-        $("expiringVouchers"),
-        "Ví của bạn đang chờ ưu đãi mới. Khám phá trang ưu đãi để nhận mã.",
       );
     $("pointsAvailable").textContent = m.availablePoints;
     $("pointsReserved").textContent = m.reservedPoints;
@@ -118,16 +155,8 @@
         return tr;
       }),
     );
-    if (!$("pointLedger").children.length) {
-      const tr = U.node("tr"),
-        td = U.node(
-          "td",
-          "Chưa có giao dịch điểm. Điểm được ghi sau khi thanh toán thành công.",
-        );
-      td.colSpan = 4;
-      tr.append(td);
-      $("pointLedger").append(tr);
-    }
+    if (!$("pointLedger").children.length)
+      tableEmpty($("pointLedger"), 4, "Chưa có giao dịch điểm.");
     $("pointRewards").replaceChildren(
       ...(catalog.rewards || []).map((r) => {
         const card = U.node("article", null, "voucher-card");
@@ -140,7 +169,7 @@
           m.availablePoints >= r.points
             ? "Đổi điểm nhận voucher →"
             : "Chưa đủ điểm",
-          "button dark small",
+          "button",
         );
         b.disabled = m.availablePoints < r.points;
         b.onclick = () =>
@@ -154,7 +183,7 @@
               ),
             );
             render();
-            U.toast("Đã đổi điểm và thêm voucher vào ví.");
+            showNotice("Đã đổi điểm và thêm voucher vào ví.");
           });
         card.append(b);
         return card;
@@ -175,8 +204,8 @@
             "p",
             String(m.tier).toUpperCase() === code
               ? "HẠNG HIỆN TẠI"
-              : "N6 REWARDS",
-            "eyebrow",
+              : "NEON CINEMA",
+            "label",
           ),
           U.node("h3", title),
           U.node(
@@ -201,16 +230,6 @@
         : c.customerType === "STUDENT"
           ? "Bạn có hồ sơ sinh viên, ưu đãi giá theo cấu hình hiện tại. Kiểm tra mã SV không đồng nghĩa xác minh với nhà trường."
           : "Bạn đang dùng hồ sơ khách thường. Hạng hội viên sẽ tăng theo chi tiêu đủ điều kiện.";
-    const pf = $("accountProfileForm");
-    for (const name of ["fullName", "email", "phone"])
-      pf.elements[name].value = c[name];
-    const pref = data.preferences || {},
-      form = $("preferencesForm");
-    form.elements.birthDate.value = pref.birthDate || "";
-    form.elements.birthDate.readOnly = !!pref.birthDate;
-    form.elements.favoriteGenre.value = pref.favoriteGenre || "";
-    form.elements.notifyShowtime.checked = !!pref.notifyShowtime;
-    form.elements.notifyOffers.checked = !!pref.notifyOffers;
     $("accountNotifications").replaceChildren(
       ...[...(data.notifications || [])].reverse().map((n) => {
         const card = U.node("article", null, "order-card");
@@ -237,6 +256,23 @@
     renderOrders();
     renderVouchers();
   }
+  function renderProfile() {
+    const fields = $("accountProfileForm").elements;
+    for (const name of ["fullName", "email", "phone"]) {
+      fields[name].value = user.customer[name] || "";
+    }
+  }
+
+  function renderPreferences() {
+    const pref = data.preferences || {};
+    const fields = $("preferencesForm").elements;
+    fields.birthDate.value = pref.birthDate || "";
+    fields.birthDate.readOnly = Boolean(pref.birthDate);
+    fields.favoriteGenre.value = pref.favoriteGenre || "";
+    fields.notifyShowtime.checked = Boolean(pref.notifyShowtime);
+    fields.notifyOffers.checked = Boolean(pref.notifyOffers);
+  }
+
   function renderOrders() {
     const query = $("orderSearch").value.trim().toLocaleLowerCase("vi"),
       filter = $("orderFilter").value;
@@ -253,9 +289,9 @@
     const pages = Math.max(1, Math.ceil(orders.length / pageSize));
     page = Math.min(page, pages);
     $("accountOrders").replaceChildren(
-      ...orders.slice((page - 1) * pageSize, page * pageSize).map(U.orderCard),
+      ...orders.slice((page - 1) * pageSize, page * pageSize).map(orderRow),
     );
-    if (!orders.length) U.empty($("accountOrders"), "Không có đơn phù hợp.");
+    if (!orders.length) tableEmpty($("accountOrders"), 5, "Không có đơn phù hợp.");
     $("orderPagination").replaceChildren();
     if (orders.length > pageSize) {
       const prev = U.node("button", "← Trang trước", "text-button"),
@@ -277,16 +313,27 @@
       );
     }
   }
+  function byExpiry(a, b) {
+    return U.date(a.expiresAt) - U.date(b.expiresAt);
+  }
+
   function renderVouchers() {
     const f = $("voucherFilter").value;
-    const vouchers = data.vouchers.filter((v) => !f || v.status === f);
+    const vouchers = data.vouchers.filter((v) => !f || v.status === f).sort(byExpiry);
     $("voucherWallet").replaceChildren(...vouchers.map(voucherCard));
     if (!vouchers.length)
       U.empty($("voucherWallet"), "Chưa có voucher ở trạng thái này.");
   }
+  function showNotice(message) {
+    U.toast(message);
+    clearTimeout(noticeTimer);
+    noticeTimer = setTimeout(() => { $("notice").hidden = true; }, 4500);
+  }
+
   async function mutate(button, fn) {
     button.disabled = true;
     U.error("");
+    $("notice").hidden = true;
     try {
       await fn();
     } catch (e) {
@@ -295,13 +342,7 @@
       button.disabled = false;
     }
   }
-  document
-    .querySelectorAll("[data-tab]")
-    .forEach((b) => (b.onclick = () => tab(b.dataset.tab)));
-  document
-    .querySelectorAll("[data-go]")
-    .forEach((b) => (b.onclick = () => tab(b.dataset.go)));
-  window.addEventListener("hashchange", () => tab(location.hash.slice(1)));
+  window.addEventListener("hashchange", currentSection);
   $("orderSearch").oninput = () => {
     page = 1;
     renderOrders();
@@ -322,7 +363,7 @@
       });
       form.reset();
       render();
-      U.toast("Đã nhận voucher vào ví.");
+      showNotice("Đã nhận voucher vào ví.");
     });
   };
   $("accountProfileForm").onsubmit = (e) => {
@@ -338,8 +379,9 @@
       });
       Cinema.user = user;
       form.elements.currentPassword.value = "";
+      renderProfile();
       render();
-      U.toast("Đã cập nhật hồ sơ.");
+      showNotice("Đã cập nhật hồ sơ.");
     });
   };
   $("preferencesForm").onsubmit = (e) => {
@@ -356,13 +398,15 @@
         }),
       });
       data = await U.api("/me");
+      renderPreferences();
       render();
-      U.toast("Đã lưu tùy chọn tài khoản.");
+      showNotice("Đã lưu tùy chọn tài khoản.");
     });
   };
   $("passwordForm").onsubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
+    $("notice").hidden = true;
     if (form.elements.newPassword.value !== form.elements.confirmation.value)
       return U.error("Hai mật khẩu mới chưa khớp nhau.");
     mutate(form.querySelector("button"), async () => {
@@ -384,8 +428,14 @@
       user = await U.customer();
       if (!user) return;
       [data, catalog] = await Promise.all([U.api("/me"), U.api("/catalog")]);
+      renderProfile();
+      renderPreferences();
       render();
-      tab(location.hash.slice(1) || "overview");
+      $("memberAvatar").hidden = false;
+      $("accountLoading").hidden = true;
+      $("accountContent").hidden = false;
+      const section = currentSection();
+      if (section) requestAnimationFrame(() => section.scrollIntoView());
       try {
         const tickets = await Cinema.api("/api/bookings/mine");
         $("legacyTickets").replaceChildren(
@@ -408,6 +458,8 @@
       }
     } catch (e) {
       U.error(e.message);
+    } finally {
+      $("accountLoading").hidden = true;
     }
   })();
 })();
